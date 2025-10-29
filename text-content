@@ -1,0 +1,68 @@
+About us page:
+
+We’re Titan Astronomical Observatory (TAO), a small Florida nonprofit with the goal of providing remote access to real NASA quality instruments and real data for students, teachers, and enthusiasts. We’re an officially incorporated nonprofit (501(c)(3) pending) with a four-member board, a potential site secured, an option contract granting us the exclusive right to buy the telescope, and a core team planning for the future.
+
+Our goal is to purchase, relocate, modernize, and automate this amazing radio telescope that the owner purchased directly from NASA nearly 50 years ago! It is still in amazing mechanical shape, with zero backlash and balanced so well you could move it with your fingertips. Oh, and all of that while moving quickly enough to track satellites!
+
+All it would take to get this producing professional quality data is to convert it from it's current analogue control system to a modern computer-controlled system, allowing for the tracking of targets and a go-to system, and installing new feeds. We plan to automate this process, allowing for anyone to reserve time on a real NASA telescope and receive a package containing the raw calibrated data, as well as basic visualizations to allow even novice astronomers to conduct real science.
+
+If you're interested in radio astronomy or would simply like to follow this project, join our discord! https://discord.gg/T5F6AG26tE
+
+Why this matters
+
+Hands-on science changes lives. With Titan, classrooms and home learners can schedule time, run observations, and get data they can analyze, publish, and be proud of. We’re building the thing we wished we had growing up: serious hardware, open schedules, and mentorship without needing a degree.
+
+What your gift funds
+
+    Acquire & secure the instrument and finalize move arrangements
+    Rig, transport, and set the 10-meter dish on a new foundation
+    Modernize control systems (controllers, encoders, RF pipeline)
+    Bring it online: network, remote control software, scheduling, and a student-friendly data portal
+    Do it right: permits, insurance, and an RFI baseline so the data you collect is actually useful
+
+
+Plan to full operation
+
+Phase 1 — Acquire & Move
+
+Status: in progress
+
+    Purchase telescope — $70,000. (Fundraising in progress.)
+    Crane/rigging — $3,000. Quotes in progress for safe disassembly and lifts.
+    Transport — $500. Short-haul (~40 miles) with insured carrier.
+
+
+Phase 2 — Install
+
+Status: preparing
+
+    Foundation — $10,000. Engineered concrete foundation using the supplied bolt pattern.
+    Electrical — $3,000. 120 V service (likely a single 20 A circuit), UPS, clean grounding to the control cabinet.
+    Grounding & lightning protection — $2,000. Ground rods, bonding, surge protection, UPS.
+    Landscaping & site prep — $10,000. Grade a simple service road (~400 ft) and level a pad around the pier for access and maintenance.
+    Permits & fees — $1,000. Local approvals and inspections.
+
+
+Phase 3 — Refurbish & Modernize
+
+Status: not started
+
+    Motor control system — $5,000. Modern encoders, motion controller, safety interlocks, and cable-wrap management; integrates with existing DC drives.
+    RF front end — $1,000. L-band and S-band chains (feed, LNA, filters as needed), SDR backend, low-loss coax.
+    Compute & networking — $1,000. Networking cabinet, control PC, network switch, site cameras, remote access hardening.
+
+
+Phase 4 — First light & operations
+
+Status: not started
+
+    Software. Volunteer development of the web scheduler, control interface, and automated calibration/data-delivery pipeline so students and citizen scientists can reserve time and receive cleaned datasets.
+
+
+Contingency (10%) — $10,500
+
+Working total to full operation: ~$118,000.
+
+Figures are current best estimates and will be refined as quotes are finalized. If you’d like to underwrite a specific line item or help in-kind (e.g., grading, concrete, electrical, motion control, or software) reach out to our email!
+
+We’re a Florida nonprofit pursuing 501(c)(3) determination; we’ll update donors as soon as federal status changes and receipt options expand.) 

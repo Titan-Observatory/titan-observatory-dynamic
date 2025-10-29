@@ -27,37 +27,41 @@ const siteSpecs = [
 export default function SpecificationsPage() {
   return (
     <main className="space-y-10">
-      <section className="space-y-4">
-        <header>
+      <section className="titan-section space-y-6 p-8">
+        <header className="space-y-2">
           <h1 className="text-3xl font-bold">Telescope Specifications</h1>
-          <p className="text-gray-600">
+          <p className="text-sm text-titan-text-muted">
             Core hardware capabilities that enable Titan Observatory to capture deep-sky observations
             with precision and clarity.
           </p>
         </header>
         <dl className="grid gap-6 sm:grid-cols-2">
           {telescopeSpecs.map(spec => (
-            <div key={spec.label} className="rounded-lg border border-gray-200 p-4 shadow-sm">
-              <dt className="text-sm uppercase tracking-wide text-gray-500">{spec.label}</dt>
-              <dd className="mt-1 text-base font-medium text-gray-900">{spec.value}</dd>
+            <div key={spec.label} className="titan-card bg-titan-bg-alt p-5">
+              <dt className="text-xs font-semibold uppercase tracking-wide text-titan-text-muted">
+                {spec.label}
+              </dt>
+              <dd className="mt-2 text-base font-medium text-titan-text-secondary">{spec.value}</dd>
             </div>
           ))}
         </dl>
       </section>
 
-      <section className="space-y-4">
-        <header>
-          <h2 className="text-2xl font-semibold">Observing Site</h2>
-          <p className="text-gray-600">
+      <section className="titan-section space-y-6 p-8">
+        <header className="space-y-2">
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Observing Site</h2>
+          <p className="text-sm text-titan-text-muted">
             Environmental conditions and infrastructure that keep the observatory running at peak
             performance throughout the year.
           </p>
         </header>
         <dl className="grid gap-6 sm:grid-cols-2">
           {siteSpecs.map(spec => (
-            <div key={spec.label} className="rounded-lg border border-gray-200 p-4 shadow-sm">
-              <dt className="text-sm uppercase tracking-wide text-gray-500">{spec.label}</dt>
-              <dd className="mt-1 text-base font-medium text-gray-900">{spec.value}</dd>
+            <div key={spec.label} className="titan-card bg-titan-bg-alt p-5">
+              <dt className="text-xs font-semibold uppercase tracking-wide text-titan-text-muted">
+                {spec.label}
+              </dt>
+              <dd className="mt-2 text-base font-medium text-titan-text-secondary">{spec.value}</dd>
             </div>
           ))}
         </dl>

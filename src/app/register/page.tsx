@@ -27,14 +27,19 @@ export default function Register() {
   }
 
   return (
-    <main>
-      <h1 className="text-2xl font-semibold mb-4">Create account</h1>
-      <form onSubmit={submit} className="space-y-4 max-w-md">
-        <input className="w-full border p-2 rounded" placeholder="Name (optional)" value={name} onChange={e=>setName(e.target.value)} />
-        <input className="w-full border p-2 rounded" placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} />
-        <input className="w-full border p-2 rounded" placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
-        {error && <p className="text-red-600 text-sm">{error}</p>}
-        <button className="px-4 py-2 rounded bg-gray-900 text-white">Register</button>
+    <main className="titan-section max-w-md space-y-6 p-8">
+      <div className="space-y-2">
+        <h1 className="text-2xl font-semibold">Create account</h1>
+        <p className="text-sm text-titan-text-muted">
+          Build a profile to share research notes and engineering updates.
+        </p>
+      </div>
+      <form onSubmit={submit} className="space-y-4">
+        <input className="titan-input w-full" placeholder="Name (optional)" value={name} onChange={e=>setName(e.target.value)} />
+        <input className="titan-input w-full" placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} />
+        <input className="titan-input w-full" placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
+        {error && <p className="text-sm text-titan-red">{error}</p>}
+        <button className="titan-button w-full">Register</button>
       </form>
     </main>
   );
