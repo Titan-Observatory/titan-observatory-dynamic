@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-20 border-b border-titan-border bg-titan-bg/95 backdrop-blur">
-      <div className="mx-auto flex max-w-3xl items-center gap-4 px-4 py-3 text-sm text-titan-text-muted">
+      <div className="mx-auto flex max-w-5xl items-center gap-4 px-6 py-3 text-sm text-titan-text-muted">
         <Link className="hover:text-titan-yellow" href="/">About us</Link>
         <Link href="/specifications" className="hover:text-titan-yellow">Specifications</Link>
         {session?.user && (
