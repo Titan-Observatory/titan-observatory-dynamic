@@ -3,3 +3,86 @@
 @tailwind utilities;
 
 html, body, :root { height: 100%; }
+
+:root {
+  --color-bg: 27 27 27;
+  --color-bg-alt: 40 40 40;
+  --color-surface: 50 48 47;
+  --color-surface-hover: 60 56 54;
+  --color-border: 80 73 69;
+  --color-status-line: 58 55 53;
+  --color-text-primary: 212 190 152;
+  --color-text-secondary: 221 199 161;
+  --color-text-muted: 146 131 116;
+  --color-red: 234 105 98;
+  --color-green: 169 182 101;
+  --color-blue: 125 174 163;
+  --color-yellow: 216 166 87;
+  --color-purple: 211 134 155;
+  --color-orange: 231 138 78;
+  --color-aqua: 137 180 130;
+}
+
+:root[data-theme="sunrise"] {
+  --color-bg: 242 237 228;
+  --color-bg-alt: 232 222 210;
+  --color-surface: 222 210 196;
+  --color-surface-hover: 210 196 181;
+  --color-border: 193 174 156;
+  --color-status-line: 180 159 140;
+  --color-text-primary: 67 52 43;
+  --color-text-secondary: 43 33 25;
+  --color-text-muted: 120 102 89;
+  --color-red: 201 91 75;
+  --color-green: 126 156 75;
+  --color-blue: 91 142 148;
+  --color-yellow: 200 144 58;
+  --color-purple: 165 105 143;
+  --color-orange: 208 122 60;
+  --color-aqua: 106 165 139;
+}
+
+@layer base {
+  body {
+    @apply bg-titan-bg text-titan-text-primary antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-titan-text-secondary;
+  }
+
+  a {
+    @apply text-titan-aqua transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-titan-yellow;
+  }
+
+  ::selection {
+    background: rgb(var(--color-orange));
+    color: rgb(var(--color-bg));
+  }
+}
+
+@layer components {
+  .titan-card {
+    @apply bg-titan-surface border border-titan-border rounded-lg shadow-titan;
+  }
+
+  .titan-surface {
+    @apply bg-titan-surface text-titan-text-primary;
+  }
+
+  .titan-input {
+    @apply bg-titan-surface border border-titan-border text-titan-text-primary placeholder:text-titan-text-muted focus:outline-none focus:ring-2 focus:ring-titan-blue focus:border-transparent rounded-md transition-colors duration-150;
+  }
+
+  .titan-button {
+    @apply inline-flex items-center justify-center rounded-md bg-titan-orange px-4 py-2 font-medium text-titan-bg transition-colors duration-200 hover:bg-titan-yellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-titan-orange focus:ring-offset-titan-bg;
+  }
+
+  .titan-section {
+    @apply bg-titan-bg-alt border border-titan-border rounded-xl shadow-titan;
+  }
+}

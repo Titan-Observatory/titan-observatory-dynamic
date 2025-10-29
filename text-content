@@ -1,0 +1,31 @@
+About the Telescope
+We’re acquiring and modernizing a 10-meter Scientific-Atlanta Cassegrain radio telescope on a precision ANTLab positioner. It's ex-NASA hardware with a continuously-run dehumidifier inside the mount, so the internals are clean and in amazing shape.
+
+Key facts
+
+Aperture: 10 m Cassegrain provides ample collecting area for faint lines like the 1420.4 MHz H I transition.
+Drives: Dual precision gear trains on both axes with dual DC motors and electronic brakes; it’s so well balanced you can move it with your fingers (without the brakes)
+Speed & range: Variable slew 0–10°/s; elevation 0–95°; azimuth 360°+ with wire wrap.
+Control: Currently manual with analog feedback; we’ll add modern encoders and computer control for repeatable, remote pointing.
+Power: Dual 48 VDC supplies; Power draw is expected to be modest at 120 V, ~20 A.
+Footprint & fixtures: Compact pier footprint (~8 ft circle). Bolt-pattern template for the foundation provided.
+Included spares: Extra precision gearboxes and a rack-mount analog position indicator.
+
+
+
+Candidate site
+Location: Angus Rd, Polk City, FL 33868 (parcel doesn't currently have street address)
+Nearest transmitting radio tower: 3.61 Miles
+Nearest Airport with Radar: 43 Miles (Tampa International)
+(zoning-circle.png)
+Draft site concept (approximate). Locations, dimensions, and alignments are illustrative and may change after survey, utility locates, permitting, and contractor recommendations.
+(zoning-from-road).png
+County Planner's response to permitting inquiry:
+
+"The property is located in the A/RRX future land use district in the Green Swamp Area of Critical State Concern (GSACSC.) The proposal would be treated as a “Communication Tower” according to Chapter 10 of the Land Development Code. Per Chapter 5, Section 502, Table 5.2, “Communication Towers” are a “C2” in the A/RRX land use district. A “C2” is a Conditional Level 2 Review that must follow guidelines in Chapter 3, Section 303. However, given the proposed height will not exceed the 50-foot maximum in the A/RR land use, and communication towers are exempt from the structure height limitations in the A/RRX, Section 303 does not apply.
+
+There is little for Planning & Development staff to review given the proposal will not have significant land use conflicts, require public facilities, or ongoing staffing."
+(zoning-grid.png)
+
+TL:DR
+We will just need to submit a basic Conditional Level 2 Review with a simple site plan 

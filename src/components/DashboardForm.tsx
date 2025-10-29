@@ -26,12 +26,12 @@ export default function DashboardForm() {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3 max-w-xl">
-      <input className="w-full border p-2 rounded" placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} />
-      <input className="w-full border p-2 rounded" placeholder="Slug (unique)" value={slug} onChange={e=>setSlug(e.target.value)} />
-      <textarea className="w-full border p-2 rounded min-h-[160px]" placeholder="Content" value={content} onChange={e=>setContent(e.target.value)} />
-      {message && <p className="text-sm text-gray-700">{message}</p>}
-      <button className="px-4 py-2 rounded bg-gray-900 text-white">Publish</button>
+    <form onSubmit={submit} className="titan-section space-y-4 max-w-xl p-6">
+      <input className="titan-input w-full" placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} />
+      <input className="titan-input w-full" placeholder="Slug (unique)" value={slug} onChange={e=>setSlug(e.target.value)} />
+      <textarea className="titan-input w-full min-h-[160px]" placeholder="Content" value={content} onChange={e=>setContent(e.target.value)} />
+      {message && <p className="text-sm text-titan-text-secondary">{message}</p>}
+      <button className="titan-button" type="submit">Publish</button>
     </form>
   );
 }

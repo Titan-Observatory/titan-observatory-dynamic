@@ -8,10 +8,15 @@ async function fetchPosts() {
 export default async function Blog() {
   const posts = await fetchPosts();
   return (
-    <main>
-      <h1 className="text-3xl font-bold mb-4">Community Updates</h1>
+    <main className="titan-section space-y-6 p-8">
+      <div>
+        <h1 className="text-3xl font-bold">Community Updates</h1>
+        <p className="mt-2 text-sm text-titan-text-muted">
+          Field reports, engineering releases, and research highlights from the Titan team.
+        </p>
+      </div>
       <div className="space-y-4">
-        {posts.length === 0 && <p className="text-gray-500">No posts yet.</p>}
+        {posts.length === 0 && <p className="text-sm text-titan-text-muted">No posts yet.</p>}
         {posts.map((p: any) => <PostCard key={p.id} post={p} />)}
       </div>
     </main>
