@@ -52,7 +52,7 @@ const phases = [
 export default function Home() {
   return (
     <main className="space-y-16">
-      <section className="grid items-center gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
+      <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
             About Titan Astronomical Observatory
@@ -68,6 +68,9 @@ export default function Home() {
             With updated motion control, fresh feeds, and a student-friendly software layer, it
             becomes the remote lab we wished we had growing up.
           </p>
+          <div className="rounded-[1.85rem] border border-titan-border/60 bg-titan-bg-alt/60 p-6 shadow-titan">
+            <GofundmeEmbed />
+          </div>
         </div>
         <figure className="relative w-full overflow-hidden rounded-[2rem] border border-titan-border/70 bg-titan-bg-alt/50 shadow-titan aspect-[3/4]">
           <Image
@@ -158,9 +161,6 @@ export default function Home() {
           prep, or software. Together we can deliver real NASA-grade data packages to the next
           generation of scientists and makers.
         </p>
-        <div className="mt-6">
-          <GofundmeEmbed />
-        </div>
       </section>
     </main>
   );
