@@ -12,6 +12,7 @@ export default function GofundmeEmbed() {
         width="100%"
         height="200"
         scrolling="no"
+        loading="lazy"
         frameBorder={0}
         allow="payment *; clipboard-write *"
         className="w-full rounded-2xl border border-titan-border/40 shadow-sm"

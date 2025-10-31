@@ -4,6 +4,12 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
+const authSecret = process.env.AUTH_SECRET;
+
+if (!authSecret) {
+  throw new Error("AUTH_SECRET is required to initialize NextAuth. Set it in your environment.");
+}
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -24,7 +30,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   session: { strategy: "jwt" },
-  secret: process.env.AUTH_SECRET,
+  secret: authSecret,
   pages: {
     signIn: "/login"
   }

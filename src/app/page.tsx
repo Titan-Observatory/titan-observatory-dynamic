@@ -1,6 +1,8 @@
 import Image from "next/image";
 import GofundmeEmbed from "@/components/GofundmeEmbed";
 
+export const revalidate = 3600;
+
 const fundingHighlights = [
   "Secure the 10-meter NASA-built radio telescope and finalize relocation.",
   "Install a new foundation, electrical service, and lightning protection at the Florida site.",
@@ -64,11 +66,10 @@ export default function Home() {
             modernize every subsystem so classrooms anywhere can run real observations.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish is mechanically pristine - zero backlash and nimble enough to track satellites.
-            With updated motion control, fresh feeds, and a student-friendly software layer, it
-            becomes the remote lab we wished we had growing up.
+            The option contract is active, the relocation crew is ready, and each contribution keeps
+            the schedule tight so classrooms can start booking observing time sooner.
           </p>
-          <div className="rounded-[1.85rem] border border-titan-border/60 bg-titan-bg-alt/60 p-6 shadow-titan">
+          <div className="max-w-[420px]">
             <GofundmeEmbed />
           </div>
         </div>
