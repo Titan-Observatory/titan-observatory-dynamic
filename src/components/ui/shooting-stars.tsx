@@ -38,8 +38,8 @@ export function ShootingStars({
   className,
 }: ShootingStarsProps) {
   const [star, setStar] = useState<ShootingStar | null>(null);
-  const timeoutRef = useRef<number>();
-  const animationRef = useRef<number>();
+  const timeoutRef = useRef<number | null>(null);
+  const animationRef = useRef<number | null>(null);
   const gradientId = useId();
 
   useEffect(() => {
@@ -79,8 +79,9 @@ export function ShootingStars({
     createStar();
 
     return () => {
-      if (timeoutRef.current) {
+      if (timeoutRef.current !== null) {
         window.clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     };
   }, [maxDelay, maxSpeed, minDelay, minSpeed]);
@@ -116,8 +117,9 @@ export function ShootingStars({
     animationRef.current = window.requestAnimationFrame(step);
 
     return () => {
-      if (animationRef.current) {
+      if (animationRef.current !== null) {
         window.cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
     };
   }, []);

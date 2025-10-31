@@ -43,15 +43,11 @@ function parsePayload(payload: unknown): PostPayload | { error: string } {
     return { error: "Invalid payload" };
   }
 
-  const unsafeTitle = typeof (payload as Record<string, unknown>).title === "string"
-    ? (payload as Record<string, unknown>).title.trim()
-    : "";
-  const unsafeSlug = typeof (payload as Record<string, unknown>).slug === "string"
-    ? (payload as Record<string, unknown>).slug.trim().toLowerCase()
-    : "";
-  const unsafeContent = typeof (payload as Record<string, unknown>).content === "string"
-    ? (payload as Record<string, unknown>).content.trim()
-    : "";
+  const body = payload as Record<string, unknown>;
+
+  const unsafeTitle = typeof body.title === "string" ? body.title.trim() : "";
+  const unsafeSlug = typeof body.slug === "string" ? body.slug.trim().toLowerCase() : "";
+  const unsafeContent = typeof body.content === "string" ? body.content.trim() : "";
 
   if (!unsafeTitle || !unsafeSlug || !unsafeContent) {
     return { error: "Missing required fields" };
