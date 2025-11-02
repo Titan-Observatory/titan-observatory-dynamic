@@ -59,30 +59,50 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   );
 
   useEffect(() => {
-    const updateStars = () => {
-      if (canvasRef.current) {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+    if (typeof window === "undefined") {
+      return;
+    }
 
-        const { width, height } = canvas.getBoundingClientRect();
+    const updateStars = (force = false) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const width = window.innerWidth;
+      const height = document.documentElement.scrollHeight;
+      const widthChanged = canvas.width !== width;
+      const heightChanged = canvas.height !== height;
+
+      if (widthChanged || force) {
         canvas.width = width;
+      }
+
+      if (heightChanged || force) {
         canvas.height = height;
+      }
+
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      if (widthChanged || heightChanged || force) {
         setStars(generateStars(width, height));
       }
     };
 
-    updateStars();
+    updateStars(true);
 
-    const resizeObserver = new ResizeObserver(updateStars);
-    if (canvasRef.current) {
-      resizeObserver.observe(canvasRef.current);
+    const handleResize = () => updateStars();
+    window.addEventListener("resize", handleResize);
+
+    const resizeObserver = new ResizeObserver(() => updateStars());
+    if (document.body) {
+      resizeObserver.observe(document.body);
     }
+    const rootElement = document.documentElement;
+    resizeObserver.observe(rootElement);
 
     return () => {
-      if (canvasRef.current) {
-        resizeObserver.unobserve(canvasRef.current);
-      }
+      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
     };
   }, [
     starDensity,

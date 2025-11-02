@@ -1,6 +1,7 @@
 import Image from "next/image";
 import GofundmeEmbed from "@/components/GofundmeEmbed";
 import PhaseTimeline from "@/components/PhaseTimeline";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 export const revalidate = 3600;
 
@@ -35,7 +36,7 @@ const phases = [
   },
   {
     title: "Phase 3 - Refurbish & Modernize",
-    status: "Next",
+    status: "Upcoming",
     details: [
       "Motion control system: encoders, controllers, safety interlocks ($5k)",
       "L- and S-band RF chain: feeds, LNAs, filters, SDR backend ($1k)",
@@ -78,7 +79,10 @@ export default function Home() {
             <GofundmeEmbed />
           </div>
         </div>
-        <figure className="relative w-full overflow-hidden rounded-[2rem] border border-titan-border/70 bg-titan-bg-alt/50 shadow-titan aspect-[3/4]">
+        <BackgroundGradient
+          containerClassName="rounded-[2rem]"
+          className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]"
+        >
           <Image
             src="/images/titan.png"
             alt="The Titan radio telescope awaiting modernization."
@@ -87,7 +91,7 @@ export default function Home() {
             sizes="(min-width: 1024px) 420px, 60vw"
             priority
           />
-        </figure>
+        </BackgroundGradient>
       </section>
 
       <section className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr]">
@@ -98,17 +102,6 @@ export default function Home() {
             observing time, collect calibrated data, and build projects they can publish or share with
             their communities.
           </p>
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {fundingHighlights.map(item => (
-              <li
-                key={item}
-                className="flex items-start gap-3 rounded-2xl border-l-2 border-titan-blue/70 bg-transparent pl-4 pr-2 text-sm leading-relaxed text-titan-text-primary/90"
-              >
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-titan-blue/70" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
         <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
           <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>

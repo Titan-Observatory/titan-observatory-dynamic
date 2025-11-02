@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const keyFacts = [
   {
     label: "Aperture",
-    value: "10 m Cassegrain surface gathers plenty of signal for faint 1420.4 MHz hydrogen work.",
+    value: "10 m Cassegrain surface gathers plenty of signal for faint hydrogen work. The exceptional surface quality brings the possibility of higher frequencies.",
   },
   {
     label: "Drives",
@@ -20,7 +20,7 @@ const keyFacts = [
   },
   {
     label: "Speed & Range",
-    value: "Variable slews from 0–10°/s, elevation 0–95°, azimuth 360°+ with managed wrap.",
+    value: "Variable slews from 0–10°/s, elevation 0–95°, azimuth 360°+ with managed wrap. Quick enough to track satellites.",
   },
   {
     label: "Control",
@@ -55,24 +55,23 @@ const candidateSections = [
   {
     title: "Approach & Access",
     copy: [
-      "A county road runs right to the gate, and the planned service drive gives the crane and transport crew a straight shot to the pier location.",
-      "From the frontage you can see open horizon in every direction plus plenty of staging room for the lift team once the dish arrives.",
+      "We've made multiple trips to the site to confirm its suitability and have updated our working plan to take advantage of the existing gate and cleared path to minimize tree removal and landscaping. The telescope itself will be located in a clearing, minimizing spillover from nearby trees.",
     ],
-    image: { src: "/images/zoning-from-road.png", alt: "Roadside view of the proposed observatory entrance." },
+    image: { src: "/images/site-plan.png", alt: "Roadside view of the proposed observatory entrance." },
   },
   {
-    title: "Parcel Layout & Zoning",
+    title: "Zoning",
     copy: [
-      "Agricultural zoning keeps permitting simple. The parcel grid shows where the pier will sit and the buffer we’re keeping clear around the dish.",
-      "The pier bolt pattern drops neatly onto the planned slab, leaving room for conduit runs now and future upgrades later.",
+      "Agricultural zoning keeps permitting simple. The county planner has confirmed that we will only need a C2 conditional use permit, requiring a basic site plan, and that \"there is little for Planning & Development staff to review given the proposal will not have significant land use conflicts, require public facilities, or ongoing staffing.\"",
     ],
     image: { src: "/images/zoning-grid.png", alt: "Parcel grid map showing the proposed pier and access drive." },
   },
   {
     title: "Radio Environment",
     copy: [
-      "Pasture and groves surround the parcel, which keeps broadband noise low for the L- and S-band work we have planned.",
-      "Zooming out, there’s still no heavy industry or major transmitters, so we hold onto the radio-quiet window classrooms need for clean spectra.",
+      "The parcel is situated in an incredibly isolated area only a few miles from the vast Green Swamp of Florida, on the very edges of even rural development. This will ensure a radio quiet zone for many years to come as we dont need to worry about sprawling suburbs bringing radio towers into the area.",
+      "Nearest transmitting radio tower: 3.61 Miles",
+      "Nearest Airport with Radar: 43 Miles (Tampa International)",
     ],
     image: { src: "/images/zoning-circle.png", alt: "Land-use buffer illustrating the radio-quiet surroundings." },
   },
@@ -80,7 +79,7 @@ const candidateSections = [
 
 export default function SpecificationsPage() {
   return (
-    <main className="space-y-16">
+    <main className="relative z-10 space-y-16">
       <section className="grid gap-16 xl:grid-cols-[1.05fr_0.95fr]">
         <div className="space-y-8">
           <header className="space-y-3">
@@ -96,7 +95,7 @@ export default function SpecificationsPage() {
             {keyFacts.map(fact => (
               <article
                 key={fact.label}
-                className="rounded-3xl border border-titan-border/50 bg-titan-bg-alt/25 p-5 text-sm leading-relaxed text-titan-text-primary/90"
+                className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-5 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-[#7f8cff]/45 hover:bg-titan-bg-alt/95"
               >
                 <h3 className="text-base font-semibold text-titan-text-secondary">{fact.label}</h3>
                 <p className="mt-1">{fact.value}</p>
@@ -150,7 +149,7 @@ export default function SpecificationsPage() {
           {candidateSections.map(section => (
             <article
               key={section.title}
-              className="grid gap-6 rounded-3xl border border-titan-border/50 bg-titan-bg-alt/20 p-6 text-sm leading-relaxed text-titan-text-primary/90 lg:grid-cols-[1.05fr_0.95fr]"
+              className="grid gap-6 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-[#7f8cff]/45 hover:bg-titan-bg-alt/95 lg:grid-cols-[1.05fr_0.95fr]"
             >
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-titan-text-secondary">{section.title}</h3>
