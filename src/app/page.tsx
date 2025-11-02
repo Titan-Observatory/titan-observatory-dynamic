@@ -65,8 +65,7 @@ export default function Home() {
             We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
             providing remote access to real NASA quality instruments and real data 
             for students, teachers, and enthusiasts. We’re an officially incorporated 
-            nonprofit (501(c)(3) pending) with a four-member board, a potential site secured, 
-            an option contract granting us the exclusive right to buy the telescope, and a 
+            nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
             core team planning for the future.
 
           </p>
