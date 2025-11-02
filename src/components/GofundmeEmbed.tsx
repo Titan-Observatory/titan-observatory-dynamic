@@ -10,12 +10,11 @@ export default function GofundmeEmbed() {
         title="GoFundMe donation widget"
         src={WIDGET_URL}
         width="100%"
-        height="200"
         scrolling="no"
         loading="lazy"
         frameBorder={0}
         allow="payment *; clipboard-write *"
-        className="w-full rounded-2xl border border-titan-border/40 shadow-sm"
+        className="w-full rounded-2xl border border-titan-border/40 shadow-sm h-[220px] sm:h-[208px] md:h-[195px] lg:h-[183px] xl:h-[170px]"
       />
     </div>
   );
