@@ -63,14 +63,16 @@ export default function Home() {
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
             We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
-            providing remote access to real NASA quality instruments and real data 
-            for students, teachers, and enthusiasts. We’re an officially incorporated 
+            purchasing, digitizing, and building a user-friendly web portal to schedule time on this 10m radio telescope.
+            Our long-term vision is to bridge the gap between curious learner and PhD candidate by providing both the materials to learn the basics of radio astronomy,
+            and NASA-quality instrumentation to experience it hands on.
+
+            We’re an officially incorporated 
             nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
             core team planning for the future.
-
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on a Antlab precision positioner the current owner purchased from
+            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on a Antlab precision positioner the current owner purchased directly from
             NASA nearly 50 years ago. It's been maticulusly maintained, with zero backlash, perfect balance, and a 
             dehumidifier running inside 24/7.
           </p>
@@ -95,24 +97,23 @@ export default function Home() {
 
       <section className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="space-y-5">
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">What Support Enables</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Donations and volunteer time help us save this precision scientific instrument and make it accessible by anyone:
+            Hands-on science is one of the greatest ways to learn, and unfortunately the nature of radio astronomy (and RF in general) limits anyone curious to words on a page or daunting math, unless they want to commit to attain a PhD or build their own radio telescope.
           </p>
-          <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
+          <p className="text-sm leading-relaxed text-titan-text-primary/90">
+            We'd like to help by putting real scientific instruments in the hands of more people, and offer guides, basic lessons, and eventually curriculums so that citizen scientists of all skill levels can learn how to use this telescope and interpret its data.
+          </p>
+        </div>
+        <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
+          <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
+          <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible by anyone:</p>
+          <ul className="space-y-2">
             <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
             <li>- High quality RF chains and calibrated feeds for bands of interest</li>
             <li>- Local hosting for all services (except backups) to maximize availability</li>
-            <li>- Ducumentation and guides to allow anyone to learn on real equipment</li>
+            <li>- Documentation and guides to allow anyone to learn on real equipment</li>
           </ul>
-        </div>
-        <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
-          <h3 className="text-base font-semibold text-titan-text-secondary">Why It Matters</h3>
-          <p>
-            Hands-on science is one of the greatest ways to learn, and what better way to learn than with real NASA hardware! Titan lets classrooms, citizen scientists, and clubs reserve
-            observing time, collect calibrated data, and build projects they can publish or share with
-            their communities.
-          </p>
         </aside>
       </section>
 
