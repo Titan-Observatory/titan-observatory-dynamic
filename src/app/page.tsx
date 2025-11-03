@@ -5,14 +5,6 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 export const revalidate = 3600;
 
-const fundingHighlights = [
-  "Lock in the purchase and move the 10-meter NASA-built radio telescope to its new home.",
-  "Pour the pier, run power, and ground the site so the dish can pivot safely in Florida weather.",
-  "Swap the vintage motion control and feeds for modern encoders, drives, and front ends.",
-  "Stand up the network, scheduling tools, and data pipeline classrooms will use every day.",
-  "Handle permits, insurance, and radio-quiet validation so the first datasets arrive clean.",
-];
-
 const phases = [
   {
     title: "Phase 1 - Acquire & Move",
@@ -63,9 +55,9 @@ export default function Home() {
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
             We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
-            purchasing, digitizing, and building a user-friendly web portal to schedule time on this 10m radio telescope.
+            purchasing this 10m radio telescope, modernizing it's control system, and building a user-friendly web portal to schedule observing time.
             Our long-term vision is to bridge the gap between curious learner and PhD candidate by providing both the materials to learn the basics of radio astronomy,
-            and NASA-quality instrumentation to experience it hands on.
+            and NASA-quality instrumentation to use them on.
 
             We’re an officially incorporated 
             nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
@@ -73,8 +65,7 @@ export default function Home() {
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
             The dish itself is a 10-meter Scientific-Atlanta Cassegrain on a Antlab precision positioner the current owner purchased directly from
-            NASA nearly 50 years ago. It's been maticulusly maintained, with zero backlash, perfect balance, and a 
-            dehumidifier running inside 24/7.
+            NASA nearly 50 years ago. It's been carefully maintained and fully operational, with a dehumidifier running 24/7, and balanced well enough to move by hand.
           </p>
           <div className="max-w-[420px]">
             <GofundmeEmbed />
