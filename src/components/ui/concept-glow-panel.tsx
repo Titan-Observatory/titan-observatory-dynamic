@@ -18,6 +18,7 @@ export function ConceptGlowPanel({
     initial: { backgroundPosition: "0 50%" },
     animate: { backgroundPosition: ["0 50%", "100% 50%", "0 50%"] },
   };
+  const radiusClass = "rounded-[2rem]";
 
   return (
     <div className={cn("relative p-[4px] group", containerClassName)} key="concept-glow-panel">
@@ -28,7 +29,8 @@ export function ConceptGlowPanel({
         transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
         style={{ backgroundSize: "400% 400%" }}
         className={cn(
-          "absolute inset-0 z-[1] rounded bg-[radial-gradient(circle_farthest-side_at_0_100%,#3c415c,transparent),radial-gradient(circle_farthest-side_at_100%_0,#565b7a,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#c69344,transparent),radial-gradient(circle_farthest-side_at_0_0,#eacc84,#11131f)] opacity-60 blur-xl transition duration-500 group-hover:opacity-100",
+          "absolute inset-0 z-[1] bg-[radial-gradient(circle_farthest-side_at_0_100%,#3c415c,transparent),radial-gradient(circle_farthest-side_at_100%_0,#565b7a,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#c69344,transparent),radial-gradient(circle_farthest-side_at_0_0,#eacc84,#11131f)] opacity-60 blur-xl transition duration-500 group-hover:opacity-100",
+          radiusClass,
         )}
       />
       <motion.div
@@ -38,10 +40,11 @@ export function ConceptGlowPanel({
         transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
         style={{ backgroundSize: "400% 400%" }}
         className={cn(
-          "absolute inset-0 z-[1] rounded bg-[radial-gradient(circle_farthest-side_at_0_100%,#3c415c,transparent),radial-gradient(circle_farthest-side_at_100%_0,#565b7a,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#c69344,transparent),radial-gradient(circle_farthest-side_at_0_0,#eacc84,#11131f)]",
+          "absolute inset-0 z-[1] bg-[radial-gradient(circle_farthest-side_at_0_100%,#3c415c,transparent),radial-gradient(circle_farthest-side_at_100%_0,#565b7a,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#c69344,transparent),radial-gradient(circle_farthest-side_at_0_0,#eacc84,#11131f)]",
+          radiusClass,
         )}
       />
-      <div className={cn("relative z-10 rounded", className)}>{children}</div>
+      <div className={cn("relative z-10 overflow-hidden", radiusClass, className)}>{children}</div>
     </div>
   );
 }

@@ -22,9 +22,9 @@ const mockups = [
     },
   },
   {
-    title: "second-box-2",
+    title: "Advanced Controls",
     description: [
-      "box text 2.",
+      "Advanced controls will still be made available to allow more experienced users to do more with the telescope. This is just a sample of possible controls and does not reflect everything that will be available.",
     ],
     image: {
       src: "/images/Dashboard-Mockup-2.png",
@@ -39,19 +39,24 @@ export default function ConceptDashboardPage() {
       <section className="space-y-4">
         <h1 className="text-4xl font-bold text-titan-text-secondary">Concept Dashboard</h1>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          Description goes here 1
+          Below are concepts of what a potential control dashboard might look like.
+          The purpose of this mockup is to give an idea of the direction we would like to go in and
+          the level of accessibility we would like to achieve with informational tooltips explaining the different settings
+          and a customized catalog of objects to observe. The final product may end up looking very different once development begins.
         </p>
       </section>
 
       <section className="space-y-8">
-        {mockups.map(item => (
+        {mockups.map((item, index) => (
           <article key={item.title} className="space-y-5 text-sm leading-relaxed text-titan-text-primary/90">
-            <div className="space-y-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm">
-              <h2 className="text-lg font-semibold text-titan-text-secondary">{item.title}</h2>
-              {item.description.map(text => (
-                <p key={text}>{text}</p>
-              ))}
-            </div>
+            {index !== 0 && (
+              <div className="space-y-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm">
+                <h2 className="text-lg font-semibold text-titan-text-secondary">{item.title}</h2>
+                {item.description.map(text => (
+                  <p key={text}>{text}</p>
+                ))}
+              </div>
+            )}
             <figure className="mx-auto w-full max-w-5xl">
               <ConceptGlowPanel className="relative w-full border border-titan-border/60 bg-titan-bg-alt/80 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]">
                 <Image
