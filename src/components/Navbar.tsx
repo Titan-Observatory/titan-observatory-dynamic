@@ -51,18 +51,14 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const navItems = useMemo(() => {
-    const items = [
+  const navItems = useMemo(
+    () => [
       { name: "About", link: "/" },
       { name: "Specifications", link: "/specifications" },
-    ];
-
-    if (session?.user?.isAdmin) {
-      items.push({ name: "Dashboard", link: "/dashboard" });
-    }
-
-    return items;
-  }, [session]);
+      { name: "Concept Dashboard", link: "/concept-dashboard" },
+    ],
+    [],
+  );
 
   const closeMobile = () => setMobileOpen(false);
 
