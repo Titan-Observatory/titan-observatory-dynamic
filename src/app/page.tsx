@@ -3,6 +3,7 @@ import GofundmeEmbed from "@/components/GofundmeEmbed";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
+import DiscordPresenceBadge from "@/components/DiscordPresenceBadge";
 
 export const revalidate = 3600;
 
@@ -135,14 +136,9 @@ export default function Home() {
             >
               Visit the Forum
             </a>
-            <a
-              href="https://discord.gg/T5F6AG26tE"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-titan-green/60 bg-titan-green/20 px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-green/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-green"
-            >
-              Join the Discord
-            </a>
+          </div>
+          <div className="pt-1">
+            <DiscordPresenceBadge className="w-full sm:w-auto" />
           </div>
         </div>
         <aside className="space-y-4 text-sm leading-relaxed text-titan-text-primary/90">
