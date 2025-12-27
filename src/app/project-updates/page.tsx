@@ -5,8 +5,9 @@ export const metadata = {
 
 const embedScript = `
   var DiscourseEmbed = {
-    discourseUrl: 'https://10.0.10.108:443/',
+    discourseUrl: 'https://community.titanobservatory.org/',
     discourseEmbedUrl: window.location.href
+    topicId: 47
   };
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
@@ -44,18 +45,6 @@ export default function ProjectUpdatesPage() {
         `,
         }}
       />
-      <p className="text-sm text-titan-text-muted">
-        If the embed is blocked in your browser,{" "}
-        <a
-          href="https://community.titanobservatory.org/c/project-updates/39"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-        >
-          open Project Updates in a new tab
-        </a>
-        .
-      </p>
     </section>
   );
 }
