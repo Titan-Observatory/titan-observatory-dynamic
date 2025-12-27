@@ -116,7 +116,7 @@ export default function Navbar() {
   };
 
   return (
-    <ResizableNav className="mt-6">
+    <ResizableNav className="mt-6 mb-0">
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} className="justify-center" activePath={pathname} />
