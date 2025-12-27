@@ -53,7 +53,7 @@ export default function Home() {
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
-            About Titan Astronomical Observatory
+            About Us
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
             We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
