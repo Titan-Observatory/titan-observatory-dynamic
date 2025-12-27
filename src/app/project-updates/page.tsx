@@ -6,7 +6,6 @@ export const metadata = {
 const embedScript = `
   var DiscourseEmbed = {
     discourseUrl: 'https://community.titanobservatory.org/',
-    discourseEmbedUrl: window.location.href
     topicId: 47
   };
   (function() {
