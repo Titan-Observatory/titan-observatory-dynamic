@@ -57,9 +57,9 @@ export default function Home() {
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
             We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
-            purchasing this 10m radio telescope, modernizing it's control system, and building a user-friendly web portal to schedule observing time.
-            Our long-term vision is to bridge the gap between curious learner and PhD candidate by providing both the materials to learn the basics of radio astronomy,
-            and NASA-quality instrumentation to use them on.
+            purchasing this 10m radio telescope, modernizing it's control system, and building a user-friendly web portal; allowing anyone to schedule observing time.
+            The long term mission is to bridge the gap between curious learner and PhD candidate by producing educational materials covering the fundamentals of radio astronomy,
+            and structured curriculums which offer students the opportunity to capture and interpret real astronomical signals.
 
             We’re an officially incorporated 
             nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
@@ -92,10 +92,11 @@ export default function Home() {
         <div className="space-y-5">
           <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Hands-on science is one of the greatest ways to learn, and unfortunately the nature of radio astronomy (and RF in general) limits anyone curious to words on a page or daunting math, unless they want to commit to attain a PhD or build their own radio telescope.
+            For many, hands-on learning is the greatest way to learn, and unfortunately the nature of radio astronomy limits anyone curious to words in a textbook or daunting math.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            We'd like to help by putting real scientific instruments in the hands of more people, and offer guides, basic lessons, and eventually curriculums so that citizen scientists of all skill levels can learn how to use this telescope and interpret its data.
+            
+By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
           </p>
         </div>
         <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
@@ -117,7 +118,7 @@ export default function Home() {
             If this is something you'd like to become a part of, apply to volunteer! Building a remote radio observatory is no small task, and requires a wide range of skillsets, so you dont have to be a radio astronomer or a master programmer to contribute. 
           </p>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If you're just looking to learn more about radio astronomy, head over to our community forum or join our discord! We have 400+ community members with places to ask questions and hang out with the community.
+            If you're just looking to learn more about radio astronomy, head over to our community forum or join our discord! We have hundreds of community members with places to ask questions and hang out with the community.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
