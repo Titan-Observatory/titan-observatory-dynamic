@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { ANIMATIONS_EVENT, getAnimationsDisabled } from "@/lib/animations";
 
 interface StarProps {
   x: number;
@@ -29,6 +30,8 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 }) => {
   const [stars, setStars] = useState<StarProps[]>([]);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [animationsEnabled, setAnimationsEnabled] = useState(true);
+  const lastSizeRef = useRef({ width: 0, height: 0 });
 
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
@@ -59,7 +62,24 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   );
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const update = () => setAnimationsEnabled(!getAnimationsDisabled());
+    update();
+    const handler = (event: Event) => {
+      const customEvent = event as CustomEvent<{ disabled: boolean }>;
+      if (typeof customEvent.detail?.disabled === "boolean") {
+        setAnimationsEnabled(!customEvent.detail.disabled);
+      }
+    };
+    window.addEventListener(ANIMATIONS_EVENT, handler);
+    return () => window.removeEventListener(ANIMATIONS_EVENT, handler);
+  }, []);
+
+  useEffect(() => {
     if (typeof window === "undefined") {
+      return;
+    }
+    if (!animationsEnabled) {
       return;
     }
 
@@ -77,6 +97,8 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       const height = getContentHeight();
       const widthChanged = canvas.width !== width;
       const heightChanged = canvas.height !== height;
+      const heightDelta = Math.abs(height - lastSizeRef.current.height);
+      const shouldRegenerate = force || widthChanged || heightDelta > 200;
 
       if (widthChanged || force) {
         canvas.width = width;
@@ -88,8 +110,9 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
+      lastSizeRef.current = { width, height };
 
-      if (widthChanged || heightChanged || force) {
+      if (shouldRegenerate) {
         setStars(generateStars(width, height));
       }
     };
@@ -116,6 +139,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     minTwinkleSpeed,
     maxTwinkleSpeed,
     generateStars,
+    animationsEnabled,
   ]);
 
   useEffect(() => {
@@ -126,8 +150,26 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     if (!ctx) return;
 
     let animationFrameId: number;
+    let lastFrameTime = 0;
+    const targetFrameMs = 1000 / 20;
 
     const render = () => {
+      if (!animationsEnabled) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+      if (document.hidden) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
+      const now = performance.now();
+      if (now - lastFrameTime < targetFrameMs) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+      lastFrameTime = now;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach((star) => {
         ctx.beginPath();
@@ -150,7 +192,11 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [stars]);
+  }, [stars, animationsEnabled]);
+
+  if (!animationsEnabled) {
+    return null;
+  }
 
   return (
     <canvas

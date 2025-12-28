@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import AnimationToggle from "@/components/AnimationToggle";
 
 const quickLinks = [
   { label: "About", href: "/" },
@@ -162,6 +163,7 @@ export default function Footer() {
               Newsletter
             </a>
           </p>
+          <AnimationToggle />
         </div>
       </div>
     </footer>
