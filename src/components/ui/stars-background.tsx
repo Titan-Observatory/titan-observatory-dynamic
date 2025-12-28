@@ -63,12 +63,18 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       return;
     }
 
+    const getContentHeight = () => {
+      const root = document.querySelector("[data-page-root]") as HTMLElement | null;
+      const measuredHeight = root?.scrollHeight ?? document.documentElement.scrollHeight;
+      return Math.max(window.innerHeight, measuredHeight);
+    };
+
     const updateStars = (force = false) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
       const width = window.innerWidth;
-      const height = document.documentElement.scrollHeight;
+      const height = getContentHeight();
       const widthChanged = canvas.width !== width;
       const heightChanged = canvas.height !== height;
 
@@ -94,11 +100,10 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     window.addEventListener("resize", handleResize);
 
     const resizeObserver = new ResizeObserver(() => updateStars());
-    if (document.body) {
-      resizeObserver.observe(document.body);
-    }
-    const rootElement = document.documentElement;
-    resizeObserver.observe(rootElement);
+    const observedRoot =
+      (document.querySelector("[data-page-root]") as HTMLElement | null) ??
+      document.documentElement;
+    resizeObserver.observe(observedRoot);
 
     return () => {
       window.removeEventListener("resize", handleResize);

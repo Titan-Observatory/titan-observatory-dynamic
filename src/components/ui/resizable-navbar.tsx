@@ -136,7 +136,7 @@ export const NavItems = ({ items, className, activePath, onItemClick }: NavItems
             onMouseEnter={() => setHovered(idx)}
             onClick={onItemClick}
             className={cn(
-              "relative rounded-full px-3 py-1.5 transition hover:text-titan-text-secondary",
+              "relative rounded-full px-3 py-1.5 text-center leading-tight transition hover:text-titan-text-secondary",
               isActive ? "text-titan-text-secondary" : undefined,
             )}
           >

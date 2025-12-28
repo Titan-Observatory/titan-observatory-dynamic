@@ -54,6 +54,7 @@ export default function Navbar() {
   const navItems = useMemo(
     () => [
       { name: "About", link: "/" },
+      { name: "Updates", link: "/project-updates" },
       { name: "Specifications", link: "/specifications" },
       { name: "System Architecture", link: "/system-architecture" },
       { name: "Concept Dashboard", link: "/concept-dashboard" },
