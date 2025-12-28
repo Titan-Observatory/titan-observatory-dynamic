@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef, type ReactNode } from "react";
+import { motion, useMotionValue, useScroll } from "framer-motion";
+import { useEffect, useMemo, useRef, type ReactNode } from "react";
 
 type TimelineEntry = {
   title: string;
@@ -21,7 +21,27 @@ export function Timeline({ data, className }: TimelineProps) {
     offset: ["start 0.75", "end 0.1"],
   });
 
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const lineScale = useMotionValue(0);
+  const pollIntervalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const update = () => {
+      if (document.hidden) return;
+      lineScale.set(scrollYProgress.get());
+    };
+
+    update();
+    pollIntervalRef.current = window.setInterval(update, 50);
+
+    return () => {
+      if (pollIntervalRef.current !== null) {
+        window.clearInterval(pollIntervalRef.current);
+        pollIntervalRef.current = null;
+      }
+    };
+  }, [lineScale, scrollYProgress]);
 
   const items = useMemo(() => data ?? [], [data]);
 

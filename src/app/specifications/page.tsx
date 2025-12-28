@@ -78,6 +78,11 @@ const candidateSections = [
 ];
 
 export default function SpecificationsPage() {
+  const offscreenStyle = {
+    contentVisibility: "auto",
+    containIntrinsicSize: "1px 600px",
+  } as const;
+
   return (
     <main className="relative z-10 space-y-16">
       <section className="grid gap-16 xl:grid-cols-[1.05fr_0.95fr]">
@@ -150,6 +155,7 @@ export default function SpecificationsPage() {
             <article
               key={section.title}
               className="grid gap-6 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg-alt/95 lg:grid-cols-[1.05fr_0.95fr]"
+              style={offscreenStyle}
             >
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-titan-text-secondary">{section.title}</h3>

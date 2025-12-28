@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { ANIMATIONS_EVENT, getAnimationsDisabled } from "@/lib/animations";
 import { useEffect, useId, useRef, useState } from "react";
 
 type ShootingStar = {
@@ -40,10 +41,26 @@ export function ShootingStars({
   const [star, setStar] = useState<ShootingStar | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const animationRef = useRef<number | null>(null);
+  const [animationsEnabled, setAnimationsEnabled] = useState(true);
   const gradientId = useId();
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const update = () => setAnimationsEnabled(!getAnimationsDisabled());
+    update();
+    const handler = (event: Event) => {
+      const customEvent = event as CustomEvent<{ disabled: boolean }>;
+      if (typeof customEvent.detail?.disabled === "boolean") {
+        setAnimationsEnabled(!customEvent.detail.disabled);
+      }
+    };
+    window.addEventListener(ANIMATIONS_EVENT, handler);
+    return () => window.removeEventListener(ANIMATIONS_EVENT, handler);
+  }, []);
+
+  useEffect(() => {
     if (typeof window === "undefined") return undefined;
+    if (!animationsEnabled) return undefined;
 
     function scheduleNextStar() {
       const delay = Math.random() * (maxDelay - minDelay) + minDelay;
@@ -84,12 +101,22 @@ export function ShootingStars({
         timeoutRef.current = null;
       }
     };
-  }, [maxDelay, maxSpeed, minDelay, minSpeed]);
+  }, [animationsEnabled, maxDelay, maxSpeed, minDelay, minSpeed]);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
+    if (!animationsEnabled) return undefined;
 
     const step = () => {
+      if (!animationsEnabled) {
+        animationRef.current = window.requestAnimationFrame(step);
+        return;
+      }
+      if (document.hidden) {
+        animationRef.current = window.requestAnimationFrame(step);
+        return;
+      }
+
       setStar(prevStar => {
         if (!prevStar) return prevStar;
 
@@ -122,7 +149,11 @@ export function ShootingStars({
         animationRef.current = null;
       }
     };
-  }, []);
+  }, [animationsEnabled]);
+
+  if (!animationsEnabled) {
+    return null;
+  }
 
   return (
     <svg className={cn("absolute inset-0 h-full w-full", className)}>
