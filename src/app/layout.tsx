@@ -48,10 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <StarsBackground className="pointer-events-none" />
           <ShootingStars className="pointer-events-none" />
         </div>
-        <div className="relative z-10 flex min-h-screen flex-col">
+        <div className="relative z-10 flex min-h-screen flex-col" data-page-root>
           <SiteHeader />
           <Navbar />
-          <main className="max-w-6xl flex-1 px-8 py-12 mx-auto">{children}</main>
+          <main className="mx-auto max-w-6xl flex-1 px-8 pt-8 pb-12">{children}</main>
           <Footer />
         </div>
       </body>

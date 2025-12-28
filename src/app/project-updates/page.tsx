@@ -37,7 +37,10 @@ async function fetchCategoryTopics(): Promise<TopicSummary[]> {
     topic_list?: { topics?: Array<{ id: number; title: string; slug: string; created_at: string }> };
   };
 
-  return data.topic_list?.topics ?? [];
+  const topics = data.topic_list?.topics ?? [];
+  return topics.sort(
+    (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+  );
 }
 
 async function fetchTopicContent(topic: TopicSummary): Promise<TopicWithContent> {
@@ -74,42 +77,38 @@ export default async function ProjectUpdatesPage() {
     new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(
       new Date(date),
     );
+  const openImageLinksInNewTab = (html: string) =>
+    html.replace(
+      /<a\b(?![^>]*\btarget=)([^>]*\bhref=(?:"[^"]+\.(?:png|jpe?g|gif|webp|svg)(?:\?[^"]*)?(?:#[^"]*)?"|'[^']+\.(?:png|jpe?g|gif|webp|svg)(?:\?[^']*)?(?:#[^']*)?')[^>]*)>/gi,
+      '<a target="_blank" rel="noopener noreferrer"$1>',
+    );
 
   return (
-    <section className="space-y-6">
-      <header className="space-y-2">
+    <section className="project-updates-page space-y-4 px-4 sm:space-y-6 sm:px-0 -mx-8 sm:mx-0">
+      <header className="space-y-2 sm:space-y-3">
         <p className="text-sm uppercase tracking-[0.2em] text-titan-text-muted">Community</p>
         <h1 className="text-3xl font-semibold tracking-tight text-titan-text-primary sm:text-4xl">
           Project Updates
         </h1>
         <p className="max-w-2xl text-base text-titan-text-muted">
-          Live updates from the Titan Observatory community forum. Click through to join the
-          conversation.
+          Latest updates from the Titan Observatory community forum.
         </p>
       </header>
 
-      <div className="space-y-10">
+      <div className="space-y-6 pt-4 sm:space-y-10 sm:pt-8">
         {topics.length === 0 ? (
           <p className="text-sm text-titan-text-muted">No updates available right now.</p>
         ) : (
-          topics.map(topic => (
+          topics.map((topic, index) => (
             <article
               key={topic.id}
-              className="space-y-4 rounded-xl border border-titan-border bg-gradient-to-br from-titan-bg-alt to-titan-bg p-8 shadow-titan"
+              className="space-y-4 rounded-xl border border-titan-border bg-gradient-to-br from-titan-bg-alt to-titan-bg p-4 shadow-titan sm:p-8"
             >
-              <div className="flex flex-wrap items-center gap-3 text-sm text-titan-text-muted">
-                <span className="uppercase tracking-[0.18em] text-[11px] text-titan-orange">
-                  Project Updates
-                </span>
-                <span className="text-titan-border">•</span>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-titan-text-muted">
                 <span>{formatDate(topic.created_at)}</span>
-                {topic.author ? (
-                  <>
-                    <span className="text-titan-border">•</span>
-                    <span>by {topic.author}</span>
-                  </>
+                {index === 0 ? (
+                  <span className="font-semibold text-titan-text-primary">Latest Update</span>
                 ) : null}
-                <span className="text-titan-border">•</span>
                 <a
                   href={`${DISCOURSE_BASE}/t/${topic.slug}/${topic.id}`}
                   target="_blank"
@@ -120,13 +119,20 @@ export default async function ProjectUpdatesPage() {
                 </a>
               </div>
 
-              <h2 className="text-2xl font-semibold text-titan-text-secondary">{topic.title}</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-titan-text-primary">
+                {topic.title}
+              </h2>
               <div
                 className="discourse-content"
-                dangerouslySetInnerHTML={{ __html: topic.cooked ?? "<p>No content available.</p>" }}
+                dangerouslySetInnerHTML={{
+                  __html: openImageLinksInNewTab(topic.cooked ?? "<p>No content available.</p>"),
+                }}
               />
 
-              <div className="space-y-3">
+              <div className="space-y-3 pt-2">
+                <p className="text-sm uppercase tracking-[0.2em] text-titan-text-muted">
+                  Comments
+                </p>
                 <CommentsEmbed
                   src={`${DISCOURSE_BASE}/embed/comments?topic_id=${topic.id}&class_name=${EMBED_CLASSNAME}`}
                   title={`Comments for ${topic.title}`}

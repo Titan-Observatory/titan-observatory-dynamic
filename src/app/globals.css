@@ -133,8 +133,22 @@ html, body, :root { height: 100%; }
     padding-left: 1rem;
     color: rgb(var(--color-text-primary));
     list-style-position: outside;
+    list-style-type: disc;
     display: grid;
     gap: 0.35rem;
+  }
+
+  .discourse-content ol {
+    list-style-type: decimal;
+  }
+
+  .project-updates-page .discourse-content ul,
+  .project-updates-page .discourse-content ol {
+    gap: 0.15rem;
+  }
+
+  .project-updates-page .discourse-content li > p {
+    margin: 0.15rem 0;
   }
 
   .discourse-content blockquote {
@@ -159,5 +173,44 @@ html, body, :root { height: 100%; }
     border-radius: 0.5rem;
     padding: 0.85rem 1rem;
     overflow-x: auto;
+  }
+
+  .discourse-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .discourse-content .lightbox-wrapper,
+  .discourse-content a.lightbox {
+    display: inline-block;
+    width: 100%;
+    margin: 0.35rem 0;
+    vertical-align: top;
+  }
+
+  .discourse-content .lightbox-wrapper img,
+  .discourse-content a.lightbox img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .discourse-content .lightbox-wrapper,
+    .discourse-content a.lightbox {
+      width: calc(50% - 0.6rem);
+      margin: 0.35rem 0.3rem;
+    }
+  }
+
+  .discourse-content .lightbox-wrapper .meta,
+  .discourse-content .lightbox-wrapper .filename,
+  .discourse-content .lightbox-wrapper .informations,
+  .discourse-content .lightbox-wrapper .lightbox-caption,
+  .discourse-content .attachment .attachment-filename,
+  .discourse-content .attachment .attachment-size,
+  .discourse-content .attachment-details,
+  .discourse-content .attachment-metadata {
+    display: none;
   }
 }
