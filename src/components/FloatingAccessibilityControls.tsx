@@ -33,6 +33,6 @@ export default function FloatingAccessibilityControls() {
       <div className="origin-bottom-right scale-110">
         <givebutter-widget id="LYKEBp"></givebutter-widget>
       </div>
-    </div>
+    </>
   );
 }
