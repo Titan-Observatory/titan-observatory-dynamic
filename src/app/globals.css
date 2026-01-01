@@ -67,6 +67,15 @@ html, body, :root { height: 100%; }
     background: rgb(var(--color-orange));
     color: rgb(var(--color-bg));
   }
+
+  [data-floating-controls] .floating-donate-widget,
+  [data-floating-controls] .floating-donate-widget iframe {
+    display: block;
+  }
+
+  [data-floating-controls] .floating-donate-widget iframe {
+    vertical-align: bottom;
+  }
 }
 
 @layer components {

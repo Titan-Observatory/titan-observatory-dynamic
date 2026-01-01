@@ -4,7 +4,7 @@ import Image from "next/image";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Meet the Team | Titan Observatory",
+  title: "The Team | Titan Observatory",
   description:
     "The people building Titan Observatory, with placeholders for team bios and roles.",
 };

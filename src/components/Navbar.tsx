@@ -31,7 +31,7 @@ export default function Navbar() {
     () => [
       { name: "About", link: "/" },
       { name: "Updates", link: "/project-updates" },
-      { name: "The Team", link: "/meet-the-team" },
+      { name: "The Team", link: "/team" },
       {
         name: "Learn More",
         children: [
