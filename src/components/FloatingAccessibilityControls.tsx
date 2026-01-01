@@ -28,7 +28,9 @@ export default function FloatingAccessibilityControls() {
       >
         <IconAccessible className="h-6 w-6" aria-hidden="true" />
       </button>
-      <givebutter-widget id="LYKEBp"></givebutter-widget>
+      <div className="origin-bottom-right scale-110">
+        <givebutter-widget id="LYKEBp"></givebutter-widget>
+      </div>
     </div>
   );
 }

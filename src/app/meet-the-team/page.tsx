@@ -13,8 +13,9 @@ const executiveDirector = {
   name: "Thomas Oglesby",
   role: "Executive Director",
   bio: [
-   "As someone with a passion for understanding the world around me, growing up as one of the first generations with the entirety of human knowledge at my fingertips has given me a unique appreciation for how the Internet revolutionized learning. Unfortunately, once companies realized there was money to be made, the floodgates of capitalism opened, and the Internet quickly became synonymous with retention-based algorithms, ads, and the never-ending pursuit of harvesting your data. But I’m not convinced it has to be this way. I think limitless capital and armies of corporate dev teams have given people the false impression that the Internet has reached maturity—when in reality, if you explore beyond the handful of companies most people consider “the Internet,” you’ll still find the same old forums and basic HTML pages where a bunch of nerds share their passion and knowledge with the world.",
-   "Nobody would deny the Internet has already changed the world, but as crazy as it sounds, I think “having access to all human knowledge” is only the first step in true dissemination. Now we need to make that knowledge as accessible as possible to people who are less privileged, less technically inclined, or simply don’t know where to begin. I hope the Titan Observatory can be another step toward that future by demystifying radio astronomy and electromagnetic waves, so more people can share in the excitement of future discoveries and feel connected to the science behind them."  ],
+    "As someone with a passion for understanding the world around me, growing up as one of the first generations with the entirety of human knowledge at my fingertips has given me a unique appreciation for how the Internet revolutionized learning. Unfortunately, once companies realized there was money to be made, the floodgates of capitalism opened, and the Internet quickly became synonymous with retention-based algorithms, ads, and the never-ending pursuit of harvesting your data. But I’m not convinced it has to be this way. I think limitless capital and armies of corporate dev teams have given people the false impression that the Internet has reached maturity—when in reality, if you explore beyond the handful of companies most people consider “the Internet,” you’ll still find the same old forums and basic HTML pages where a bunch of nerds share their passion and knowledge with the world.",
+    "Nobody would deny the Internet has already changed the world, but as crazy as it sounds, I think “having access to all human knowledge” is only the first step in true dissemination. Now we need to make that knowledge as accessible as possible to people who are less privileged, less technically inclined, or simply don’t know where to begin. I hope the Titan Observatory can be another step toward that future by demystifying radio astronomy and electromagnetic waves, so more people can share in the excitement of future discoveries and feel connected to the science behind them.",
+  ],
 };
 
 const teamMembers = [
@@ -78,30 +79,6 @@ export default function MeetTheTeamPage() {
             </svg>
           </a>
         </div>
-      </header>
-
-      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="order-2 space-y-4 lg:order-1">
-          <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
-          <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
-          <div className="space-y-3 text-sm leading-relaxed text-titan-text-primary/90">
-            {executiveDirector.bio.map(paragraph => (
-              <p key={paragraph} style={{ textIndent: "2rem" }}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-        <figure className="order-1 relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2 lg:aspect-[3/4]">
-          <Image
-            src="/images/headshots/Thomas.jpg"
-            alt="Executive director portrait"
-            fill
-            className="object-cover object-top"
-            sizes="(min-width: 1024px) 520px, 90vw"
-            priority
-          />
-        </figure>
       </section>
 
       <section className="space-y-10">

@@ -163,7 +163,7 @@ export default function Footer() {
               Newsletter
             </a>
           </p>
-          <AccessibilityPanel className="hidden md:flex md:items-end" />
+          <AccessibilityPanel className="md:hidden" />
         </div>
       </div>
     </footer>
