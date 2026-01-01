@@ -119,18 +119,37 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 
     updateStars(true);
 
-    const handleResize = () => updateStars();
-    window.addEventListener("resize", handleResize);
-
-    const resizeObserver = new ResizeObserver(() => updateStars());
     const observedRoot =
       (document.querySelector("[data-page-root]") as HTMLElement | null) ??
       document.documentElement;
+
+    let rafId: number | null = null;
+    const scheduleUpdate = (force = false) => {
+      if (rafId !== null) {
+        return;
+      }
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        updateStars(force);
+      });
+    };
+
+    const handleResize = () => scheduleUpdate();
+    window.addEventListener("resize", handleResize);
+
+    const resizeObserver = new ResizeObserver(() => scheduleUpdate());
     resizeObserver.observe(observedRoot);
+
+    const mutationObserver = new MutationObserver(() => scheduleUpdate());
+    mutationObserver.observe(observedRoot, { childList: true, subtree: true });
 
     return () => {
       window.removeEventListener("resize", handleResize);
       resizeObserver.disconnect();
+      mutationObserver.disconnect();
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
   }, [
     starDensity,

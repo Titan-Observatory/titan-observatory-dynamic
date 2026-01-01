@@ -61,7 +61,7 @@ export default function Home() {
             and structured curriculums which offer students the opportunity to capture and interpret real astronomical signals.
 
             We’re an officially incorporated 
-            nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
+            nonprofit (501(c)(3) pending) with a five-member board, a site secured, and a 
             core team planning for the future.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
@@ -84,7 +84,7 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
-      <section className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="flex justify-center lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
             <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
