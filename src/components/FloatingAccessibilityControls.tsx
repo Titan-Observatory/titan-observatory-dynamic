@@ -9,8 +9,8 @@ export default function FloatingAccessibilityControls() {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <div className="fixed bottom-4 left-4 z-40 flex flex-col items-start gap-3 md:hidden">
+    <div className="fixed bottom-4 left-4 right-4 z-40 flex items-end justify-between md:hidden">
+      <div className="flex flex-col items-start gap-3">
         {open ? (
           <div
             id="accessibility-controls-panel"
@@ -30,7 +30,7 @@ export default function FloatingAccessibilityControls() {
           <IconAccessible className="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-      <div className="fixed bottom-4 right-4 z-40 origin-bottom-right scale-110 md:hidden">
+      <div className="origin-bottom-right scale-110">
         <givebutter-widget id="LYKEBp"></givebutter-widget>
       </div>
     </>
