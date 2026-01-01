@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { IconUser } from "@tabler/icons-react";
 
 export const revalidate = 86400;
 
@@ -18,7 +19,17 @@ const executiveDirector = {
   ],
 };
 
-const teamMembers = [
+type TeamMember = {
+  name: string;
+  role: string;
+  bio?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+
+const teamMembers: TeamMember[] = [
   {
     name: "Tag Hunt",
     role: "Vice President, Board",
@@ -50,7 +61,7 @@ export default function MeetTheTeamPage() {
         </div>
         <figure className="relative order-1 aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2">
           <Image
-            src="/images/headshots/Thomas.jpg"
+            src="/images/headshots/Thomas-Oglesby.jpg"
             alt="Executive director portrait"
             fill
             className="object-cover"
@@ -110,7 +121,9 @@ export default function MeetTheTeamPage() {
                   />
                 </figure>
               ) : (
-                <div className="aspect-square w-full rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70" />
+                <div className="flex aspect-square w-full items-center justify-center rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70 text-titan-text-muted">
+                  <IconUser className="h-12 w-12" aria-hidden="true" />
+                </div>
               )}
               <div>
                 <h3 className="text-lg font-semibold text-titan-text-secondary">{member.name}</h3>

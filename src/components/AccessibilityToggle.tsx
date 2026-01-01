@@ -13,7 +13,6 @@ type AccessibilityToggleProps = {
 export default function AccessibilityToggle({
   id,
   label,
-  description,
   checked,
   onCheckedChange,
 }: AccessibilityToggleProps) {
