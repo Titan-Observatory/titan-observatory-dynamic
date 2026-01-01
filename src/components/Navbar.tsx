@@ -1,6 +1,5 @@
 "use client";
 
-import type { Session } from "next-auth";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -18,36 +17,10 @@ import {
   NavbarLogo,
 } from "@/components/ui/resizable-navbar";
 
-type SessionPayload = Session | null;
-
 export default function Navbar() {
   const pathname = usePathname();
-  const [session, setSession] = useState<SessionPayload>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileResearchOpen, setMobileResearchOpen] = useState(false);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function fetchSession() {
-      try {
-        const response = await fetch("/api/auth/session", { credentials: "same-origin" });
-        if (!response.ok) return;
-        const data = (await response.json()) as SessionPayload;
-        if (isMounted) {
-          setSession(data);
-        }
-      } catch {
-        // Ignore session fetch failures; navigation will behave as unauthenticated.
-      }
-    }
-
-    fetchSession();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -77,36 +50,9 @@ export default function Navbar() {
     setMobileResearchOpen(false);
   };
 
-  const renderAuthButtons = (context: "desktop" | "mobile") => {
+  const renderCallToAction = (context: "desktop" | "mobile") => {
     const buttonClass = context === "mobile" ? "w-full" : undefined;
     const handleClick = context === "mobile" ? closeMobile : undefined;
-
-    if (session?.user) {
-      const signOutButton = (
-        <form
-          key="signout"
-          action="/api/auth/signout"
-          method="post"
-          className={context === "mobile" ? "w-full" : undefined}
-        >
-          <NavbarButton
-            as="button"
-            type="submit"
-            variant={context === "desktop" ? "dark" : "secondary"}
-            className={buttonClass}
-            onClick={handleClick}
-          >
-            Sign out
-          </NavbarButton>
-        </form>
-      );
-
-      return context === "mobile" ? (
-        <div className="flex w-full flex-col gap-3">{signOutButton}</div>
-      ) : (
-        signOutButton
-      );
-    }
 
     const communityButton = (
       <NavbarButton
@@ -134,7 +80,7 @@ export default function Navbar() {
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} className="justify-center" activePath={pathname} />
-        <div className="ml-auto flex items-center gap-3">{renderAuthButtons("desktop")}</div>
+        <div className="ml-auto flex items-center gap-3">{renderCallToAction("desktop")}</div>
       </NavBody>
 
       <MobileNav>
@@ -210,7 +156,7 @@ export default function Navbar() {
               );
             })}
           </div>
-          {renderAuthButtons("mobile")}
+          {renderCallToAction("mobile")}
         </MobileNavMenu>
       </MobileNav>
     </ResizableNav>
