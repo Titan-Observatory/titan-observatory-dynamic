@@ -18,23 +18,49 @@ const executiveDirector = {
 };
 
 const teamMembers = [
-  { name: "Team Member One", role: "Role / Discipline", bio: "Short bio placeholder." },
-  { name: "Team Member Two", role: "Role / Discipline", bio: "Short bio placeholder." },
-  { name: "Team Member Three", role: "Role / Discipline", bio: "Short bio placeholder." },
-  { name: "Team Member Four", role: "Role / Discipline", bio: "Short bio placeholder." },
-  { name: "Team Member Five", role: "Role / Discipline", bio: "Short bio placeholder." },
-  { name: "Team Member Six", role: "Role / Discipline", bio: "Short bio placeholder." },
+  {
+    name: "Tag Hunt",
+    role: "Vice President, Board",
+    image: {
+      src: "/images/headshots/Tag-Hunt.jpg",
+      alt: "Tag Hunt headshot",
+    },
+  },
+  { name: "Jennise Santiago", role: "Secretary, Board" },
+  { name: "Sanskar Bhattacharya", role: "Project Manager" },
+  { name: "Jonathan Hart", role: "Board Member" },
+  { name: "Chris Picquet", role: "Board Member" },
 ];
 
 export default function MeetTheTeamPage() {
   return (
     <main className="relative z-10 space-y-12">
-      <header className="space-y-3">
-        <h1 className="text-4xl font-bold text-titan-text-secondary">Meet the Team</h1>
-        <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          The Titan Observatory team blends engineering, science, and community. We&apos;ll introduce each member here as the project grows.
-        </p>
-        <div className="inline-flex flex-wrap items-center gap-3 rounded-full border border-titan-border/60 bg-titan-bg-alt/90 px-4 py-4 text-xs uppercase tracking-[0.18em] text-titan-text-secondary">
+      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="order-2 space-y-4 lg:order-1">
+          <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
+          <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
+          <div className="space-y-3 text-base leading-relaxed text-titan-text-primary/90">
+            {executiveDirector.bio.map(paragraph => (
+              <p key={paragraph} style={{ textIndent: "2rem" }}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+        <figure className="relative order-1 aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2">
+          <Image
+            src="/images/headshots/Thomas.jpg"
+            alt="Executive director portrait"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 520px, 90vw"
+            priority
+          />
+        </figure>
+      </section>
+
+      <section>
+        <div className="inline-flex items-center gap-3 whitespace-nowrap rounded-full border border-titan-border/60 bg-titan-bg-alt/90 px-4 py-4 text-xs uppercase tracking-[0.18em] text-titan-text-secondary">
           <span>Interested in joining the team?</span>
           <a
             href="https://ideali.st/USGqBK"
@@ -52,40 +78,17 @@ export default function MeetTheTeamPage() {
             </svg>
           </a>
         </div>
-      </header>
-
-      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="order-2 space-y-4 lg:order-1">
-          <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
-          <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
-          <div className="space-y-3 text-sm leading-relaxed text-titan-text-primary/90">
-            {executiveDirector.bio.map(paragraph => (
-              <p key={paragraph} style={{ textIndent: "2rem" }}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-        <figure className="order-1 overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2">
-          <Image
-            src="/images/headshots/Thomas.jpg"
-            alt="Executive director portrait"
-            width={3189}
-            height={3793}
-            className="h-auto w-full object-contain"
-            sizes="(min-width: 1024px) 520px, 90vw"
-            priority
-          />
-        </figure>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Team</p>
-            <h2 className="text-2xl font-semibold text-titan-text-secondary">Core collaborators</h2>
+      <section className="space-y-10">
+        <div className="space-y-6 pt-6">
+          <div className="flex items-center gap-5">
+            <span className="h-px w-12 bg-titan-border/70" />
+            <h2 className="text-2xl font-semibold uppercase tracking-[0.4em] text-titan-text-secondary">
+              The Team
+            </h2>
+            <span className="h-px flex-1 bg-titan-border/40" />
           </div>
-          <p className="text-xs text-titan-text-primary/70">Roles and bios coming soon.</p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -94,12 +97,27 @@ export default function MeetTheTeamPage() {
               key={member.name}
               className="flex h-full flex-col gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg-alt/95"
             >
-              <div className="h-16 w-16 rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70" />
+              {member.image ? (
+                <figure className="aspect-square w-full overflow-hidden rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70">
+                  <Image
+                    src={member.image.src}
+                    alt={member.image.alt}
+                    width={1200}
+                    height={900}
+                    className="h-full w-full object-cover"
+                    sizes="(min-width: 1280px) 240px, (min-width: 768px) 45vw, 90vw"
+                  />
+                </figure>
+              ) : (
+                <div className="aspect-square w-full rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70" />
+              )}
               <div>
                 <h3 className="text-lg font-semibold text-titan-text-secondary">{member.name}</h3>
                 <p className="text-xs uppercase tracking-[0.25em] text-titan-text-primary/70">{member.role}</p>
               </div>
-              <p className="text-sm text-titan-text-primary/90">{member.bio}</p>
+              {member.bio ? (
+                <p className="text-sm text-titan-text-primary/90">{member.bio}</p>
+              ) : null}
             </article>
           ))}
         </div>
