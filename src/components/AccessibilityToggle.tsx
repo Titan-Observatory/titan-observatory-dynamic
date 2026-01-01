@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 type AccessibilityToggleProps = {
   id: string;
   label: string;
-  description: string;
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
 };
@@ -24,7 +23,6 @@ export default function AccessibilityToggle({
         <label htmlFor={id} className="text-sm font-semibold text-titan-text-secondary">
           {label}
         </label>
-        <p className="text-xs text-titan-text-muted">{description}</p>
       </div>
       <Switch.Root
         id={id}

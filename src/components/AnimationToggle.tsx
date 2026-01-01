@@ -29,7 +29,7 @@ export default function AnimationToggle() {
   }, []);
 
   const handleToggle = (checked: boolean) => {
-    const nextDisabled = !checked;
+    const nextDisabled = checked;
     setDisabled(nextDisabled);
     applyAnimationsDisabled(nextDisabled);
   };
@@ -37,9 +37,8 @@ export default function AnimationToggle() {
   return (
     <AccessibilityToggle
       id="toggle-animations"
-      label="Animations"
-      description={disabled ? "Reduce motion and pause decorative effects." : "Enable decorative motion effects."}
-      checked={!disabled}
+      label="Reduce animations"
+      checked={disabled}
       onCheckedChange={handleToggle}
     />
   );

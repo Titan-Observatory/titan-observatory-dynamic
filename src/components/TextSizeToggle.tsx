@@ -38,8 +38,7 @@ export default function TextSizeToggle() {
   return (
     <AccessibilityToggle
       id="toggle-text-size"
-      label="Text size"
-      description={preference === "large" ? "Increase base font size." : "Use the default font size."}
+      label="Increase font size"
       checked={preference === "large"}
       onCheckedChange={handleToggle}
     />

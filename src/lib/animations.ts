@@ -7,7 +7,7 @@ export const getAnimationsDisabled = (): boolean => {
   const stored = window.localStorage.getItem(ANIMATIONS_STORAGE_KEY);
   if (stored === "true") return true;
   if (stored === "false") return false;
-  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+  return false;
 };
 
 export const applyAnimationsDisabled = (disabled: boolean) => {
