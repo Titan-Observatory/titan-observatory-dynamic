@@ -23,6 +23,10 @@ html, body, :root { height: 100%; }
   --color-aqua: 138 184 212;
 }
 
+:root.text-size-large {
+  font-size: 112.5%;
+}
+
 :root[data-theme="sunrise"] {
   --color-bg: 242 237 228;
   --color-bg-alt: 232 222 210;
@@ -62,6 +66,15 @@ html, body, :root { height: 100%; }
   ::selection {
     background: rgb(var(--color-orange));
     color: rgb(var(--color-bg));
+  }
+
+  [data-floating-controls] .floating-donate-widget,
+  [data-floating-controls] .floating-donate-widget iframe {
+    display: block;
+  }
+
+  [data-floating-controls] .floating-donate-widget iframe {
+    vertical-align: bottom;
   }
 }
 

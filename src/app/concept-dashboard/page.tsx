@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ConceptGlowPanel } from "@/components/ui/concept-glow-panel";
+import ConceptDashboardZoomImage from "@/components/ConceptDashboardZoomImage";
 
 export const revalidate = 86400;
 
@@ -59,12 +59,11 @@ export default function ConceptDashboardPage() {
             )}
             <figure className="mx-auto w-full max-w-5xl">
               <ConceptGlowPanel className="relative w-full border border-titan-border/60 bg-titan-bg-alt/80 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]">
-                <Image
+                <ConceptDashboardZoomImage
                   src={item.image.src}
                   alt={item.image.alt}
                   width={item.image.src.includes("Mockup-1") ? 1848 : 1508}
                   height={item.image.src.includes("Mockup-1") ? 1303 : 1123}
-                  className="h-auto w-full object-contain"
                   sizes="(min-width: 1280px) 900px, (min-width: 768px) 85vw, 95vw"
                   priority={item.image.src.includes("Mockup-1")}
                 />

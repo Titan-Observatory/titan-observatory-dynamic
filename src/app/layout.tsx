@@ -8,6 +8,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import Footer from "@/components/Footer";
+import FloatingAccessibilityControls from "@/components/FloatingAccessibilityControls";
 import "./globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 
@@ -22,6 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="relative min-h-screen bg-titan-bg text-titan-text-primary">
+        <Script
+          async
+          src="https://widgets.givebutter.com/latest.umd.cjs?acct=g00zGRQMS7cnoPdU&p=other"
+          strategy="afterInteractive"
+        />
         {GA_MEASUREMENT_ID ? (
           <>
             <Script
@@ -52,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <Navbar />
           <main className="mx-auto max-w-6xl flex-1 px-8 pt-8 pb-12">{children}</main>
+          <FloatingAccessibilityControls />
           <Footer />
         </div>
       </body>

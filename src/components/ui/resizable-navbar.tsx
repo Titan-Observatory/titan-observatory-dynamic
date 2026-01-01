@@ -17,8 +17,19 @@ interface NavBodyProps {
   condensed?: boolean;
 }
 
+interface NavItemChild {
+  name: string;
+  link: string;
+}
+
+interface NavItem {
+  name: string;
+  link?: string;
+  children?: NavItemChild[];
+}
+
 interface NavItemsProps {
-  items: { name: string; link: string }[];
+  items: NavItem[];
   activePath?: string;
   className?: string;
   onItemClick?: () => void;
@@ -128,7 +139,72 @@ export const NavItems = ({ items, className, activePath, onItemClick }: NavItems
       )}
     >
       {items.map((item, idx) => {
-        const isActive = activePath === item.link;
+        const isActive = item.link ? activePath === item.link : item.children?.some(child => child.link === activePath);
+
+        if (item.children?.length) {
+          return (
+            <div
+              key={item.name}
+              onMouseEnter={() => setHovered(idx)}
+              className="group relative"
+            >
+              <button
+                type="button"
+                aria-haspopup="menu"
+                className={cn(
+                  "relative rounded-full px-3 py-1.5 text-center leading-tight transition hover:text-titan-text-secondary",
+                  isActive ? "text-titan-text-secondary" : undefined,
+                )}
+              >
+                {(hovered === idx || isActive) && (
+                  <motion.span
+                    layoutId="navbar-hover"
+                    className="absolute inset-0 rounded-full bg-[rgba(198,147,68,0.18)]"
+                    transition={{ type: "spring", stiffness: 360, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {item.name}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    className="h-3.5 w-3.5"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                role="menu"
+                className="invisible absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 translate-y-2 rounded-2xl border border-[rgba(60,65,92,0.5)] bg-[rgba(23,26,40,0.95)] p-2 text-sm text-titan-text-primary opacity-0 shadow-[0_20px_46px_-30px_rgba(8,12,24,0.8)] backdrop-blur-xl transition before:absolute before:-top-3 before:left-1/2 before:h-3 before:w-56 before:-translate-x-1/2 before:content-[''] group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+              >
+                {item.children.map(child => (
+                  <Link
+                    key={child.link}
+                    href={child.link}
+                    onClick={onItemClick}
+                    className={cn(
+                      "flex w-full items-center justify-between rounded-xl border-l border-transparent px-3 py-2 pl-5 text-left text-sm transition hover:border-titan-border/70 hover:bg-titan-bg-alt/70 hover:text-titan-text-secondary",
+                      activePath === child.link ? "bg-titan-bg-alt/70 text-titan-text-secondary" : "text-titan-text-muted",
+                    )}
+                  >
+                    {child.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
+        if (!item.link) {
+          return null;
+        }
+
         return (
           <Link
             key={item.link}
@@ -193,7 +269,6 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNa
           "absolute left-0 right-0 top-full z-30 mt-3 flex max-h-[calc(100vh-8rem)] flex-col gap-3 overflow-y-auto rounded-2xl border border-[rgba(60,65,92,0.4)] bg-[rgba(23,26,40,0.96)] p-4 text-titan-text-primary shadow-[0_18px_42px_-24px_rgba(8,12,24,0.65)] backdrop-blur-xl",
           className,
         )}
-        onClick={onClose}
       >
         {children}
       </motion.div>

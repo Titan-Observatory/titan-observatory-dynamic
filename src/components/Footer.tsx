@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import AnimationToggle from "@/components/AnimationToggle";
 
 const quickLinks = [
   { label: "About", href: "/" },
   { label: "Specifications", href: "/specifications" },
+  { label: "The Team", href: "/team" },
 ];
 
 const communityLinks = [
@@ -65,6 +65,9 @@ export default function Footer() {
               </a>
             </p>
             <p>Community HQ · Lakeland, FL</p>
+          </div>
+          <div className="hidden pt-3 md:block">
+            <givebutter-widget id="gM1lng"></givebutter-widget>
           </div>
         </div>
 
@@ -163,7 +166,6 @@ export default function Footer() {
               Newsletter
             </a>
           </p>
-          <AnimationToggle />
         </div>
       </div>
     </footer>

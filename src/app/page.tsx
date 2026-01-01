@@ -1,5 +1,4 @@
 import Image from "next/image";
-import GofundmeEmbed from "@/components/GofundmeEmbed";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -62,16 +61,13 @@ export default function Home() {
             and structured curriculums which offer students the opportunity to capture and interpret real astronomical signals.
 
             We’re an officially incorporated 
-            nonprofit (501(c)(3) pending) with a four-member board, a site secured, and a 
+            nonprofit (501(c)(3) pending) with a five-member board, a site secured, and a 
             core team planning for the future.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
             The dish itself is a 10-meter Scientific-Atlanta Cassegrain on a Antlab precision positioner the current owner purchased directly from
             NASA nearly 50 years ago. It's been carefully maintained and fully operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
           </p>
-          <div className="max-w-[420px]">
-            <GofundmeEmbed />
-          </div>
         </div>
         <BackgroundGradient
           containerClassName="rounded-[2rem]"
@@ -88,27 +84,63 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
-      <section className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="space-y-5">
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
-          <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            For many, hands-on learning is the greatest way to learn, and unfortunately the nature of radio astronomy limits anyone curious to words in a textbook or daunting math.
-          </p>
-          <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            
-By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
-          </p>
+      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="flex justify-center lg:justify-start">
+          <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
+            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
+          </div>
         </div>
-        <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
-          <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
-          <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible by anyone:</p>
-          <ul className="space-y-2">
-            <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
-            <li>- High quality RF chains and calibrated feeds for bands of interest</li>
-            <li>- Local hosting for all services (except backups) to maximize availability</li>
-            <li>- Documentation and guides to allow anyone to learn on real equipment</li>
-          </ul>
-        </aside>
+        <div className="space-y-10">
+          <div className="space-y-5">
+            <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
+            <p className="text-sm leading-relaxed text-titan-text-primary/90">
+              For many, hands-on learning is the greatest way to learn, and unfortunately the nature of radio astronomy limits anyone curious to words in a textbook or daunting math.
+            </p>
+            <p className="text-sm leading-relaxed text-titan-text-primary/90">
+              By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
+            </p>
+          </div>
+          <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
+            <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
+            <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible by anyone:</p>
+            <ul className="space-y-2">
+              <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
+              <li>- High quality RF chains and calibrated feeds for bands of interest</li>
+              <li>- Local hosting for all services (except backups) to maximize availability</li>
+              <li>- Documentation and guides to allow anyone to learn on real equipment</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section className="grid gap-8 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[1.15fr_0.85fr] md:items-center">
+        <div className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Mission badge gift</p>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Claim the mission badge</h2>
+          <p className="text-sm leading-relaxed text-titan-text-primary/90">
+            Every donation keeps the observatory moving forward. As a thank-you, we send a mission badge gift for
+            qualifying contributions. Please remember to include your shipping address at checkout.
+          </p>
+          <div className="space-y-2 text-base text-titan-text-primary/90 sm:text-lg">
+            <p>
+              <span className="font-semibold text-titan-text-secondary">$25+:</span> Mission badge sticker of the design.
+            </p>
+            <p>
+              <span className="font-semibold text-titan-text-secondary">$50+:</span> Embroidered iron-on patch & sticker
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-center md:justify-end">
+          <div className="w-full max-w-[280px]">
+            <Image
+              src="/images/DonorBadge.png"
+              alt="Titan Observatory mission badge design."
+              width={480}
+              height={480}
+              className="h-auto w-full rounded-2xl border border-titan-border/60 bg-titan-bg/60 p-4 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="grid gap-12 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[2fr_1fr] md:items-start">
