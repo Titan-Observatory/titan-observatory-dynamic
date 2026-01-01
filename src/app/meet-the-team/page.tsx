@@ -61,7 +61,7 @@ export default function MeetTheTeamPage() {
       </section>
 
       <section>
-        <div className="inline-flex items-center gap-3 whitespace-nowrap rounded-full border border-titan-border/60 bg-titan-bg-alt/90 px-4 py-4 text-xs uppercase tracking-[0.18em] text-titan-text-secondary">
+        <div className="flex flex-wrap items-center gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 px-4 py-4 text-xs uppercase tracking-[0.18em] text-titan-text-secondary sm:inline-flex sm:flex-nowrap">
           <span>Interested in joining the team?</span>
           <a
             href="https://ideali.st/USGqBK"
