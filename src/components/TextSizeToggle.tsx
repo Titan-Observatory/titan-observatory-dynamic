@@ -8,6 +8,7 @@ import {
   getTextSizePreference,
   type TextSizePreference,
 } from "@/lib/text-size";
+import AccessibilityToggle from "@/components/AccessibilityToggle";
 
 export default function TextSizeToggle() {
   const [preference, setPreference] = useState<TextSizePreference>("normal");
@@ -28,20 +29,18 @@ export default function TextSizeToggle() {
     return () => window.removeEventListener(TEXT_SIZE_EVENT, handler);
   }, []);
 
-  const handleToggle = () => {
-    const nextPreference = preference === "large" ? "normal" : "large";
+  const handleToggle = (checked: boolean) => {
+    const nextPreference = checked ? "large" : "normal";
     setPreference(nextPreference);
     applyTextSizePreference(nextPreference);
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      className="rounded-full border border-titan-border/60 px-3 py-1 text-xs font-semibold text-titan-text-muted transition hover:border-titan-yellow/70 hover:text-titan-yellow"
-      aria-pressed={preference === "large"}
-    >
-      Text size: {preference === "large" ? "Large" : "Normal"}
-    </button>
+    <AccessibilityToggle
+      id="toggle-text-size"
+      label="Increase font size"
+      checked={preference === "large"}
+      onCheckedChange={handleToggle}
+    />
   );
 }

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { IconAccessible } from "@tabler/icons-react";
 
-import AccessibilityControls from "@/components/AccessibilityControls";
+import AccessibilityPanel from "@/components/AccessibilityPanel";
 
 export default function FloatingAccessibilityControls() {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function FloatingAccessibilityControls() {
           id="accessibility-controls-panel"
           className="rounded-2xl border border-titan-border/60 bg-titan-bg/95 p-3 shadow-lg backdrop-blur"
         >
-          <AccessibilityControls className="justify-end" />
+          <AccessibilityPanel compact className="items-end" />
         </div>
       ) : null}
       <button
@@ -23,9 +24,9 @@ export default function FloatingAccessibilityControls() {
         aria-expanded={open}
         aria-controls="accessibility-controls-panel"
         aria-label="Accessibility settings"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-titan-border/60 bg-titan-bg/90 text-sm font-semibold text-titan-text-secondary shadow-lg transition hover:border-titan-yellow/70 hover:text-titan-yellow"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-titan-border/60 bg-titan-bg/90 text-titan-text-secondary shadow-lg transition hover:border-titan-yellow/70 hover:text-titan-yellow"
       >
-        Aa
+        <IconAccessible className="h-6 w-6" aria-hidden="true" />
       </button>
     </div>
   );

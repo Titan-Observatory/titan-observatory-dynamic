@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import AccessibilityControls from "@/components/AccessibilityControls";
+import AccessibilityPanel from "@/components/AccessibilityPanel";
 
 const quickLinks = [
   { label: "About", href: "/" },
@@ -163,7 +163,7 @@ export default function Footer() {
               Newsletter
             </a>
           </p>
-          <AccessibilityControls className="hidden md:flex" />
+          <AccessibilityPanel className="hidden md:flex md:items-end" />
         </div>
       </div>
     </footer>

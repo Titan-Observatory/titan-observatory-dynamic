@@ -7,6 +7,7 @@ import {
   applyAnimationsDisabled,
   getAnimationsDisabled,
 } from "@/lib/animations";
+import AccessibilityToggle from "@/components/AccessibilityToggle";
 
 export default function AnimationToggle() {
   const [disabled, setDisabled] = useState(false);
@@ -27,20 +28,18 @@ export default function AnimationToggle() {
     return () => window.removeEventListener(ANIMATIONS_EVENT, handler);
   }, []);
 
-  const handleToggle = () => {
-    const nextDisabled = !disabled;
+  const handleToggle = (checked: boolean) => {
+    const nextDisabled = checked;
     setDisabled(nextDisabled);
     applyAnimationsDisabled(nextDisabled);
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      className="rounded-full border border-titan-border/60 px-3 py-1 text-xs font-semibold text-titan-text-muted transition hover:border-titan-yellow/70 hover:text-titan-yellow"
-      aria-pressed={disabled}
-    >
-      Animations: {disabled ? "Off" : "On"}
-    </button>
+    <AccessibilityToggle
+      id="toggle-animations"
+      label="Reduce animations"
+      checked={disabled}
+      onCheckedChange={handleToggle}
+    />
   );
 }
