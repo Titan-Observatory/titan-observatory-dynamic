@@ -11,7 +11,7 @@ type AccessibilityControlsProps = {
 export default function AccessibilityControls({ className }: AccessibilityControlsProps) {
   return (
     <div
-      className={cn("flex flex-wrap justify-center gap-3 md:justify-end", className)}
+      className={cn("grid gap-3 md:w-[320px]", className)}
       role="group"
       aria-label="Accessibility settings"
     >
