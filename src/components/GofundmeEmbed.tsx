@@ -1,5 +1,3 @@
-"use client";
-
 const WIDGET_URL =
   "https://www.gofundme.com/f/help-build-titan-observatory-for-student-science/widget/medium?sharesheet=undefined&attribution_id=sl:e9f624ba-2f25-49c0-9786-cab56d206ade";
 
