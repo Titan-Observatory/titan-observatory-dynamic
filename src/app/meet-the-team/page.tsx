@@ -66,13 +66,12 @@ export default function MeetTheTeamPage() {
             ))}
           </div>
         </div>
-        <figure className="order-1 overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2">
+        <figure className="order-1 relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2 lg:aspect-[3/4]">
           <Image
             src="/images/headshots/Thomas.jpg"
             alt="Executive director portrait"
-            width={3189}
-            height={3793}
-            className="h-auto w-full object-contain"
+            fill
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 520px, 90vw"
             priority
           />
