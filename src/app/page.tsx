@@ -1,5 +1,4 @@
 import Image from "next/image";
-import GofundmeEmbed from "@/components/GofundmeEmbed";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -70,7 +69,7 @@ export default function Home() {
             NASA nearly 50 years ago. It's been carefully maintained and fully operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
           </p>
           <div className="max-w-[420px]">
-            <GofundmeEmbed />
+            <givebutter-widget id="LyX3Yj"></givebutter-widget>
           </div>
         </div>
         <BackgroundGradient

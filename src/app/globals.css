@@ -23,6 +23,10 @@ html, body, :root { height: 100%; }
   --color-aqua: 138 184 212;
 }
 
+:root.text-size-large {
+  font-size: 112.5%;
+}
+
 :root[data-theme="sunrise"] {
   --color-bg: 242 237 228;
   --color-bg-alt: 232 222 210;

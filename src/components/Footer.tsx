@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import AnimationToggle from "@/components/AnimationToggle";
+import TextSizeToggle from "@/components/TextSizeToggle";
 
 const quickLinks = [
   { label: "About", href: "/" },
@@ -163,7 +164,10 @@ export default function Footer() {
               Newsletter
             </a>
           </p>
-          <AnimationToggle />
+          <div className="flex flex-wrap justify-center gap-3 md:justify-end">
+            <TextSizeToggle />
+            <AnimationToggle />
+          </div>
         </div>
       </div>
     </footer>

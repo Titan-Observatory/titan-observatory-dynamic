@@ -22,6 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="relative min-h-screen bg-titan-bg text-titan-text-primary">
+        <Script
+          async
+          src="https://widgets.givebutter.com/latest.umd.cjs?acct=g00zGRQMS7cnoPdU&p=other"
+          strategy="afterInteractive"
+        />
         {GA_MEASUREMENT_ID ? (
           <>
             <Script
