@@ -78,6 +78,30 @@ export default function MeetTheTeamPage() {
             </svg>
           </a>
         </div>
+      </header>
+
+      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="order-2 space-y-4 lg:order-1">
+          <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
+          <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
+          <div className="space-y-3 text-sm leading-relaxed text-titan-text-primary/90">
+            {executiveDirector.bio.map(paragraph => (
+              <p key={paragraph} style={{ textIndent: "2rem" }}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+        <figure className="order-1 relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2 lg:aspect-[3/4]">
+          <Image
+            src="/images/headshots/Thomas.jpg"
+            alt="Executive director portrait"
+            fill
+            className="object-cover object-top"
+            sizes="(min-width: 1024px) 520px, 90vw"
+            priority
+          />
+        </figure>
       </section>
 
       <section className="space-y-10">
