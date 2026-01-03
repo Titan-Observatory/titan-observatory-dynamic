@@ -205,15 +205,23 @@ export default function Home() {
           <div>
             <h2 className="text-2xl font-semibold text-titan-text-secondary">Roadmap to First Light</h2>
             <p className="text-sm text-titan-text-muted">
-              Four focused phases carry Titan from a Facebook Marketplace listing to student-ready operations.
+               
+            </p>
+            <p className="text-sm text-titan-text-muted">
+              The full budget to operation is being updated with feedback. For an up-to-date budget, please contact{" "}
+              <a href="mailto:contact@titanobservatory.com">contact@titanobservatory.com</a> for more information.
             </p>
           </div>
+          {/*
           <span className="rounded-full border border-titan-border/60 px-4 py-1 text-xs uppercase tracking-widest text-titan-text-muted">
             Working total ~ $118,000
           </span>
+          */}
         </div>
 
+        {/*
         <PhaseTimeline phases={phases} />
+        */}
       </section>
 
     </main>
