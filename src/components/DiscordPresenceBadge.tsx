@@ -14,6 +14,7 @@ type WidgetResponse = {
 
 const POLL_INTERVAL_MS = 15000;
 const numberFormatter = new Intl.NumberFormat("en-US");
+const DISCORD_INVITE_URL = "https://discord.gg/T5F6AG26tE";
 
 export default function DiscordPresenceBadge({ className }: { className?: string }) {
   const [data, setData] = useState<WidgetResponse | null>(null);
@@ -82,10 +83,10 @@ export default function DiscordPresenceBadge({ className }: { className?: string
     className,
   );
 
-  if (data?.instantInvite) {
+  if (DISCORD_INVITE_URL) {
     return (
       <a
-        href={data.instantInvite}
+        href={DISCORD_INVITE_URL}
         target="_blank"
         rel="noopener noreferrer"
         className={baseClass}
