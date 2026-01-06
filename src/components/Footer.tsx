@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid flex-1 grid-cols-1 gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-3">
+        <div className="grid flex-1 grid-cols-1 gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Quick Links
@@ -99,6 +99,43 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
+              Follow Us
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  className="hover:text-titan-yellow"
+                  rel="me"
+                  href="https://mastodon.social/@TitanObservatory"
+                >
+                  Mastodon
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:text-titan-yellow"
+                  href="https://x.com/TitanObservatry"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  X (Twitter)
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:text-titan-yellow"
+                  href="https://www.reddit.com/r/TitanObservatory/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Reddit
+                </a>
+              </li>
             </ul>
           </div>
 
