@@ -14,7 +14,7 @@ import "react-photo-view/dist/react-photo-view.css";
 
 export const metadata: Metadata = {
   title: "Titan Observatory",
-  description: "Community & updates",
+  description: "Community Radio Observatory",
 };
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
