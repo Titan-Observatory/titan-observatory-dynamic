@@ -39,10 +39,10 @@ export default function ConceptDashboardPage() {
       <section className="space-y-4">
         <h1 className="text-4xl font-bold text-titan-text-secondary">Concept Dashboard</h1>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          Below are concepts of what a potential control dashboard might look like.
-          The purpose of this mockup is to give an idea of the direction we would like to go in and
-          the level of accessibility we would like to achieve with informational tooltips explaining the different settings
-          and a customized catalog of objects to observe. The final product may end up looking very different once development begins.
+          Below are concepts for what a potential control dashboard might look like. The purpose of these mockups is to show
+          the direction we want to take and the level of accessibility we want to achieve, with informational tooltips that
+          explain different settings and a customized catalog of objects to observe. The final product may end up looking very
+          different once development begins.
         </p>
       </section>
 

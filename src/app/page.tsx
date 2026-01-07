@@ -55,18 +55,20 @@ export default function Home() {
             About Us
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of 
-            purchasing this 10m radio telescope, modernizing it's control system, and building a user-friendly web portal; allowing anyone to schedule observing time.
-            The long term mission is to bridge the gap between curious learner and PhD candidate by producing educational materials covering the fundamentals of radio astronomy,
-            and structured curriculums which offer students the opportunity to capture and interpret real astronomical signals.
+            We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of
+            purchasing this 10m radio telescope, modernizing its control system, and building a user-friendly web portal
+            that allows anyone to schedule observing time. The long-term mission is to bridge the gap between curious
+            learners and PhD candidates by producing educational materials covering the fundamentals of radio astronomy
+            and structured curricula that offer students the opportunity to capture and interpret real astronomical
+            signals.
 
-            We’re an officially incorporated 
-            nonprofit (501(c)(3) pending) with a five-member board, a site secured, and a 
-            core team planning for the future.
+            We’re an officially incorporated nonprofit (501(c)(3) pending) with a five-member board, a site secured,
+            and a core team planning for the future.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on a Antlab precision positioner the current owner purchased directly from
-            NASA nearly 50 years ago. It's been carefully maintained and fully operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
+            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
+            current owner purchased directly from NASA nearly 50 years ago. It&apos;s been carefully maintained and fully
+            operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
           </p>
         </div>
         <BackgroundGradient
@@ -94,7 +96,8 @@ export default function Home() {
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              For many, hands-on learning is the greatest way to learn, and unfortunately the nature of radio astronomy limits anyone curious to words in a textbook or daunting math.
+              For many, hands-on learning is the best way to learn, but the nature of radio astronomy limits curious
+              learners to words in a textbook or daunting math.
             </p>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
               By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
@@ -102,10 +105,10 @@ export default function Home() {
           </div>
           <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
             <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
-            <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible by anyone:</p>
+            <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible to anyone:</p>
             <ul className="space-y-2">
               <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
-              <li>- High quality RF chains and calibrated feeds for bands of interest</li>
+              <li>- High-quality RF chains and calibrated feeds for bands of interest</li>
               <li>- Local hosting for all services (except backups) to maximize availability</li>
               <li>- Documentation and guides to allow anyone to learn on real equipment</li>
             </ul>
@@ -147,10 +150,10 @@ export default function Home() {
         <div className="space-y-5">
           <h2 className="text-2xl font-semibold text-titan-text-secondary">Get involved!</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If this is something you'd like to become a part of, apply to volunteer! Building a remote radio observatory is no small task, and requires a wide range of skillsets, so you dont have to be a radio astronomer or a master programmer to contribute. 
+            If this is something you'd like to become a part of, apply to volunteer! Building a remote radio observatory is no small task, and requires a wide range of skill sets, so you don't have to be a radio astronomer or a master programmer to contribute.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If you're just looking to learn more about radio astronomy, head over to our community forum or join our discord! We have hundreds of community members with places to ask questions and hang out with the community.
+            If you're just looking to learn more about radio astronomy, head over to our community forum or join our Discord! We have hundreds of community members with places to ask questions and hang out.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
@@ -176,7 +179,9 @@ export default function Home() {
         </div>
         <aside className="space-y-4 text-sm leading-relaxed text-titan-text-primary/90">
           <h3 className="text-base font-semibold text-titan-text-secondary">Helpful skills</h3>
-          <p className="text-sm leading-relaxed text-titan-text-primary/90">Be aware we may not need some of these until later stages of the project, so while you wait, check out the forum!</p>
+          <p className="text-sm leading-relaxed text-titan-text-primary/90">
+            Be aware that we may not need some of these until later stages of the project, so while you wait, check out the forum!
+          </p>
           <ul className="space-y-2">
             <li>- RF/HAM</li>
             <li>- Signal Chain (LNAs, SDR, Feeds, etc.)</li>
@@ -208,7 +213,7 @@ export default function Home() {
                
             </p>
             <p className="text-sm text-titan-text-muted">
-              The full budget to operation is being updated with feedback. For an up-to-date budget, please contact{" "}
+              The full operating budget is being updated with feedback. For an up-to-date budget, please contact{" "}
               <a href="mailto:contact@titanobservatory.com">contact@titanobservatory.com</a> for more information.
             </p>
           </div>

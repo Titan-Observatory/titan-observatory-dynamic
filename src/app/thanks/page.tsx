@@ -12,7 +12,7 @@ export default function NewsletterThanksPage() {
         <p className="text-xs uppercase tracking-[0.35em] text-titan-text-muted">Newsletter</p>
         <h1 className="text-3xl font-semibold text-titan-text-secondary">Thanks for joining our newsletter!</h1>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          You&apos;re officially on the list! Expect occasional notes on fundraising milestones, contruction progress, and ways
+          You&apos;re officially on the list! Expect occasional notes on fundraising milestones, construction progress, and ways
           you can help bring the observatory online.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">

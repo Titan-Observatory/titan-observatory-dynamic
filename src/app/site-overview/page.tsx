@@ -27,7 +27,7 @@ const candidateSections = [
   {
     title: "Radio Environment",
     copy: [
-      "The parcel is situated in an incredibly isolated area only a few miles from the vast Green Swamp of Florida, on the very edges of even rural development. This will ensure a radio quiet zone for many years to come as we dont need to worry about sprawling suburbs bringing radio towers into the area.",
+      "The parcel is situated in an incredibly isolated area only a few miles from the vast Green Swamp of Florida, on the very edges of even rural development. This will ensure a radio-quiet zone for many years to come as we don't need to worry about sprawling suburbs bringing radio towers into the area.",
       "Nearest transmitting radio tower: 3.61 Miles",
       "Nearest Airport with Radar: 43 Miles (Tampa International)",
     ],

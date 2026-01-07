@@ -39,7 +39,7 @@ export default function SystemArchitecturePage() {
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-titan-text-secondary">Data handling</h3>
           <p>
-            Data collected from the telescope moves through a processing pipeline that checks data quality and then writes results to the local storage array for rapid access. The system also keeps detailed records of observations and metadata, and maintains backups, so data is robust and well documented.
+            Data collected from the telescope moves through a processing pipeline that checks data quality and then writes results to the local storage array for rapid access. The system also keeps detailed records of observations and metadata, and maintains backups, so data is robust and well-documented.
           </p>
         </div>
 
