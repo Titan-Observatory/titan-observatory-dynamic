@@ -5,6 +5,7 @@ const quickLinks = [
   { label: "About", href: "/" },
   { label: "Specifications", href: "/specifications" },
   { label: "The Team", href: "/team" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 const communityLinks = [

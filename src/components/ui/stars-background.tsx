@@ -33,8 +33,9 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   const [animationsEnabled, setAnimationsEnabled] = useState(true);
   const lastSizeRef = useRef({ width: 0, height: 0 });
 
-  const generateStars = useCallback(
-    (width: number, height: number): StarProps[] => {
+  const generateStarsForArea = useCallback(
+    (width: number, startY: number, endY: number): StarProps[] => {
+      const height = Math.max(0, endY - startY);
       const area = width * height;
       const numStars = Math.floor(area * starDensity);
       return Array.from({ length: numStars }, () => {
@@ -42,7 +43,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
           allStarsTwinkle || Math.random() < twinkleProbability;
         return {
           x: Math.random() * width,
-          y: Math.random() * height,
+          y: startY + Math.random() * height,
           radius: Math.random() * 0.05 + 0.5,
           opacity: Math.random() * 0.5 + 0.5,
           twinkleSpeed: shouldTwinkle
@@ -59,6 +60,12 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       minTwinkleSpeed,
       maxTwinkleSpeed,
     ]
+  );
+
+  const generateStars = useCallback(
+    (width: number, height: number): StarProps[] =>
+      generateStarsForArea(width, 0, height),
+    [generateStarsForArea]
   );
 
   useEffect(() => {
@@ -96,24 +103,30 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       const width = window.innerWidth;
       const height = getContentHeight();
       const widthChanged = canvas.width !== width;
-      const heightChanged = canvas.height !== height;
-      const heightDelta = Math.abs(height - lastSizeRef.current.height);
-      const shouldRegenerate = force || widthChanged || heightDelta > 200;
+      const heightDelta = Math.abs(height - canvas.height);
+      const shouldResizeHeight = force || heightDelta > 200;
+      const previousHeight = lastSizeRef.current.height;
+      const shouldRegenerate = force || widthChanged;
 
       if (widthChanged || force) {
         canvas.width = width;
       }
 
-      if (heightChanged || force) {
+      if (shouldResizeHeight) {
         canvas.height = height;
       }
 
+      const effectiveHeight = shouldResizeHeight ? height : canvas.height;
       canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      lastSizeRef.current = { width, height };
+      canvas.style.height = `${effectiveHeight}px`;
+      lastSizeRef.current = { width, height: effectiveHeight };
 
       if (shouldRegenerate) {
-        setStars(generateStars(width, height));
+        setStars(generateStars(width, effectiveHeight));
+      } else if (shouldResizeHeight && height > previousHeight) {
+        setStars(prevStars =>
+          prevStars.concat(generateStarsForArea(width, previousHeight, height))
+        );
       }
     };
 

@@ -40,7 +40,14 @@ const teamMembers: TeamMember[] = [
   },
   { name: "Jennise Santiago", role: "Secretary, Board" },
   { name: "Sanskar Bhattacharya", role: "Project Manager" },
-  { name: "Jonathan Hart", role: "Board Member" },
+  {
+    name: "Jonathan Hart",
+    role: "Board Member",
+    image: {
+      src: "/images/headshots/Jonathan-Hart.webp",
+      alt: "Jonathan Hart headshot",
+    },
+  },
   { name: "Chris Picquet", role: "Board Member" },
   { name: "Peggy Frisbie", role: "Board Member" },
 ];
