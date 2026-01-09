@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Won't this cost a fortune to move?",
     answer:
-      "After removing what are essentially four big bolts, the dish is able to be lifted off it's pedistal with a modest crane. The dish can then be disassembled into managable segments on the ground and loaded on standard trailers for transport.",
+      "It would if it had to be moved in one piece, but after removing what are essentially four big bolts, the dish is able to be lifted off it's pedistal with a modest crane. The dish can then be disassembled into managable segments on the ground and loaded on standard trailers for transport.",
   },
   {
     question: "Where will the observatory be located?",
