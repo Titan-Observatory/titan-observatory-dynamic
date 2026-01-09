@@ -17,7 +17,7 @@ const mockups = [
       "box text.",
     ],
     image: {
-      src: "/images/Dashboard-Mockup-1.png",
+      src: "/images/Dashboard-Mockup-1.webp",
       alt: "Dashboard-Mockup-1",
     },
   },
@@ -27,7 +27,7 @@ const mockups = [
       "Advanced controls will still be made available to allow more experienced users to do more with the telescope. This is just a sample of possible controls and does not reflect everything that will be available.",
     ],
     image: {
-      src: "/images/Dashboard-Mockup-2.png",
+      src: "/images/Dashboard-Mockup-2.webp",
       alt: "Dashboard-Mockup-2",
     },
   },

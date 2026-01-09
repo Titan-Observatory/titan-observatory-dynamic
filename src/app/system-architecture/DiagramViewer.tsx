@@ -55,10 +55,10 @@ export default function DiagramViewer() {
       }}
     >
       <div className="overflow-auto rounded-3xl border border-titan-border/60 bg-titan-bg-alt/60 p-5">
-        <PhotoView src="/images/ArchitecturePlan.png">
+        <PhotoView src="/images/ArchitecturePlan.webp">
           <div className="relative">
             <Image
-              src="/images/ArchitecturePlan.png"
+              src="/images/ArchitecturePlan.webp"
               alt="System architecture diagram"
               width={5552}
               height={1908}

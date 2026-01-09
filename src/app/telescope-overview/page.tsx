@@ -38,15 +38,15 @@ const keyFacts = [
 
 const telescopeImages = [
   {
-    src: "/images/titan-looking-up.png",
+    src: "/images/titan-looking-up.webp",
     alt: "Looking up from the base of the Titan dish.",
   },
   {
-    src: "/images/titan-drone-shot-1.png",
+    src: "/images/titan-drone-shot-1.webp",
     alt: "Drone shot of the Titan telescope and surroundings.",
   },
   {
-    src: "/images/titan-drone-shot-2.png",
+    src: "/images/titan-drone-shot-2.webp",
     alt: "Top-down drone view of the Titan telescope assembly.",
   },
 ];

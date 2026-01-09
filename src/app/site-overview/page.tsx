@@ -15,14 +15,14 @@ const candidateSections = [
     copy: [
       "We've made multiple trips to the site to confirm its suitability and have updated our working plan to take advantage of the existing gate and cleared path to minimize tree removal and landscaping. The telescope itself will be located in a clearing, minimizing spillover from nearby trees.",
     ],
-    image: { src: "/images/site-plan.png", alt: "Roadside view of the proposed observatory entrance." },
+    image: { src: "/images/site-plan.webp", alt: "Roadside view of the proposed observatory entrance." },
   },
   {
     title: "Zoning",
     copy: [
       "Agricultural zoning keeps permitting simple. The county planner has confirmed that we will only need a C2 conditional use permit, requiring a basic site plan, and that \"there is little for Planning & Development staff to review given the proposal will not have significant land use conflicts, require public facilities, or ongoing staffing.\"",
     ],
-    image: { src: "/images/zoning-grid.png", alt: "Parcel grid map showing the proposed pier and access drive." },
+    image: { src: "/images/zoning-grid.webp", alt: "Parcel grid map showing the proposed pier and access drive." },
   },
   {
     title: "Radio Environment",
@@ -31,7 +31,7 @@ const candidateSections = [
       "Nearest transmitting radio tower: 3.61 Miles",
       "Nearest Airport with Radar: 43 Miles (Tampa International)",
     ],
-    image: { src: "/images/zoning-circle.png", alt: "Land-use buffer illustrating the radio-quiet surroundings." },
+    image: { src: "/images/zoning-circle.webp", alt: "Land-use buffer illustrating the radio-quiet surroundings." },
   },
 ];
 

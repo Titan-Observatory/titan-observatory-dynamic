@@ -27,19 +27,19 @@ const shareLinks = [
     label: "Share on X",
     href: "https://twitter.com/intent/tweet?text=Check%20out%20the%20Titan%20Observatory%20project!%20https%3A%2F%2Ftitanobservatory.org",
     color: "#1DA1F2",
-    icon: "/social%20media/twitter.png",
+    icon: "/social%20media/twitter.webp",
   },
   {
     label: "Share on Facebook",
     href: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftitanobservatory.org",
     color: "#3b5998",
-    icon: "/social%20media/facebook.png",
+    icon: "/social%20media/facebook.webp",
   },
   {
     label: "Share on LinkedIn",
     href: "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftitanobservatory.org",
     color: "#0A66C2",
-    icon: "/social%20media/linkedin.png",
+    icon: "/social%20media/linkedin.webp",
   },
 ];
 

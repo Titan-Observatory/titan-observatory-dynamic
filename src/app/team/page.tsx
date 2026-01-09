@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     name: "Tag Hunt",
     role: "Vice President, Board",
     image: {
-      src: "/images/headshots/Tag-Hunt.jpg",
+      src: "/images/headshots/Tag-Hunt.webp",
       alt: "Tag Hunt headshot",
     },
   },
@@ -42,6 +42,7 @@ const teamMembers: TeamMember[] = [
   { name: "Sanskar Bhattacharya", role: "Project Manager" },
   { name: "Jonathan Hart", role: "Board Member" },
   { name: "Chris Picquet", role: "Board Member" },
+  { name: "Peggy Frisbie", role: "Board Member" },
 ];
 
 export default function MeetTheTeamPage() {
@@ -61,7 +62,7 @@ export default function MeetTheTeamPage() {
         </div>
         <figure className="relative order-1 aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/70 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] lg:order-2">
           <Image
-            src="/images/headshots/Thomas-Oglesby.jpg"
+            src="/images/headshots/Thomas-Oglesby.webp"
             alt="Executive director portrait"
             fill
             className="object-cover"

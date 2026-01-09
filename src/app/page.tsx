@@ -76,7 +76,7 @@ export default function Home() {
           className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]"
         >
           <Image
-            src="/images/titan.png"
+            src="/images/titan.webp"
             alt="The Titan radio telescope awaiting modernization."
             fill
             className="object-cover object-center"
@@ -136,7 +136,7 @@ export default function Home() {
         <div className="flex justify-center md:justify-end">
           <div className="w-full max-w-[280px]">
             <Image
-              src="/images/DonorBadge.png"
+              src="/images/DonorBadge.webp"
               alt="Titan Observatory mission badge design."
               width={480}
               height={480}
