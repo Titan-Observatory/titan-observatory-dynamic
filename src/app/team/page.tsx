@@ -38,7 +38,14 @@ const teamMembers: TeamMember[] = [
       alt: "Tag Hunt headshot",
     },
   },
-  { name: "Jennise Santiago", role: "Secretary, Board" },
+  {
+    name: "Jennise Santiago",
+    role: "Secretary, Board",
+    image: {
+      src: "/images/headshots/Jennise-Santiago.webp",
+      alt: "Jennise Santiago headshot",
+    },
+  },
   { name: "Sanskar Bhattacharya", role: "Project Manager" },
   {
     name: "Jonathan Hart",
@@ -49,7 +56,14 @@ const teamMembers: TeamMember[] = [
     },
   },
   { name: "Chris Picquet", role: "Board Member" },
-  { name: "Peggy Frisbie", role: "Board Member" },
+  {
+    name: "Peggy Frisbie",
+    role: "Board Member",
+    image: {
+      src: "/images/headshots/Peggy-Frisbie.webp",
+      alt: "Peggy Frisbie headshot",
+    },
+  },
 ];
 
 export default function MeetTheTeamPage() {
