@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import SiteHeader from "@/components/SiteHeader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GivebutterConversionTracker from "@/components/GivebutterConversionTracker";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import Footer from "@/components/Footer";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Suspense>
           </>
         ) : null}
+        <GivebutterConversionTracker />
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <StarsBackground className="pointer-events-none" />
           <ShootingStars className="pointer-events-none" />
