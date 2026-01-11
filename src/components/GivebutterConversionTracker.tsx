@@ -22,7 +22,7 @@ export default function GivebutterConversionTracker() {
       };
 
       if (window.gtag) {
-        window.gtag("event", "conversion_event_purchase", {
+        window.gtag("event", "conversion_event_purchase_1", {
           event_callback: callback,
           event_timeout: 2000,
         });
