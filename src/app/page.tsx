@@ -50,8 +50,9 @@ const phases = [
     title: "Phase 4 - First Light & Operations",
     status: "Upcoming",
     details: [
-      "Volunteer-developed scheduler, control interface, and calibration pipeline",
-      "Education-focused data packaging and documentation for classrooms",
+      "Development of telescope control systems led by staff volunteers with community involvement",
+      "Web platform for scheduling observations and accessing lessons created",
+      "Curricula and public courses developed to teach the fundamentals of radio astronomy & related subjects",
     ],
   },
 ];
