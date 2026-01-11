@@ -11,29 +11,39 @@ const phases = [
     title: "Phase 1 - Acquire & Move",
     status: "In progress",
     details: [
-      "Purchase telescope ($70k) and exercise the option contract",
-      "Crane and rigging ($3k) for safe disassembly and lifts",
-      "Short-haul transport (~40 miles) with insured carrier ($500)",
+      "Purchase telescope: $70,000",
+      "Crane + rigging + crew for disassembly/loading: $6,000",
+      "Short-haul transport (~40 miles): $2,500",
+      "Crating: $1,000",
     ],
   },
   {
     title: "Phase 2 - Install",
     status: "Preparing",
+    estimate: { },
     details: [
-      "Engineered concrete foundation and pier bolts ($10k)",
-      "Dedicated electrical service, UPS, and grounding ($3k)",
-      "Lightning protection and site grounding ($2k)",
-      "Site grading, service road, and pad leveling ($10k)",
-      "Permits, inspections, and local fees ($1k)",
+      "Survey + topo: $3,500",
+      "Geotech (borings/report): $3,000",
+      "Engineering (foundation design, anchor schedule, wind/loading calcs): $5,000",
+      "Concrete foundation + excavation: $15,000",
+      "Site grading/drainage + pad prep: $3,000",
+      "Service road / crane access: $6,000",
+      "Solar system: $9,000",
+      "UPS / power conditioning: $2,000",
+      "Lightning protection + site grounding: $8,000",
+      "Permits, plan review, inspections, local fees: $2,000",
+      "Basic security (fencing + a couple cameras): $3,000",
+      "Weather/environment monitoring: $1000",
     ],
   },
   {
     title: "Phase 3 - Refurbish & Modernize",
     status: "Upcoming",
+    estimate: {},
     details: [
-      "Motion control system: encoders, controllers, safety interlocks ($5k)",
-      "L- and S-band RF chain: feeds, LNAs, filters, SDR backend ($1k)",
-      "Compute and networking stack for secure remote access ($1k)",
+      "Motion control interface/retrofit: $10,000",
+      "L- and S-band RF chain (feeds, LNAs, filters, bias, coax/waveguide, switching): $4,000",
+      "Compute + networking for secure remote ops (router/firewall, VPN, PoE switching, control PC): $3,000",
     ],
   },
   {
@@ -212,21 +222,27 @@ export default function Home() {
             <p className="text-sm text-titan-text-muted">
                
             </p>
-            <p className="text-sm text-titan-text-muted">
+            {/* <p className="text-sm text-titan-text-muted">
               The full operating budget is being updated with feedback. For an up-to-date budget, please contact{" "}
               <a href="mailto:contact@titanobservatory.com">contact@titanobservatory.com</a> for more information.
-            </p>
+            </p> */}
           </div>
-          {/*
-          <span className="rounded-full border border-titan-border/60 px-4 py-1 text-xs uppercase tracking-widest text-titan-text-muted">
-            Working total ~ $118,000
+          {
+          <span className="rounded-3xl border border-titan-border/60 px-6 py-4 text-right text-xs uppercase tracking-[0.3em] text-titan-text-muted">
+            <span className="block text-titan-text-secondary">Working total</span>
+            <span className="mt-2 block text-2xl font-semibold normal-case tracking-normal text-titan-text-secondary">
+              $157,000
+            </span>
+            <span className="mt-2 block text-sm normal-case tracking-normal text-titan-text-primary/80">
+              + 10% contingency ≈ $173,000
+            </span>
           </span>
-          */}
+          }
         </div>
 
-        {/*
+        {
         <PhaseTimeline phases={phases} />
-        */}
+        }
       </section>
 
     </main>
