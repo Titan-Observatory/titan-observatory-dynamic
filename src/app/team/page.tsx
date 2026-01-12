@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { IconUser } from "@tabler/icons-react";
+import { IconBrandLinkedin, IconUser } from "@tabler/icons-react";
 
 export const revalidate = 86400;
 
@@ -72,7 +72,18 @@ export default function MeetTheTeamPage() {
       <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="order-2 space-y-4 lg:order-1">
           <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
-          <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
+          <div className="flex items-end gap-3">
+            <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
+            <a
+              href="https://www.linkedin.com/in/thomaso5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Thomas Oglesby on LinkedIn"
+              className="text-titan-text-secondary transition hover:text-titan-purple"
+            >
+              <IconBrandLinkedin className="h-6 w-6" aria-hidden="true" />
+            </a>
+          </div>
           <div className="space-y-3 text-base leading-relaxed text-titan-text-primary/90">
             {executiveDirector.bio.map(paragraph => (
               <p key={paragraph} style={{ textIndent: "2rem" }}>
