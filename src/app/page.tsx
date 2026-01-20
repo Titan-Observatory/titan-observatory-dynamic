@@ -8,23 +8,13 @@ export const revalidate = 3600;
 
 const phases = [
   {
-    title: "Phase 1 - Acquire & Move",
+    title: "Phase 1 - Acquire & Prep Site",
     status: "In progress",
     details: [
       "Purchase telescope: $70,000",
-      "Crane + rigging + crew for disassembly/loading: $6,000",
-      "Short-haul transport (~40 miles): $2,500",
-      "Crating: $1,000",
-    ],
-  },
-  {
-    title: "Phase 2 - Install",
-    status: "Preparing",
-    estimate: { },
-    details: [
-      "Survey + topo: $3,500",
+      "Survey + topo of destination site: $3,500",
       "Geotech (borings/report): $3,000",
-      "Engineering (foundation design, anchor schedule, wind/loading calcs): $5,000",
+      "Engineering (foundation design, wind/loading calcs): $5,000",
       "Concrete foundation + excavation: $15,000",
       "Site grading/drainage + pad prep: $3,000",
       "Service road / crane access: $6,000",
@@ -37,18 +27,22 @@ const phases = [
     ],
   },
   {
-    title: "Phase 3 - Refurbish & Modernize",
-    status: "Upcoming",
-    estimate: {},
+    title: "Phase 2 - Transport & Modernize",
+    status: "Preparing",
+    estimate: { },
     details: [
-      "Motion control interface/retrofit: $10,000",
+      "Crane /w crew, disassembly, & transport: $6,000 (quoted)",
+      "Motion controller: $1,500",
+      "Synchro-to-digital converter (4 channels): $2,000",
+      "Servo drives & power (2 axes): $800",
       "L- and S-band RF chain (feeds, LNAs, filters, bias, coax/waveguide, switching): $4,000",
-      "Compute + networking for secure remote ops (router/firewall, VPN, PoE switching, control PC): $3,000",
+      "Compute + networking for secure remote ops: $3,000",
     ],
   },
   {
-    title: "Phase 4 - First Light & Operations",
+    title: "Phase 3 - First Light & Operations",
     status: "Upcoming",
+    estimate: {},
     details: [
       "Development of telescope control systems led by staff volunteers with community involvement",
       "Web platform for scheduling observations and accessing lessons created",
@@ -232,10 +226,10 @@ export default function Home() {
           <span className="rounded-3xl border border-titan-border/60 px-6 py-4 text-right text-xs uppercase tracking-[0.3em] text-titan-text-muted">
             <span className="block text-titan-text-secondary">Working total</span>
             <span className="mt-2 block text-2xl font-semibold normal-case tracking-normal text-titan-text-secondary">
-              $157,000
+              $147,800
             </span>
             <span className="mt-2 block text-sm normal-case tracking-normal text-titan-text-primary/80">
-              + 10% contingency ≈ $173,000
+              + 10% contingency approx. $162,580
             </span>
           </span>
           }
