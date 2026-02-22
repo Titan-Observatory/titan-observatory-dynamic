@@ -62,8 +62,15 @@ export default function FloatingAccessibilityControls() {
           <IconAccessible className="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-      <div className="origin-bottom-right scale-110">
-        <givebutter-widget className="floating-donate-widget" id="LYKEBp"></givebutter-widget>
+      <div className="origin-bottom-right">
+        <a
+          className="titan-button floating-donate-widget rounded-full px-5 py-3 shadow-lg"
+          href="https://donate.mazloweb.com/donate/help-found-titan-observatory"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Donate
+        </a>
       </div>
     </div>
   );
