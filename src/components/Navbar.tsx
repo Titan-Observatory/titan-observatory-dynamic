@@ -33,7 +33,6 @@ export default function Navbar() {
       { name: "Updates", link: "/project-updates" },
       { name: "The Team", link: "/team" },
       { name: "FAQ", link: "/faq" },
-      { name: "Demos", link: "/demos" },
       {
         name: "Learn More",
         children: [
