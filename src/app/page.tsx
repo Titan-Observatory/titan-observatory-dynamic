@@ -60,15 +60,12 @@ export default function Home() {
             About Us
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            We&apos;re Titan Astronomical Observatory, a small Florida nonprofit with the goal of
+            We&apos;re Titan Astronomical Observatory, a Florida 501(c)(3) nonprofit with the goal of
             purchasing this 10m radio telescope, modernizing its control system, and building a user-friendly web portal
             that allows anyone to schedule observing time. The long-term mission is to bridge the gap between curious
             learners and PhD candidates by producing educational materials covering the fundamentals of radio astronomy
             and structured curricula that offer students the opportunity to capture and interpret real astronomical
             signals.
-
-            We’re an officially incorporated nonprofit (501(c)(3) pending) with a five-member board, a site secured,
-            and a core team planning for the future.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
             The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
@@ -93,16 +90,8 @@ export default function Home() {
 
       <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="flex justify-center lg:justify-start">
-          <div className="w-full max-w-[450px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
-            <iframe
-              src="https://donate.mazloweb.com/donate/help-found-titan-observatory"
-              height={510}
-              width={450}
-              className="block w-full max-w-[450px]"
-              style={{ border: "none" }}
-              sandbox="allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              title="Donate to Titan Observatory"
-            />
+          <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
+            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
           </div>
         </div>
         <div className="space-y-10">

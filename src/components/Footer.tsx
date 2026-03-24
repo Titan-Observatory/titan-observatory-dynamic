@@ -66,16 +66,10 @@ export default function Footer() {
               </a>
             </p>
             <p>Community HQ · Lakeland, FL</p>
+            <p>EIN: 39-4885264</p>
           </div>
           <div className="hidden pt-3 md:block">
-            <a
-              className="titan-button"
-              href="https://donate.mazloweb.com/donate/help-found-titan-observatory"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Donate
-            </a>
+            <givebutter-widget id="gM1lng"></givebutter-widget>
           </div>
         </div>
 
