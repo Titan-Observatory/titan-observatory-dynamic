@@ -1,5 +1,6 @@
-import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 const quickLinks = [
   { label: "About", href: "/" },
@@ -48,32 +49,58 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-titan-border/60 text-sm text-titan-text-muted">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-titan-bg/95 via-titan-bg to-titan-bg/95" />
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-12 sm:px-8 lg:flex-row lg:items-start lg:justify-between">
-        <div className="max-w-md space-y-3 text-center lg:text-left">
-          <p className="inline-flex items-center justify-center gap-2 text-base font-semibold text-titan-text-secondary lg:justify-start">
-            <span className="h-2 w-2 rounded-full bg-gradient-to-r from-titan-purple to-[#565b7a]" />
-            Titan Observatory
-          </p>
-          <p className="leading-relaxed text-titan-text-primary/80">
-            Enabling anyone to run real radio astronomy experiments
-            using professional instrumentation.
-          </p>
-          <div className="space-y-1 text-sm text-titan-text-secondary">
-            <p>
-              Contact:&nbsp;
-              <a className="text-titan-text-primary hover:text-titan-yellow" href="mailto:contact@titanobservatory.org">
-                contact@titanobservatory.org
-              </a>
-            </p>
-            <p>Community HQ · Lakeland, FL</p>
-            <p>EIN: 39-4885264</p>
-          </div>
-          <div className="hidden pt-3 md:block">
-            <givebutter-widget id="gM1lng"></givebutter-widget>
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-12 sm:px-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1.7fr)] lg:gap-10">
+        <div className="max-w-[38rem]">
+          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-start sm:gap-6">
+            <a
+              aria-label="Titan Astronomical Observatory Inc"
+              href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 rounded-lg border border-titan-border/60 bg-titan-bg-alt/60 p-1.5 transition hover:border-titan-orange/60"
+            >
+              <img
+                alt=""
+                src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16551508/svg"
+                className="h-auto w-24"
+              />
+            </a>
+
+            <div className="min-w-0 flex-1 space-y-4 sm:min-w-[18rem]">
+              <p className="inline-flex items-center gap-3 text-2xl font-semibold text-titan-text-secondary sm:whitespace-nowrap">
+                <Image
+                  src="/images/Logos/favicon.webp"
+                  alt=""
+                  width={26}
+                  height={26}
+                  className="h-6 w-6 rounded-sm object-contain"
+                />
+                Titan Observatory
+              </p>
+
+              <p className="max-w-sm leading-relaxed text-titan-text-primary/80">
+                Enabling anyone to run real radio astronomy experiments using professional instrumentation.
+              </p>
+
+              <div className="space-y-1.5 text-sm text-titan-text-secondary">
+                <p>
+                  Contact:&nbsp;
+                  <a className="text-titan-text-primary hover:text-titan-yellow" href="mailto:contact@titanobservatory.org">
+                    contact@titanobservatory.org
+                  </a>
+                </p>
+                <p>Community HQ · Lakeland, FL</p>
+                <p>EIN: 39-4885264</p>
+              </div>
+
+              <div className="hidden pt-1 md:block">
+                <givebutter-widget id="gM1lng"></givebutter-widget>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid flex-1 grid-cols-1 gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4 lg:gap-x-6">
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Quick Links
@@ -145,10 +172,7 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Share Titan Observatory
             </h3>
-            <p className="leading-relaxed">
-              Help other explorers discover the observatory by sharing a favorite link or update.
-            </p>
-            <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-start">
+            <div className="flex w-full flex-col items-center gap-3 sm:items-start">
               {shareLinks.map(link => (
                 <a
                   key={link.href}
