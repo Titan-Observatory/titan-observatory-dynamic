@@ -57,21 +57,38 @@ export default function Home() {
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
-            About Us
+            Help us turn a historic 10-meter dish into a public radio observatory.
           </h1>
-          <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            We&apos;re Titan Astronomical Observatory, a Florida 501(c)(3) nonprofit with the goal of
-            purchasing this 10m radio telescope, modernizing its control system, and building a user-friendly web portal
-            that allows anyone to schedule observing time. The long-term mission is to bridge the gap between curious
-            learners and PhD candidates by producing educational materials covering the fundamentals of radio astronomy
-            and structured curricula that offer students the opportunity to capture and interpret real astronomical
-            signals.
+          <p className="text-base leading-relaxed text-titan-text-primary/90 sm:text-lg">
+            Titan Astronomical Observatory is a Florida 501(c)(3) nonprofit preserving a real 10-meter
+            Scientific-Atlanta radio telescope and modernizing it for secure remote access.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
-            current owner purchased directly from NASA nearly 50 years ago. It&apos;s been carefully maintained and fully
-            operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
+            We&apos;re building hands-on observing tools and curriculum for students, educators, and citizen
+            scientists so learning comes from real astronomical data, not simulations.
           </p>
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href="#support"
+              className="inline-flex items-center justify-center rounded-full border border-titan-purple/70 bg-titan-purple px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-[#565b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-purple"
+            >
+              Support the Mission
+            </a>
+            <a
+              href="#roadmap"
+              className="inline-flex items-center justify-center rounded-full border border-titan-blue/60 bg-titan-blue/20 px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-blue/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-blue"
+            >
+              Project &amp; Telescope Details
+            </a>
+            <a
+              href="https://community.titanobservatory.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-titan-border/80 bg-transparent px-5 py-2.5 text-sm font-semibold text-titan-text-primary/90 transition hover:bg-titan-bg-alt/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-border"
+            >
+              Join the Community
+            </a>
+          </div>
         </div>
         <BackgroundGradient
           containerClassName="rounded-[2rem]"
@@ -88,7 +105,7 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
-      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section id="support" className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="flex justify-center lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
             <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
@@ -207,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-10">
+      <section id="roadmap" className="space-y-10">
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
           <div>
             <h2 className="text-2xl font-semibold text-titan-text-secondary">Roadmap to First Light</h2>
