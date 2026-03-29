@@ -57,15 +57,12 @@ export default function Home() {
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
-            About Us
+            Rebuild the Titan 10m Radio Telescope
           </h1>
           <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            We&apos;re Titan Astronomical Observatory, a Florida 501(c)(3) nonprofit with the goal of
-            purchasing this 10m radio telescope, modernizing its control system, and building a user-friendly web portal
-            that allows anyone to schedule observing time. The long-term mission is to bridge the gap between curious
-            learners and PhD candidates by producing educational materials covering the fundamentals of radio astronomy
-            and structured curricula that offer students the opportunity to capture and interpret real astronomical
-            signals.
+            Titan Astronomical Observatory is a Florida 501(c)(3) rebuilding a 10-meter radio telescope for secure
+            remote operations. We are modernizing the control system, building a scheduling portal, and publishing
+            coursework so students and citizen scientists can run real observations and analyze real data.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
             The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
@@ -96,18 +93,19 @@ export default function Home() {
         </div>
         <div className="space-y-10">
           <div className="space-y-5">
-            <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
+            <h2 className="text-2xl font-semibold text-titan-text-secondary">How the Observatory Will Be Used</h2>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              For many, hands-on learning is the best way to learn, but the nature of radio astronomy limits curious
-              learners to words in a textbook or daunting math.
+              Most learners never get instrument time in radio astronomy. We are removing that barrier with remote
+              access to a production telescope.
             </p>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
+              The platform combines queue scheduling, telemetry, and downloadable datasets so classes and independent
+              researchers can move from theory to measured sky signals.
             </p>
           </div>
           <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
-            <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
-            <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible to anyone:</p>
+            <h3 className="text-base font-semibold text-titan-text-secondary">Support the Build</h3>
+            <p>Donations and volunteer hours fund the systems required to deliver reliable public observing access:</p>
             <ul className="space-y-2">
               <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
               <li>- High-quality RF chains and calibrated feeds for bands of interest</li>
@@ -121,10 +119,10 @@ export default function Home() {
       <section className="grid gap-8 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[1.15fr_0.85fr] md:items-center">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Mission badge gift</p>
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Claim the mission badge</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Mission Badge for Donors</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Every donation keeps the observatory moving forward. As a thank-you, we send a mission badge gift for
-            qualifying contributions. Please remember to include your shipping address at checkout.
+            Qualified donations receive a mission badge package. Include your shipping address at checkout so we can
+            ship rewards without delay.
           </p>
           <div className="space-y-2 text-base text-titan-text-primary/90 sm:text-lg">
             <p>
@@ -150,12 +148,14 @@ export default function Home() {
 
       <section className="grid gap-12 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[2fr_1fr] md:items-start">
         <div className="space-y-5">
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Get involved!</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Ways to Contribute</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If this is something you'd like to become a part of, apply to volunteer! Building a remote radio observatory is no small task, and requires a wide range of skill sets, so you don't have to be a radio astronomer or a master programmer to contribute.
+            Building a remotely operated observatory takes engineering, software, operations, and education work.
+            Apply to volunteer if you want to help ship specific parts of the build.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If you're just looking to learn more about radio astronomy, head over to our community forum or join our Discord! We have hundreds of community members with places to ask questions and hang out.
+            If you are here to learn first, join the forum or Discord to follow progress and prepare for observing
+            programs.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
@@ -180,9 +180,9 @@ export default function Home() {
           </div>
         </div>
         <aside className="space-y-4 text-sm leading-relaxed text-titan-text-primary/90">
-          <h3 className="text-base font-semibold text-titan-text-secondary">Helpful skills</h3>
+          <h3 className="text-base font-semibold text-titan-text-secondary">Skills We Need</h3>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Be aware that we may not need some of these until later stages of the project, so while you wait, check out the forum!
+            Some roles open later in the roadmap. Join the forum to track when each workstream starts.
           </p>
           <ul className="space-y-2">
             <li>- RF/HAM</li>
@@ -197,9 +197,9 @@ export default function Home() {
       <section className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Newsletter</p>
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Stay in the loop</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Project Updates</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Drop your email below to get occasional updates on construction progress, community events, and upcoming observing opportunities.
+            Get periodic updates on modernization milestones, commissioning runs, and upcoming observing access.
           </p>
         </div>
         <div className="mt-6">
@@ -210,9 +210,9 @@ export default function Home() {
       <section className="space-y-10">
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
           <div>
-            <h2 className="text-2xl font-semibold text-titan-text-secondary">Roadmap to First Light</h2>
+            <h2 className="text-2xl font-semibold text-titan-text-secondary">Project Progress</h2>
             <p className="text-sm text-titan-text-muted">
-               
+              Hardware, control software, and operations milestones leading to first light.
             </p>
             {/* <p className="text-sm text-titan-text-muted">
               The full operating budget is being updated with feedback. For an up-to-date budget, please contact{" "}
