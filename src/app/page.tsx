@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -52,6 +53,45 @@ const phases = [
 ];
 
 export default function Home() {
+  const trustItems = [
+    {
+      label: "501(c)(3) nonprofit",
+      detail: "Registered educational nonprofit",
+      href: "/faq",
+    },
+    {
+      label: "EIN 39-4885264",
+      detail: "Published EIN for verification",
+      href: "/faq",
+    },
+    {
+      label: "Real 10m hardware",
+      detail: "Scientific-Atlanta Cassegrain dish",
+      href: "/specifications",
+    },
+    {
+      label: "Roadmap + budget",
+      detail: "Transparent phase-by-phase plan",
+      href: "#roadmap",
+    },
+    {
+      label: "Active updates",
+      detail: "Progress posts from the team",
+      href: "/project-updates",
+    },
+    {
+      label: "Team + board",
+      detail: "Who is building the observatory",
+      href: "/team",
+    },
+    {
+      label: "Community access",
+      detail: "Open forum and Discord",
+      href: "https://community.titanobservatory.org",
+      external: true,
+    },
+  ];
+
   return (
     <main className="space-y-16">
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
@@ -105,7 +145,58 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
-      <section id="support" className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section className="rounded-2xl border border-titan-purple/35 bg-titan-purple/10 p-4 shadow-[0_14px_26px_-24px_rgba(76,70,130,0.9)] sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="space-y-1.5">
+            <p className="text-[0.65rem] font-semibold tracking-[0.22em] text-titan-text-muted uppercase">
+              Trust & proof
+            </p>
+            <p className="text-sm text-titan-text-primary/90">
+              Snapshot links to verify status, progress, and people.
+            </p>
+          </div>
+          <a
+            aria-label="Titan Astronomical Observatory Inc profile on Candid (GuideStar)"
+            href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 rounded-md border border-titan-border/60 bg-titan-bg-alt/70 p-1 transition hover:border-titan-orange/60"
+          >
+            <img
+              alt=""
+              src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16551508/svg"
+              className="h-auto w-20"
+            />
+          </a>
+        </div>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          {trustItems.map(item => (
+            <li key={item.label}>
+              {item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="flex justify-center lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
             <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
