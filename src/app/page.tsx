@@ -270,10 +270,36 @@ export default function Home() {
             Building a remotely operated observatory takes engineering, software, operations, and education work.
             Apply to volunteer if you want to help ship specific parts of the build.
           </p>
-          <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If you are here to learn first, join the forum or Discord to follow progress and prepare for observing
-            programs.
-          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link
+              href="/project-updates"
+              className="rounded-2xl border border-titan-purple/50 bg-titan-purple/10 p-4 transition hover:border-titan-purple/70 hover:bg-titan-purple/15"
+            >
+              <p className="text-xs font-semibold tracking-[0.2em] text-titan-text-muted uppercase">
+                Official build updates
+              </p>
+              <h3 className="mt-2 text-base font-semibold text-titan-text-secondary">Milestones &amp; roadmap status</h3>
+              <p className="mt-2 text-sm leading-relaxed text-titan-text-primary/90">
+                Read team-published progress logs, delivery checkpoints, and phase-by-phase roadmap context before you
+                donate.
+              </p>
+            </Link>
+            <a
+              href="https://community.titanobservatory.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-titan-border/60 bg-titan-bg/50 p-4 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/90"
+            >
+              <p className="text-xs font-semibold tracking-[0.2em] text-titan-text-muted uppercase">
+                Community discussion
+              </p>
+              <h3 className="mt-2 text-base font-semibold text-titan-text-secondary">Forum &amp; Discord Q&amp;A</h3>
+              <p className="mt-2 text-sm leading-relaxed text-titan-text-primary/90">
+                Join volunteers and supporters for conversation, questions, and peer help while the team ships the
+                official roadmap.
+              </p>
+            </a>
+          </div>
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="https://forms.gle/MwwsctzD1G5woQAo6"
