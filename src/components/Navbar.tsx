@@ -29,17 +29,18 @@ export default function Navbar() {
 
   const navItems = useMemo(
     () => [
-      { name: "About", link: "/" },
-      { name: "Updates", link: "/project-updates" },
-      { name: "The Team", link: "/team" },
-      { name: "FAQ", link: "/faq" },
+      { name: "Support the Build", link: "/donate" },
+      { name: "Project Progress", link: "/project-updates" },
+      { name: "Contribute", link: "/team" },
       {
-        name: "Learn More",
+        name: "Technical Details",
         children: [
+          { name: "Project Overview", link: "/" },
           { name: "System Architecture", link: "/system-architecture" },
           { name: "Concept Dashboard", link: "/concept-dashboard" },
           { name: "Telescope Overview", link: "/telescope-overview" },
           { name: "Site Overview", link: "/site-overview" },
+          { name: "Frequently Asked Questions", link: "/faq" },
         ],
       },
     ],
@@ -54,12 +55,25 @@ export default function Navbar() {
   const renderCallToAction = (context: "desktop" | "mobile") => {
     const buttonClass = context === "mobile" ? "w-full" : undefined;
     const handleClick = context === "mobile" ? closeMobile : undefined;
+    const isDesktop = context === "desktop";
+
+    const supportButton = (
+      <NavbarButton
+        key="donate"
+        href="/donate"
+        variant="primary"
+        className={buttonClass}
+        onClick={handleClick}
+      >
+        Donate
+      </NavbarButton>
+    );
 
     const communityButton = (
       <NavbarButton
         key="forum"
         href="https://community.titanobservatory.org"
-        variant={context === "desktop" ? "primary" : "gradient"}
+        variant={isDesktop ? "secondary" : "dark"}
         className={buttonClass}
         onClick={handleClick}
         target="_blank"
@@ -69,11 +83,12 @@ export default function Navbar() {
       </NavbarButton>
     );
 
-    if (context === "mobile") {
-      return <div className="flex w-full flex-col gap-3">{communityButton}</div>;
-    }
-
-    return communityButton;
+    return (
+      <div className={`flex ${isDesktop ? "items-center gap-3" : "w-full flex-col gap-3"}`}>
+        {supportButton}
+        {communityButton}
+      </div>
+    );
   };
 
   return (
