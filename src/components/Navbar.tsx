@@ -34,7 +34,7 @@ export default function Navbar() {
       { name: "The Team", link: "/team" },
       { name: "FAQ", link: "/faq" },
       {
-        name: "Learn More",
+        name: "Technical Details",
         children: [
           { name: "System Architecture", link: "/system-architecture" },
           { name: "Concept Dashboard", link: "/concept-dashboard" },
@@ -55,25 +55,49 @@ export default function Navbar() {
     const buttonClass = context === "mobile" ? "w-full" : undefined;
     const handleClick = context === "mobile" ? closeMobile : undefined;
 
-    const communityButton = (
+    const donateButton = (
       <NavbarButton
-        key="forum"
-        href="https://community.titanobservatory.org"
-        variant={context === "desktop" ? "primary" : "gradient"}
+        key="donate"
+        href="https://givebutter.com/zJ7PNl"
+        variant="primary"
         className={buttonClass}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Visit the Forum
+        Donate
+      </NavbarButton>
+    );
+
+    const communityButton = (
+      <NavbarButton
+        key="forum"
+        href="https://community.titanobservatory.org"
+        variant="secondary"
+        className={buttonClass}
+        onClick={handleClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Community
       </NavbarButton>
     );
 
     if (context === "mobile") {
-      return <div className="flex w-full flex-col gap-3">{communityButton}</div>;
+      return (
+        <div className="flex w-full flex-col gap-3">
+          {donateButton}
+          {communityButton}
+        </div>
+      );
     }
 
-    return communityButton;
+    return (
+      <>
+        {communityButton}
+        {donateButton}
+      </>
+    );
   };
 
   return (
