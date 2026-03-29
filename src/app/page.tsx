@@ -213,6 +213,12 @@ export default function Home() {
               The platform combines queue scheduling, telemetry, and downloadable datasets so classes and independent
               researchers can move from theory to measured sky signals.
             </p>
+            <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
+              <li>- Real instrument access, not simulations</li>
+              <li>- Remote scheduling for flexible observing windows</li>
+              <li>- Hands-on data collection and interpretation workflows</li>
+              <li>- Built for students, educators, and citizen scientists</li>
+            </ul>
           </div>
           <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
             <h3 className="text-base font-semibold text-titan-text-secondary">Support the Build</h3>
