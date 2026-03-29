@@ -37,15 +37,17 @@ export default function FloatingAccessibilityControls() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 z-40 flex items-end justify-between md:hidden"
+      className="fixed left-4 right-4 z-40 flex items-end justify-between md:hidden"
+      style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
       data-floating-controls
+      data-panel-open={open ? "true" : "false"}
     >
       <div className="flex flex-col items-start gap-3">
         {open ? (
           <div
             id="accessibility-controls-panel"
             ref={panelRef}
-            className="rounded-2xl border border-titan-border/60 bg-titan-bg/95 p-3 shadow-lg backdrop-blur -translate-y-5"
+            className="max-w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-titan-border/60 bg-titan-bg/95 p-3 shadow-lg backdrop-blur -translate-y-5"
           >
             <AccessibilityPanel compact />
           </div>
@@ -62,7 +64,12 @@ export default function FloatingAccessibilityControls() {
           <IconAccessible className="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-      <div className="origin-bottom-right">
+      <div
+        aria-hidden={open}
+        className={`origin-bottom-right transition-all duration-200 ${
+          open ? "pointer-events-none w-0 scale-95 opacity-0" : "w-auto scale-100 opacity-100"
+        }`}
+      >
         <givebutter-widget className="floating-donate-widget" id="LYKEBp"></givebutter-widget>
       </div>
     </div>
