@@ -1,10 +1,44 @@
 import Image from "next/image";
+import Link from "next/link";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
 import DiscordPresenceBadge from "@/components/DiscordPresenceBadge";
 
 export const revalidate = 3600;
+
+const technicalDetailsLinks = [
+  {
+    href: "/telescope-overview",
+    title: "Telescope Overview",
+    description:
+      "Shows the dish, mount, and instrumentation baseline so supporters can see exactly what hardware is being preserved and upgraded.",
+  },
+  {
+    href: "/specifications",
+    title: "Specifications",
+    description:
+      "Lists core performance figures and component details, which helps technical contributors validate scope and feasibility.",
+  },
+  {
+    href: "/system-architecture",
+    title: "System Architecture",
+    description:
+      "Maps control, networking, and data flow so volunteers understand how remote operations and reliability fit together.",
+  },
+  {
+    href: "/site-overview",
+    title: "Site Overview",
+    description:
+      "Outlines environmental and infrastructure constraints, explaining why location prep and resiliency planning matter.",
+  },
+  {
+    href: "/concept-dashboard",
+    title: "Concept Dashboard",
+    description:
+      "Presents the planned operator experience and telemetry views, clarifying how learners and researchers will use the platform.",
+  },
+];
 
 const phases = [
   {
@@ -205,6 +239,29 @@ export default function Home() {
         <div className="mt-6">
           <NewsletterForm />
         </div>
+      </section>
+
+      <section className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md">
+        <div className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Technical details</p>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Dive deeper into the build</h2>
+          <p className="text-sm leading-relaxed text-titan-text-primary/90">
+            For readers who want a deeper engineering view, these pages explain the system design choices, constraints, and implementation plan.
+          </p>
+        </div>
+        <ul className="mt-6 space-y-3">
+          {technicalDetailsLinks.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="block rounded-2xl border border-titan-border/60 bg-titan-bg/50 p-4 transition hover:border-titan-purple/50 hover:bg-titan-bg/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-purple"
+              >
+                <p className="text-sm font-semibold text-titan-text-secondary">{item.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-titan-text-primary/85">{item.description}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="space-y-10">
