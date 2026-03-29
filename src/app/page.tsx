@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -52,26 +53,82 @@ const phases = [
 ];
 
 export default function Home() {
+  const trustItems = [
+    {
+      label: "501(c)(3) nonprofit",
+      detail: "Registered educational nonprofit",
+      href: "/faq",
+    },
+    {
+      label: "EIN 39-4885264",
+      detail: "Published EIN for verification",
+      href: "/faq",
+    },
+    {
+      label: "Real 10m hardware",
+      detail: "Scientific-Atlanta Cassegrain dish",
+      href: "/specifications",
+    },
+    {
+      label: "Roadmap + budget",
+      detail: "Transparent phase-by-phase plan",
+      href: "#roadmap",
+    },
+    {
+      label: "Active updates",
+      detail: "Progress posts from the team",
+      href: "/project-updates",
+    },
+    {
+      label: "Team + board",
+      detail: "Who is building the observatory",
+      href: "/team",
+    },
+    {
+      label: "Community access",
+      detail: "Open forum and Discord",
+      href: "https://community.titanobservatory.org",
+      external: true,
+    },
+  ];
+
   return (
     <main className="space-y-16">
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
-            About Us
+            Help us turn a historic 10-meter dish into a public radio observatory.
           </h1>
-          <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            We&apos;re Titan Astronomical Observatory, a Florida 501(c)(3) nonprofit with the goal of
-            purchasing this 10m radio telescope, modernizing its control system, and building a user-friendly web portal
-            that allows anyone to schedule observing time. The long-term mission is to bridge the gap between curious
-            learners and PhD candidates by producing educational materials covering the fundamentals of radio astronomy
-            and structured curricula that offer students the opportunity to capture and interpret real astronomical
-            signals.
+          <p className="text-base leading-relaxed text-titan-text-primary/90 sm:text-lg">
+            Titan Astronomical Observatory is a Florida 501(c)(3) nonprofit preserving a real 10-meter
+            Scientific-Atlanta radio telescope and modernizing it for secure remote access.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
-            current owner purchased directly from NASA nearly 50 years ago. It&apos;s been carefully maintained and fully
-            operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
+            We&apos;re building hands-on observing tools and curriculum for students, educators, and citizen
+            scientists so learning comes from real astronomical data, not simulations.
           </p>
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href="#support"
+              className="inline-flex items-center justify-center rounded-full border border-titan-purple/70 bg-titan-purple px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-[#565b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-purple"
+            >
+              Support the Mission
+            </a>
+            <a
+              href="#roadmap"
+              className="inline-flex items-center justify-center rounded-full border border-titan-blue/60 bg-titan-blue/20 px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-blue/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-blue"
+            >
+              Project &amp; Telescope Details
+            </a>
+            <a
+              href="https://community.titanobservatory.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-titan-border/80 bg-transparent px-5 py-2.5 text-sm font-semibold text-titan-text-primary/90 transition hover:bg-titan-bg-alt/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-border"
+            >
+              Join the Community
+            </a>
+          </div>
         </div>
         <BackgroundGradient
           containerClassName="rounded-[2rem]"
@@ -88,6 +145,57 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
+      <section className="rounded-2xl border border-titan-purple/35 bg-titan-purple/10 p-4 shadow-[0_14px_26px_-24px_rgba(76,70,130,0.9)] sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="space-y-1.5">
+            <p className="text-[0.65rem] font-semibold tracking-[0.22em] text-titan-text-muted uppercase">
+              Trust & proof
+            </p>
+            <p className="text-sm text-titan-text-primary/90">
+              Snapshot links to verify status, progress, and people.
+            </p>
+          </div>
+          <a
+            aria-label="Titan Astronomical Observatory Inc profile on Candid (GuideStar)"
+            href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 rounded-md border border-titan-border/60 bg-titan-bg-alt/70 p-1 transition hover:border-titan-orange/60"
+          >
+            <img
+              alt=""
+              src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16551508/svg"
+              className="h-auto w-20"
+            />
+          </a>
+        </div>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          {trustItems.map(item => (
+            <li key={item.label}>
+              {item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="flex justify-center lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
@@ -96,11 +204,14 @@ export default function Home() {
         </div>
         <div className="space-y-10">
           <div className="space-y-5">
-            <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
+            <h2 className="text-2xl font-semibold text-titan-text-secondary">How the Observatory Will Be Used</h2>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              We&apos;re turning a real 10m radio telescope into a remote-access classroom and research tool.
-              Learners can schedule observations online, collect real signals, and interpret their own data instead
-              of only reading about astronomy secondhand.
+              Most learners never get instrument time in radio astronomy. We are removing that barrier with remote
+              access to a production telescope.
+            </p>
+            <p className="text-sm leading-relaxed text-titan-text-primary/90">
+              The platform combines queue scheduling, telemetry, and downloadable datasets so classes and independent
+              researchers can move from theory to measured sky signals.
             </p>
             <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
               <li>- Real instrument access, not simulations</li>
@@ -110,8 +221,8 @@ export default function Home() {
             </ul>
           </div>
           <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
-            <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
-            <p>Donations and volunteer time help us save this precision scientific instrument and make it accessible to anyone:</p>
+            <h3 className="text-base font-semibold text-titan-text-secondary">Support the Build</h3>
+            <p>Donations and volunteer hours fund the systems required to deliver reliable public observing access:</p>
             <ul className="space-y-2">
               <li>- Remote operation including a web portal, flexible controls, and data visualizations</li>
               <li>- High-quality RF chains and calibrated feeds for bands of interest</li>
@@ -125,10 +236,10 @@ export default function Home() {
       <section className="grid gap-8 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[1.15fr_0.85fr] md:items-center">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Mission badge gift</p>
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Claim the mission badge</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Mission Badge for Donors</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Every donation keeps the observatory moving forward. As a thank-you, we send a mission badge gift for
-            qualifying contributions. Please remember to include your shipping address at checkout.
+            Qualified donations receive a mission badge package. Include your shipping address at checkout so we can
+            ship rewards without delay.
           </p>
           <div className="space-y-2 text-base text-titan-text-primary/90 sm:text-lg">
             <p>
@@ -154,12 +265,14 @@ export default function Home() {
 
       <section className="grid gap-12 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md md:grid-cols-[2fr_1fr] md:items-start">
         <div className="space-y-5">
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Get involved!</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Ways to Contribute</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If this is something you'd like to become a part of, apply to volunteer! Building a remote radio observatory is no small task, and requires a wide range of skill sets, so you don't have to be a radio astronomer or a master programmer to contribute.
+            Building a remotely operated observatory takes engineering, software, operations, and education work.
+            Apply to volunteer if you want to help ship specific parts of the build.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            If you're just looking to learn more about radio astronomy, head over to our community forum or join our Discord! We have hundreds of community members with places to ask questions and hang out.
+            If you are here to learn first, join the forum or Discord to follow progress and prepare for observing
+            programs.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
@@ -184,9 +297,9 @@ export default function Home() {
           </div>
         </div>
         <aside className="space-y-4 text-sm leading-relaxed text-titan-text-primary/90">
-          <h3 className="text-base font-semibold text-titan-text-secondary">Helpful skills</h3>
+          <h3 className="text-base font-semibold text-titan-text-secondary">Skills We Need</h3>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Be aware that we may not need some of these until later stages of the project, so while you wait, check out the forum!
+            Some roles open later in the roadmap. Join the forum to track when each workstream starts.
           </p>
           <ul className="space-y-2">
             <li>- RF/HAM</li>
@@ -201,9 +314,9 @@ export default function Home() {
       <section className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 shadow-[0_22px_48px_-36px_rgba(10,15,35,0.9)] backdrop-blur-md">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-titan-text-muted">Newsletter</p>
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">Stay in the loop</h2>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">Project Updates</h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Drop your email below to get occasional updates on construction progress, community events, and upcoming observing opportunities.
+            Get periodic updates on modernization milestones, commissioning runs, and upcoming observing access.
           </p>
         </div>
         <div className="mt-6">
@@ -211,12 +324,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-10">
+      <section id="roadmap" className="space-y-10">
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
           <div>
-            <h2 className="text-2xl font-semibold text-titan-text-secondary">Roadmap to First Light</h2>
+            <h2 className="text-2xl font-semibold text-titan-text-secondary">Project Progress</h2>
             <p className="text-sm text-titan-text-muted">
-               
+              Hardware, control software, and operations milestones leading to first light.
             </p>
             {/* <p className="text-sm text-titan-text-muted">
               The full operating budget is being updated with feedback. For an up-to-date budget, please contact{" "}
