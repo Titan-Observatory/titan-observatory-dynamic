@@ -98,12 +98,16 @@ export default function Home() {
           <div className="space-y-5">
             <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
             <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              For many, hands-on learning is the best way to learn, but the nature of radio astronomy limits curious
-              learners to words in a textbook or daunting math.
+              We&apos;re turning a real 10m radio telescope into a remote-access classroom and research tool.
+              Learners can schedule observations online, collect real signals, and interpret their own data instead
+              of only reading about astronomy secondhand.
             </p>
-            <p className="text-sm leading-relaxed text-titan-text-primary/90">
-              By creating a more accessible and engaging way to experience radio astronomy, we hope to not only inspire future radio astronomers, but help curious citizen scientists better understand the radio world and what it can tell us about the universe we live in.
-            </p>
+            <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
+              <li>- Real instrument access, not simulations</li>
+              <li>- Remote scheduling for flexible observing windows</li>
+              <li>- Hands-on data collection and interpretation workflows</li>
+              <li>- Built for students, educators, and citizen scientists</li>
+            </ul>
           </div>
           <aside className="space-y-3 rounded-3xl border-l-4 border-titan-purple/60 bg-transparent p-6 text-sm leading-relaxed text-titan-text-primary/90">
             <h3 className="text-base font-semibold text-titan-text-secondary">What Support Enables</h3>
