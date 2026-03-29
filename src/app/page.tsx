@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -52,23 +53,82 @@ const phases = [
 ];
 
 export default function Home() {
+  const trustItems = [
+    {
+      label: "501(c)(3) nonprofit",
+      detail: "Registered educational nonprofit",
+      href: "/faq",
+    },
+    {
+      label: "EIN 39-4885264",
+      detail: "Published EIN for verification",
+      href: "/faq",
+    },
+    {
+      label: "Real 10m hardware",
+      detail: "Scientific-Atlanta Cassegrain dish",
+      href: "/specifications",
+    },
+    {
+      label: "Roadmap + budget",
+      detail: "Transparent phase-by-phase plan",
+      href: "#roadmap",
+    },
+    {
+      label: "Active updates",
+      detail: "Progress posts from the team",
+      href: "/project-updates",
+    },
+    {
+      label: "Team + board",
+      detail: "Who is building the observatory",
+      href: "/team",
+    },
+    {
+      label: "Community access",
+      detail: "Open forum and Discord",
+      href: "https://community.titanobservatory.org",
+      external: true,
+    },
+  ];
+
   return (
     <main className="space-y-16">
       <section className="grid items-start gap-14 lg:grid-cols-[1.25fr_0.95fr] xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-titan-text-secondary">
-            Rebuild the Titan 10m Radio Telescope
+            Help us turn a historic 10-meter dish into a public radio observatory.
           </h1>
-          <p className="text-lg leading-relaxed text-titan-text-primary/90">
-            Titan Astronomical Observatory is a Florida 501(c)(3) rebuilding a 10-meter radio telescope for secure
-            remote operations. We are modernizing the control system, building a scheduling portal, and publishing
-            coursework so students and citizen scientists can run real observations and analyze real data.
+          <p className="text-base leading-relaxed text-titan-text-primary/90 sm:text-lg">
+            Titan Astronomical Observatory is a Florida 501(c)(3) nonprofit preserving a real 10-meter
+            Scientific-Atlanta radio telescope and modernizing it for secure remote access.
           </p>
           <p className="text-sm leading-relaxed text-titan-text-muted">
-            The dish itself is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner that the
-            current owner purchased directly from NASA nearly 50 years ago. It&apos;s been carefully maintained and fully
-            operational, with a dehumidifier running 24/7, zero backlash, and balanced well enough to move by hand.
+            We&apos;re building hands-on observing tools and curriculum for students, educators, and citizen
+            scientists so learning comes from real astronomical data, not simulations.
           </p>
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href="#support"
+              className="inline-flex items-center justify-center rounded-full border border-titan-purple/70 bg-titan-purple px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-[#565b7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-purple"
+            >
+              Support the Mission
+            </a>
+            <a
+              href="#roadmap"
+              className="inline-flex items-center justify-center rounded-full border border-titan-blue/60 bg-titan-blue/20 px-6 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-blue/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-blue"
+            >
+              Project &amp; Telescope Details
+            </a>
+            <a
+              href="https://community.titanobservatory.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-titan-border/80 bg-transparent px-5 py-2.5 text-sm font-semibold text-titan-text-primary/90 transition hover:bg-titan-bg-alt/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-border"
+            >
+              Join the Community
+            </a>
+          </div>
         </div>
         <BackgroundGradient
           containerClassName="rounded-[2rem]"
@@ -83,6 +143,57 @@ export default function Home() {
             priority
           />
         </BackgroundGradient>
+      </section>
+
+      <section className="rounded-2xl border border-titan-purple/35 bg-titan-purple/10 p-4 shadow-[0_14px_26px_-24px_rgba(76,70,130,0.9)] sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="space-y-1.5">
+            <p className="text-[0.65rem] font-semibold tracking-[0.22em] text-titan-text-muted uppercase">
+              Trust & proof
+            </p>
+            <p className="text-sm text-titan-text-primary/90">
+              Snapshot links to verify status, progress, and people.
+            </p>
+          </div>
+          <a
+            aria-label="Titan Astronomical Observatory Inc profile on Candid (GuideStar)"
+            href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 rounded-md border border-titan-border/60 bg-titan-bg-alt/70 p-1 transition hover:border-titan-orange/60"
+          >
+            <img
+              alt=""
+              src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16551508/svg"
+              className="h-auto w-20"
+            />
+          </a>
+        </div>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          {trustItems.map(item => (
+            <li key={item.label}>
+              {item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="block rounded-xl border border-titan-border/55 bg-titan-bg/55 px-3 py-2.5 transition hover:border-titan-blue/60 hover:bg-titan-bg-alt/80"
+                >
+                  <p className="text-sm font-medium text-titan-text-secondary">{item.label}</p>
+                  <p className="text-xs text-titan-text-primary/80">{item.detail}</p>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -207,7 +318,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-10">
+      <section id="roadmap" className="space-y-10">
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
           <div>
             <h2 className="text-2xl font-semibold text-titan-text-secondary">Project Progress</h2>

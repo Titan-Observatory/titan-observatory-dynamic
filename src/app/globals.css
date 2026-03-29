@@ -76,6 +76,12 @@ html, body, :root { height: 100%; }
   [data-floating-controls] .floating-donate-widget iframe {
     vertical-align: bottom;
   }
+
+  [data-floating-controls] .floating-donate-widget {
+    max-width: min(15.5rem, calc(100vw - 7rem));
+    overflow: hidden;
+    border-radius: 0.9rem;
+  }
 }
 
 @layer components {
