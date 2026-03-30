@@ -97,20 +97,20 @@ export default function DonorMessageCarousel() {
 
   // Duplicate so the loop is seamless — animating -50% always scrolls exactly one full set
   const doubled = [...messages, ...messages];
-  const duration = Math.max(30, messages.length * 3);
+  const duration = Math.max(120, messages.length * 10);
 
   return (
     <section
       role="region"
       aria-label="Donor messages"
-      className="overflow-hidden py-2"
+      className="overflow-hidden py-4"
       style={{
         maskImage:
           "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
       }}
     >
       <div
-        className="flex w-max items-center gap-12"
+        className="flex w-max items-start gap-16"
         style={{
           animation: animationsDisabled
             ? "none"
@@ -124,25 +124,31 @@ export default function DonorMessageCarousel() {
         }}
       >
         {doubled.map((msg, i) => (
-          <span
+          <div
             key={`${msg.id}-${i}`}
-            className="flex shrink-0 items-baseline gap-2 text-sm text-titan-text-primary/80"
+            className="w-80 shrink-0 space-y-3"
           >
-            <IconQuote
-              size={12}
-              className="shrink-0 translate-y-px text-titan-text-muted/40"
-              aria-hidden="true"
-            />
-            <span className="max-w-xs truncate italic">{msg.message}</span>
-            <span className="shrink-0 font-medium text-titan-text-secondary">
-              — {msg.name}
-            </span>
-            {msg.amount > 0 && (
-              <span className="shrink-0 text-xs text-titan-yellow">
-                {formatCurrency(msg.amount)}
+            <div className="flex gap-2">
+              <IconQuote
+                size={16}
+                className="mt-1 shrink-0 text-titan-text-muted/40"
+                aria-hidden="true"
+              />
+              <p className="text-base leading-relaxed text-titan-text-primary/90 line-clamp-4">
+                {msg.message}
+              </p>
+            </div>
+            <div className="flex items-center gap-3 pl-6 text-sm">
+              <span className="font-semibold text-titan-text-secondary">
+                — {msg.name}
               </span>
-            )}
-          </span>
+              {msg.amount > 0 && (
+                <span className="text-titan-yellow">
+                  {formatCurrency(msg.amount)}
+                </span>
+              )}
+            </div>
+          </div>
         ))}
       </div>
 
