@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -108,7 +109,21 @@ export default function Navbar() {
       </NavBody>
 
       <MobileNav>
-        <MobileNavHeader className="justify-end">
+        <MobileNavHeader>
+          <Link
+            href="/"
+            onClick={closeMobile}
+            className="inline-flex items-center rounded-full px-1 py-1"
+            aria-label="Go to home"
+          >
+            <Image
+              src="/images/2.webp"
+              alt="Titan Observatory logo"
+              width={3711}
+              height={1352}
+              className="h-auto w-[108px] max-w-[40vw]"
+            />
+          </Link>
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
         </MobileNavHeader>
         <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
