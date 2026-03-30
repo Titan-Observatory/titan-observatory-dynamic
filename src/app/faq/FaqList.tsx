@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { IconChevronDown } from "@tabler/icons-react";
 
 type FaqItem = {
   question: string;
@@ -30,7 +30,7 @@ export default function FaqList({ items }: { items: FaqItem[] }) {
         return (
           <article
             key={item.question}
-            className="rounded-3xl border border-titan-border/60 bg-titan-bg/80 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg/95"
+            className="overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-bg/80 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg/95"
           >
             <button
               type="button"
@@ -38,23 +38,25 @@ export default function FaqList({ items }: { items: FaqItem[] }) {
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
             >
-              <span>{item.question}</span>
-              <span className={`text-titan-text-primary/70 transition ${isOpen ? "rotate-180" : ""}`}>▾</span>
+              <span className="min-w-0 flex-1 pr-4">{item.question}</span>
+              <IconChevronDown
+                size={18}
+                aria-hidden="true"
+                className={`shrink-0 text-titan-text-primary/70 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+              />
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen ? (
-                <motion.div
-                  key="content"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.1, ease: "easeOut" }}
-                  className="overflow-hidden"
-                >
-                  <p className="px-6 pb-6 pt-4 text-sm text-titan-text-primary/90">{item.answer}</p>
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
+
+            {/* CSS grid-template-rows trick: no JS measurement, no layout shift */}
+            <div
+              className="grid transition-[grid-template-rows] duration-200 ease-out"
+              style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <p className="px-6 pb-6 pt-4 text-sm leading-relaxed text-titan-text-primary/90">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
           </article>
         );
       })}

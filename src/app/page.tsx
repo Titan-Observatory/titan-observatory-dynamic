@@ -1,55 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import PhaseTimeline from "@/components/PhaseTimeline";
 import DiscordPresenceBadge from "@/components/DiscordPresenceBadge";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import DonorMessageCarousel from "@/components/DonorMessageCarousel";
 
 export const revalidate = 3600;
-
-const phases = [
-  {
-    title: "Phase 1 — Acquire & Prep Site",
-    status: "In progress",
-    active: true,
-    details: [
-      "Purchase telescope: $70,000",
-      "Survey + topo of destination site: $3,500",
-      "Geotech (borings/report): $3,000",
-      "Engineering (foundation design, wind/loading calcs): $5,000",
-      "Concrete foundation + excavation: $15,000",
-      "Site grading/drainage + pad prep: $3,000",
-      "Service road / crane access: $6,000",
-      "Solar system: $9,000",
-      "UPS / power conditioning: $2,000",
-      "Lightning protection + site grounding: $8,000",
-      "Permits, plan review, inspections, local fees: $2,000",
-      "Basic security (fencing + a couple cameras): $3,000",
-      "Weather/environment monitoring: $1000",
-    ],
-  },
-  {
-    title: "Phase 2 — Transport & Modernize",
-    status: "Preparing",
-    details: [
-      "Crane /w crew, disassembly, & transport: $6,000 (quoted)",
-      "Motion controller: $1,500",
-      "Synchro-to-digital converter (4 channels): $2,000",
-      "Servo drives & power (2 axes): $800",
-      "L- and S-band RF chain (feeds, LNAs, filters, bias, coax/waveguide, switching): $4,000",
-      "Compute + networking for secure remote ops: $3,000",
-    ],
-  },
-  {
-    title: "Phase 3 — Commission & First Light",
-    status: "Upcoming",
-    details: [
-      "Development of telescope control systems led by staff volunteers with community involvement",
-      "Web platform for scheduling observations and accessing lessons created",
-      "Curricula and public courses developed to teach the fundamentals of radio astronomy & related subjects",
-    ],
-  },
-];
 
 export default function Home() {
   return (
@@ -66,7 +21,12 @@ export default function Home() {
             <span className="text-titan-yellow"> open to everyone.</span>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-titan-text-primary/90">
-            Our mission is to make radio astronomy more accessible than ever by acquiring and modernizing real scientific instrumentation, building an intuitive remote observing platform, and creating educational experiences that let the public, students, and aspiring researchers explore the universe through hands-on observation and data.</p>
+            Our mission is to make radio astronomy more accessible than ever by
+            acquiring and modernizing real scientific instrumentation, building
+            an intuitive remote observing platform, and creating educational
+            experiences that let the public, students, and aspiring researchers
+            explore the universe through hands-on observation and data.
+          </p>
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/donate"
@@ -75,10 +35,10 @@ export default function Home() {
               Support the Observatory
             </Link>
             <Link
-              href="#roadmap"
+              href="/about"
               className="inline-flex items-center justify-center rounded-full border border-titan-border/70 px-6 py-3 text-sm font-semibold text-titan-text-secondary transition hover:border-titan-orange/50 hover:bg-titan-orange/5"
             >
-              See the Roadmap
+              Learn More
             </Link>
           </div>
         </div>
@@ -100,42 +60,6 @@ export default function Home() {
 
       {/* ── Donor Messages Carousel (falls back to trust band) ── */}
       <DonorMessageCarousel />
-
-      {/* ── What Support Enables ── */}
-      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="flex justify-center lg:justify-start">
-          <div className="w-full max-w-[420px]">
-            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
-          </div>
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-titan-text-secondary">
-            What Your Support Enables
-          </h2>
-          <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Donations will be used to fund fund telescope acquisition, site
-            preparation, and modernization of the control system. Once observations are routine, the next step is to produce curricula which integrate real telescope time. Topics covered would include the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works.
-          </p>
-          <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Extend observation range. Pending dish characterization, we hope to add additional feeds to allow for a wider range of observations and educational opportunities.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Scale observation capacity with additional dishes. The infrastructure and platform will be designed to be scalable, allowing us to repurpose old  interferometry experiments.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Self-hosted infrastructure for maximum uptime and independence
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Documentation and curricula so anyone can learn on real equipment
-            </li>
-          </ul>
-        </div>
-      </section>
 
       {/* ── Audience Paths ── */}
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -188,64 +112,56 @@ export default function Home() {
             Learn How It Works
           </h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-titan-text-primary/80">
-            Dive into system architecture, telescope specifications, site
-            plans, and the concept dashboard.
+            Our mission, the roadmap, telescope specifications, site plans,
+            and system architecture.
           </p>
           <Link
-            href="/system-architecture"
+            href="/about"
             className="mt-5 inline-flex items-center justify-center rounded-full border border-titan-purple/60 bg-titan-purple/15 px-5 py-2.5 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-purple/25"
           >
-            Technical Details
+            About the Project
           </Link>
         </div>
       </section>
 
-      {/* ── Why It Matters ── */}
-      <section className="mx-auto max-w-3xl space-y-5 text-center">
-        <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
-        <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          Much of our understanding of the universe beyond the solar system
-          comes from the properties of electromagnetic waves received from
-          space, but <em>how</em>? How can light tell us the composition of a
-          planet&apos;s atmosphere from hundreds of light-years away? Or that
-          some smudge in an image is a galaxy born near the dawn of the universe, billions of years ago?
-        </p>
-        <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          We believe it's important to give the public the opportunity to perform 
-          and understand their own observations of the universe, so that we can all share in the excitement 
-          of future discoveries and feel connected to the science behind them.
-        </p>
-      </section>
-
-      {/* ── Roadmap ── */}
-      <section id="roadmap" className="scroll-mt-24 space-y-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-orange">
-              Where we are
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-titan-text-secondary">
-              Roadmap to First Light
-            </h2>
-            <p className="mt-1 text-sm text-titan-text-muted">
-              Three phases from acquisition to open remote observations.
-            </p>
+      {/* ── What Support Enables + Givebutter Widget ── */}
+      {/* ── What Support Enables ── */}
+      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="flex justify-center lg:justify-start">
+          <div className="w-full max-w-[420px]">
+            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
           </div>
-          <span className="rounded-2xl border border-titan-border/60 bg-titan-bg-alt/60 px-5 py-3 text-right text-xs uppercase tracking-[0.2em] text-titan-text-muted">
-            <span className="block text-titan-text-secondary">Working total</span>
-            <span className="mt-1 block text-2xl font-semibold normal-case tracking-normal text-titan-text-secondary">
-              $147,800
-            </span>
-            <span className="mt-1 block text-sm normal-case tracking-normal text-titan-text-primary/80">
-              + 10% contingency &asymp; $162,580
-            </span>
-          </span>
         </div>
-
-        <PhaseTimeline phases={phases} />
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">
+            What Your Support Enables
+          </h2>
+          <p className="text-sm leading-relaxed text-titan-text-primary/90">
+            Donations will be used to fund fund telescope acquisition, site
+            preparation, and modernization of the control system. Once observations are routine, the next step is to produce curricula which integrate real telescope time. Topics covered would include the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works.
+          </p>
+          <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
+            <li className="flex gap-3">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+              Extend observation range. Pending dish characterization, we hope to add additional feeds to allow for a wider range of observations and educational opportunities.
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+              Scale observation capacity with additional dishes. The infrastructure and platform will be designed to be scalable, allowing us to repurpose old  interferometry experiments.
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+              Self-hosted infrastructure for maximum uptime and independence
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+              Documentation and curricula so anyone can learn on real equipment
+            </li>
+          </ul>
+        </div>
       </section>
 
-      {/* ── Mission Badge (secondary) ── */}
+      {/* ── Mission Badge ── */}
       <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 p-8 backdrop-blur-sm">
         <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-center">
           <div className="space-y-4">

@@ -3,10 +3,17 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 
 const quickLinks = [
-  { label: "About", href: "/" },
-  { label: "Specifications", href: "/specifications" },
-  { label: "The Team", href: "/team" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Team", href: "/team" },
   { label: "FAQ", href: "/faq" },
+];
+
+const projectLinks = [
+  { label: "Telescope Overview", href: "/telescope-overview" },
+  { label: "Site Overview", href: "/site-overview" },
+  { label: "System Architecture", href: "/system-architecture" },
+  { label: "Updates", href: "/project-updates" },
 ];
 
 const communityLinks = [
@@ -100,13 +107,28 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4 lg:gap-x-6">
+        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5 lg:gap-x-6">
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Quick Links
             </h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
+                <li key={link.href}>
+                  <Link className="hover:text-titan-yellow" href={link.href}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
+              The Project
+            </h3>
+            <ul className="space-y-2">
+              {projectLinks.map(link => (
                 <li key={link.href}>
                   <Link className="hover:text-titan-yellow" href={link.href}>
                     {link.label}

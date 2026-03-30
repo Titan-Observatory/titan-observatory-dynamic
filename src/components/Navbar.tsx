@@ -29,19 +29,20 @@ export default function Navbar() {
 
   const navItems = useMemo(
     () => [
-      { name: "About", link: "/" },
-      { name: "Updates", link: "/project-updates" },
-      { name: "The Team", link: "/team" },
-      { name: "FAQ", link: "/faq" },
+      { name: "Home", link: "/" },
+      { name: "About", link: "/about" },
       {
-        name: "Technical Details",
+        name: "The Telescope",
         children: [
-          { name: "System Architecture", link: "/system-architecture" },
-          { name: "Concept Dashboard", link: "/concept-dashboard" },
           { name: "Telescope Overview", link: "/telescope-overview" },
           { name: "Site Overview", link: "/site-overview" },
+          { name: "System Architecture", link: "/system-architecture" },
+          { name: "Concept Dashboard", link: "/concept-dashboard" },
         ],
       },
+      { name: "Updates", link: "/project-updates" },
+      { name: "Team", link: "/team" },
+      { name: "FAQ", link: "/faq" },
     ],
     [],
   );
