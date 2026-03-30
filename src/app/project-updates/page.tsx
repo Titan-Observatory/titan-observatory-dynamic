@@ -1,9 +1,12 @@
-export const metadata = {
+import type { Metadata } from "next";
+import Link from "next/link";
+import CommentsEmbed from "@/components/CommentsEmbed";
+import AnimatedSection from "@/components/AnimatedSection";
+
+export const metadata: Metadata = {
   title: "Project Updates | Titan Observatory",
   description: "Latest project updates from the Titan Observatory community.",
 };
-
-import CommentsEmbed from "@/components/CommentsEmbed";
 
 const DISCOURSE_BASE = "https://community.titanobservatory.org";
 const CATEGORY_SLUG = "project-updates";
@@ -84,42 +87,49 @@ export default async function ProjectUpdatesPage() {
     );
 
   return (
-    <section className="project-updates-page space-y-4 px-4 sm:space-y-6 sm:px-0 -mx-8 sm:mx-0">
-      <header className="space-y-2 sm:space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-titan-text-muted">Community</p>
-        <h1 className="text-3xl font-semibold tracking-tight text-titan-text-primary sm:text-4xl">
+    <main className="relative z-10 space-y-20">
+      {/* Header */}
+      <header className="space-y-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
+          Community
+        </p>
+        <h1 className="text-3xl font-bold text-titan-text-secondary sm:text-4xl">
           Project Updates
         </h1>
-        <p className="max-w-2xl text-base text-titan-text-muted">
+        <p className="max-w-2xl text-sm leading-relaxed text-titan-text-primary/90">
           Latest updates from the Titan Observatory community forum.
         </p>
       </header>
 
-      <div className="space-y-6 pt-4 sm:space-y-10 sm:pt-8">
+      {/* Updates */}
+      <section className="space-y-10">
         {topics.length === 0 ? (
           <p className="text-sm text-titan-text-muted">No updates available right now.</p>
         ) : (
           topics.map((topic, index) => (
-            <article
+            <AnimatedSection
               key={topic.id}
-              className="space-y-4 rounded-xl border border-titan-border bg-gradient-to-br from-titan-bg-alt to-titan-bg p-4 shadow-titan sm:p-8"
+              delay={index * 0.08}
+              className="space-y-5 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg-alt/95 sm:p-8"
             >
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-titan-text-muted">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-titan-text-muted">
                 <span>{formatDate(topic.created_at)}</span>
-                {index === 0 ? (
-                  <span className="font-semibold text-titan-text-primary">Latest Update</span>
-                ) : null}
+                {index === 0 && (
+                  <span className="rounded-full border border-titan-orange/50 bg-titan-orange/15 px-3 py-1 text-xs font-semibold text-titan-orange">
+                    Latest Update
+                  </span>
+                )}
                 <a
                   href={`${DISCOURSE_BASE}/t/${topic.slug}/${topic.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-titan-orange underline-offset-2 hover:underline"
+                  className="inline-flex items-center justify-center rounded-full border border-titan-border/60 px-3 py-1 text-xs font-semibold text-titan-text-secondary transition hover:border-titan-orange/50 hover:bg-titan-orange/5"
                 >
                   View on forum
                 </a>
               </div>
 
-              <h2 className="text-3xl font-semibold tracking-tight text-titan-text-primary">
+              <h2 className="text-2xl font-semibold tracking-tight text-titan-text-secondary">
                 {topic.title}
               </h2>
               <div
@@ -129,20 +139,36 @@ export default async function ProjectUpdatesPage() {
                 }}
               />
 
-              <div className="space-y-3 pt-2">
-                <p className="text-sm uppercase tracking-[0.2em] text-titan-text-muted">
+              <div className="space-y-3 border-t border-titan-border/40 pt-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-titan-text-muted sm:text-xs">
                   Comments
                 </p>
                 <CommentsEmbed
                   src={`${DISCOURSE_BASE}/embed/comments?topic_id=${topic.id}&class_name=${EMBED_CLASSNAME}`}
                   title={`Comments for ${topic.title}`}
-                  className="w-full rounded-2xl border border-titan-border bg-titan-bg-alt p-2"
+                  className="w-full rounded-2xl border border-titan-border/60 bg-titan-bg-alt/50 p-2"
                 />
               </div>
-            </article>
+            </AnimatedSection>
           ))
         )}
-      </div>
-    </section>
+      </section>
+
+      {/* Bottom CTA */}
+      <AnimatedSection className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 p-8 text-center backdrop-blur-sm">
+        <h2 className="text-2xl font-semibold text-titan-text-secondary">
+          Support Continued Progress
+        </h2>
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-titan-text-primary/80">
+          Every donation helps us hit the next milestone. Follow along and see exactly where your support goes.
+        </p>
+        <Link
+          href="/donate"
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-titan-orange px-7 py-3 text-sm font-bold text-titan-bg transition hover:brightness-110"
+        >
+          Support the Observatory
+        </Link>
+      </AnimatedSection>
+    </main>
   );
 }

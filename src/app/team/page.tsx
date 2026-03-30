@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { IconBrandLinkedin, IconUser } from "@tabler/icons-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const revalidate = 86400;
 
@@ -14,8 +16,8 @@ const executiveDirector = {
   name: "Thomas Oglesby",
   role: "Executive Director",
   bio: [
-    "Growing up in one of the first generations with the entirety of human knowledge at my fingertips gave me a deep appreciation for how the Internet revolutionized learning. Unfortunately, once companies realized there was money to be made, the floodgates of capitalism opened, and the Internet quickly became synonymous with retention-based algorithms, ads, and the never-ending pursuit of harvesting your data. But I’m not convinced it has to be this way. I think limitless capital and armies of corporate dev teams have given people the false impression that the Internet has reached maturity—when in reality, if you explore beyond the handful of companies most people consider “the Internet,” you’ll still find the same old forums and basic HTML pages where a bunch of nerds share their passion and knowledge with the world.",
-    "Nobody would deny the Internet has already changed the world, but as crazy as it sounds, I think “having access to all human knowledge” is only the first step in true dissemination. Now we need to make that knowledge as accessible as possible to people who are less privileged, less technically inclined, or simply don’t know where to begin. I hope the Titan Observatory can be another step toward that future by demystifying radio astronomy and electromagnetic waves, so more people can share in the excitement of future discoveries and feel connected to the science behind them.",
+    "Growing up in one of the first generations with the entirety of human knowledge at my fingertips gave me a deep appreciation for how the Internet revolutionized learning. Unfortunately, once companies realized there was money to be made, the floodgates of capitalism opened, and the Internet quickly became synonymous with retention-based algorithms, ads, and the never-ending pursuit of harvesting your data. But I'm not convinced it has to be this way. I think limitless capital and armies of corporate dev teams have given people the false impression that the Internet has reached maturity—when in reality, if you explore beyond the handful of companies most people consider \"the Internet,\" you'll still find the same old forums and basic HTML pages where a bunch of nerds share their passion and knowledge with the world.",
+    "Nobody would deny the Internet has already changed the world, but as crazy as it sounds, I think \"having access to all human knowledge\" is only the first step in true dissemination. Now we need to make that knowledge as accessible as possible to people who are less privileged, less technically inclined, or simply don't know where to begin. I hope the Titan Observatory can be another step toward that future by demystifying radio astronomy and electromagnetic waves, so more people can share in the excitement of future discoveries and feel connected to the science behind them.",
   ],
 };
 
@@ -68,10 +70,13 @@ const teamMembers: TeamMember[] = [
 
 export default function MeetTheTeamPage() {
   return (
-    <main className="relative z-10 space-y-12">
-      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+    <main className="relative z-10 space-y-20">
+      {/* Executive Director */}
+      <AnimatedSection className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="order-2 space-y-4 lg:order-1">
-          <p className="text-xs uppercase tracking-[0.35em] text-titan-text-primary/70">Founder & Executive Director</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-primary/70 sm:text-xs sm:tracking-[0.25em]">
+            Founder & Executive Director
+          </p>
           <div className="flex items-end gap-3">
             <h2 className="text-3xl font-semibold text-titan-text-secondary">{executiveDirector.name}</h2>
             <a
@@ -102,10 +107,11 @@ export default function MeetTheTeamPage() {
             priority
           />
         </figure>
-      </section>
+      </AnimatedSection>
 
-      <section>
-        <div className="flex flex-wrap items-center gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 px-4 py-4 text-xs uppercase tracking-[0.18em] text-titan-text-secondary sm:inline-flex sm:flex-nowrap">
+      {/* Recruitment banner */}
+      <AnimatedSection>
+        <div className="flex flex-wrap items-center gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 px-6 py-5 text-xs uppercase tracking-[0.18em] text-titan-text-secondary backdrop-blur-sm sm:inline-flex sm:flex-nowrap">
           <span>Interested in joining the team?</span>
           <a
             href="https://ideali.st/USGqBK"
@@ -123,10 +129,11 @@ export default function MeetTheTeamPage() {
             </svg>
           </a>
         </div>
-      </section>
+      </AnimatedSection>
 
+      {/* Team Grid */}
       <section className="space-y-10">
-        <div className="space-y-6 pt-6">
+        <AnimatedSection className="space-y-6 pt-6">
           <div className="flex items-center gap-5">
             <span className="h-px w-12 bg-titan-border/70" />
             <h2 className="text-2xl font-semibold uppercase tracking-[0.4em] text-titan-text-secondary">
@@ -134,13 +141,14 @@ export default function MeetTheTeamPage() {
             </h2>
             <span className="h-px flex-1 bg-titan-border/40" />
           </div>
-        </div>
+        </AnimatedSection>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {teamMembers.map(member => (
-            <article
+          {teamMembers.map((member, index) => (
+            <AnimatedSection
               key={member.name}
-              className="flex h-full flex-col gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:border-titan-purple/40 hover:bg-titan-bg-alt/95"
+              delay={index * 0.08}
+              className="flex h-full flex-col gap-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 text-sm leading-relaxed text-titan-text-primary/90 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm transition hover:-translate-y-1 hover:border-titan-purple/40 hover:bg-titan-bg-alt/95"
             >
               {member.image ? (
                 <figure className="aspect-square w-full overflow-hidden rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70">
@@ -154,7 +162,7 @@ export default function MeetTheTeamPage() {
                   />
                 </figure>
               ) : (
-                <div className="flex aspect-square w-full items-center justify-center rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70 text-titan-text-muted">
+                <div className="flex aspect-square w-full items-center justify-center rounded-2xl border border-titan-border/60 bg-gradient-to-br from-titan-bg-alt/90 to-titan-purple/10 text-titan-text-muted">
                   <IconUser className="h-12 w-12" aria-hidden="true" />
                 </div>
               )}
@@ -165,10 +173,38 @@ export default function MeetTheTeamPage() {
               {member.bio ? (
                 <p className="text-sm text-titan-text-primary/90">{member.bio}</p>
               ) : null}
-            </article>
+            </AnimatedSection>
           ))}
         </div>
       </section>
+
+      {/* Bottom CTA */}
+      <AnimatedSection className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 p-8 text-center backdrop-blur-sm">
+        <h2 className="text-2xl font-semibold text-titan-text-secondary">
+          We&apos;re Volunteer-Powered
+        </h2>
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-titan-text-primary/80">
+          RF engineering, signal processing, software, education, administration — there&apos;s a role for many skill sets. No astronomy background required.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://forms.gle/MwwsctzD1G5woQAo6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-titan-aqua/60 bg-titan-aqua/15 px-6 py-3 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-aqua/25"
+          >
+            Apply to Volunteer
+          </a>
+          <a
+            href="https://ideali.st/USGqBK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-titan-border/70 px-6 py-3 text-sm font-semibold text-titan-text-secondary transition hover:border-titan-aqua/50 hover:bg-titan-aqua/5"
+          >
+            View Openings
+          </a>
+        </div>
+      </AnimatedSection>
     </main>
   );
 }
