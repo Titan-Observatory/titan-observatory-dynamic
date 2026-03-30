@@ -134,10 +134,7 @@ export default function Home() {
             What Your Support Enables
           </h2>
           <p className="text-sm leading-7 text-titan-text-primary/90">
-            Every dollar goes directly toward acquiring the telescope,
-            preparing the site, and modernizing the control system. Developing
-            the remote observation platform will be our foundation, everything
-            else grows from it.
+            Every dollar goes directly toward expert consultations, site evaluation, and planning work. Once we have enough professional input to confirm the viability of the project, more detailed plans will be shared publicly before funds are used to acquire the telescope.
           </p>
           <div className="space-y-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
