@@ -34,7 +34,7 @@ export type DonorMessage = {
 
 export async function GET() {
   if (!apiKey) {
-    return NextResponse.json({ error: "Missing GIVEBUTTER_API_KEY" }, { status: 500 });
+    return NextResponse.json({ error: "Missing GIVEBUTTER_API_KEY" }, { status: 422 });
   }
 
   const messages: DonorMessage[] = [];
@@ -66,7 +66,7 @@ export async function GET() {
           {
             error: `Givebutter API error: ${res.status} ${res.statusText}${detail}`,
           },
-          { status: 502 },
+          { status: 422 },
         );
       }
 
@@ -97,7 +97,7 @@ export async function GET() {
     const detail = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
       { error: `Failed to fetch donor messages: ${detail}` },
-      { status: 502 },
+      { status: 422 },
     );
   }
 
