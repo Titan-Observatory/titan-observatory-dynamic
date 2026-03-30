@@ -14,22 +14,17 @@ const aboutFaqs = [
   {
     question: "What is Titan Observatory?",
     answer:
-      "Titan Observatory is a 501(c)(3) nonprofit building a free, publicly accessible online radio observatory in Polk County, Florida. We're acquiring a 10-meter Scientific-Atlanta Cassegrain dish — maintained by its current owner for nearly 50 years after being purchased directly from NASA — and modernizing it with a custom control system and remote observing platform so anyone can run real radio astronomy experiments from a web browser.",
+      "Titan Observatory is a 501(c)(3) nonprofit based in Polk County, Florida with the goal of creating an online education platform centered around performing your own radio observations.",
   },
   {
     question: "How is the project funded?",
     answer:
-      "Entirely through public donations and grants. There are no institutional backers or corporate sponsors — the project is built and run by volunteers. All donations are tax-deductible. Our EIN is 39-4885264 and our financials and organizational profile are available on Candid (GuideStar).",
+      "Entirely through public donations and grants. At this time there are no institutional backers or corporate sponsors.",
   },
   {
     question: "What's the timeline?",
     answer:
-      "We're currently in Phase 1: raising funds to acquire the telescope and prepare the site. Phase 2 covers disassembly, transport, and electronics modernization. Phase 3 is commissioning and first light, where we begin opening the platform to public observations. The full roadmap with phase details is on our About page.",
-  },
-  {
-    question: "Is this a real telescope or a rendering?",
-    answer:
-      "It's a real instrument. The dish is a 10-meter Scientific-Atlanta Cassegrain on an ANTLab precision positioner, currently located at a private facility. The drone and ground photos on the site are of the actual telescope. We are in active fundraising to acquire and relocate it.",
+      "While we're still in the fundraising and site planning phase, it's difficult to give an estimate when the primary 10m telescope will be operational. However, we already have some shorter-term projects planned that will provide opportunities for engagement in the meantime, so check back for updates!",
   },
 ];
 
@@ -37,7 +32,7 @@ const telescopeFaqs = [
   {
     question: "Won't moving a 10-meter dish be incredibly expensive?",
     answer:
-      "It would be if it had to move in one piece, but the design makes disassembly straightforward. After removing four main bolts, the dish lifts off its pedestal with a modest crane. It can then be broken down into manageable panels on the ground and loaded onto standard flatbed trailers. We have a quoted crane and crew cost of $6,000 for this step.",
+      "It would be if it had to move in one piece, but we made sure to confirm with a rigging and transport company that the design will make disassembly straightforward. After removing four main bolts, the dish lifts off its pedestal with a modest crane. It can then be broken down into manageable panels on the ground and loaded onto standard flatbed trailers. We have a quoted crane and crew cost of $6,000 for this step.",
   },
   {
     question: "Where will the observatory be located?",
@@ -52,7 +47,7 @@ const telescopeFaqs = [
   {
     question: "Will I be able to use the telescope myself?",
     answer:
-      "Yes — that's the whole point. Once commissioned, the platform will let registered users schedule observation time, point the dish at a target, collect data, and work through guided analysis. We're designing it from the start to be accessible to curious beginners, not just researchers.",
+      "Yes, that's the goal. Once commissioned, the platform will let registered users schedule observation time, point the dish at a target, collect data, and work through guided analysis. We're designing it from the start to be accessible to curious beginners, not just researchers.",
   },
 ];
 
@@ -65,7 +60,7 @@ const involvementFaqs = [
   {
     question: "Will observation data be publicly available?",
     answer:
-      "That's the goal. We plan to publish raw observation data, processed results, and educational datasets once instruments are commissioned and data pipelines are validated. The community forum will be the primary place for updates and discussion around published data.",
+      "Absolutely. We plan to publish raw observation data, processed results, and educational datasets once instruments are commissioned and data pipelines are validated. The community forum will be the primary place for updates and discussion around published data.",
   },
   {
     question: "How can I stay updated?",
