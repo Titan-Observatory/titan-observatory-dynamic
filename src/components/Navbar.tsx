@@ -109,11 +109,11 @@ export default function Navbar() {
       </NavBody>
 
       <MobileNav>
-        <MobileNavHeader className="relative justify-end">
+        <MobileNavHeader>
           <Link
             href="/"
             onClick={closeMobile}
-            className="absolute left-1/2 inline-flex -translate-x-1/2 items-center rounded-full px-1 py-1"
+            className="inline-flex items-center rounded-full px-1 py-1"
             aria-label="Go to home"
           >
             <Image
@@ -121,7 +121,7 @@ export default function Navbar() {
               alt="Titan Observatory logo"
               width={3711}
               height={1352}
-              className="h-auto w-[132px] max-w-[48vw]"
+              className="h-auto w-[108px] max-w-[40vw]"
             />
           </Link>
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
