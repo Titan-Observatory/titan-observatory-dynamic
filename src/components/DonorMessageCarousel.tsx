@@ -110,13 +110,12 @@ export default function DonorMessageCarousel() {
         aria-label="Donor messages"
         className="overflow-hidden"
         style={{
-          height: "12rem",
           maskImage:
             "linear-gradient(to right, transparent, black 18%, black 82%, transparent)",
         }}
       >
       <div
-        className="flex h-full w-max items-start gap-20"
+        className="flex w-max items-start gap-20"
         style={{
           animation: animationsDisabled
             ? "none"
@@ -132,7 +131,7 @@ export default function DonorMessageCarousel() {
         {doubled.map((msg, i) => (
           <div
             key={`${msg.id}-${i}`}
-            className="w-96 shrink-0 space-y-3"
+            className="shrink-0 max-w-96 space-y-3"
           >
             <div className="flex gap-2.5">
               <IconQuote
