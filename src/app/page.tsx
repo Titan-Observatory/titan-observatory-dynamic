@@ -50,7 +50,7 @@ export default function Home() {
             src="/images/titan.webp"
             alt="The 10-meter Titan radio telescope dish."
             fill
-            className="object-cover object-center"
+            className="object-cover object-[54%_42%] sm:object-center"
             sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 100vw"
             priority
           />
