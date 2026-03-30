@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* ── Donor Messages Carousel (falls back to trust band) ── */}
-      <div className="-mt-20 -mb-20">
+      <div className="-mb-10">
         <DonorMessageCarousel />
       </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
             What Your Support Enables
           </h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Every dollar goes directly toward acquiring the telescope, preparing the site, and modernizing the control system and remote observing platform. That&apos;s the foundation — everything else grows from it.
+            Every dollar goes directly toward acquiring the telescope, preparing the site, and modernizing the control system. Developing the remote observation platform will be our foundation, everything else grows from it.
           </p>
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-text-muted">
@@ -157,7 +157,7 @@ export default function Home() {
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
                 <span>
                   <strong className="font-semibold text-titan-text-secondary">A network of dishes.</strong>{" "}
-                  The platform will be designed from the start to be scalable. Our team will work to integrate donated dishes over time, increasing observation capacity and creating opportunities for amateur interferometry.
+                  The infrastructure will be designed from the start to be scalable. Our team will work to integrate donated dishes over time, increasing observation capacity and creating opportunities for amateur interferometry.
                 </span>
               </li>
               <li className="flex gap-3">

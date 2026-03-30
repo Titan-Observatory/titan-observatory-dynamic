@@ -8,11 +8,11 @@ import type { DonorMessage } from "@/app/api/givebutter-messages/route";
 function Skeleton() {
   return (
     <div className="overflow-hidden py-4">
-      <div className="flex gap-16">
+      <div className="flex gap-10">
         {[0, 1, 2].map((i) => (
           <div key={i} className="flex shrink-0 items-center gap-3">
-            <div className="h-3 w-48 animate-pulse rounded bg-titan-border/30" />
-            <div className="h-3 w-20 animate-pulse rounded bg-titan-border/20" />
+            <div className="h-5 w-64 animate-pulse rounded bg-titan-border/30" />
+            <div className="h-4 w-28 animate-pulse rounded bg-titan-border/20" />
           </div>
         ))}
       </div>
@@ -97,7 +97,7 @@ export default function DonorMessageCarousel() {
 
   // Duplicate so the loop is seamless — animating -50% always scrolls exactly one full set
   const doubled = [...messages, ...messages];
-  const duration = Math.max(120, messages.length * 10);
+  const duration = Math.max(220, messages.length * 18);
 
   return (
     <div className="space-y-4">
@@ -115,7 +115,7 @@ export default function DonorMessageCarousel() {
         }}
       >
       <div
-        className="flex w-max items-start gap-20"
+        className="flex w-max items-start gap-10"
         style={{
           animation: animationsDisabled
             ? "none"
@@ -131,24 +131,24 @@ export default function DonorMessageCarousel() {
         {doubled.map((msg, i) => (
           <div
             key={`${msg.id}-${i}`}
-            className="shrink-0 max-w-96 space-y-3"
+            className="shrink-0 max-w-[32rem] space-y-4"
           >
             <div className="flex gap-2.5">
               <IconQuote
-                size={16}
+                size={20}
                 className="mt-1 shrink-0 text-titan-text-muted/40"
                 aria-hidden="true"
               />
-              <p className="text-base leading-relaxed text-titan-text-primary/90 line-clamp-5">
+              <p className="text-lg leading-relaxed text-titan-text-primary/90 line-clamp-5 sm:text-xl">
                 {msg.message}
               </p>
             </div>
-            <div className="flex items-center gap-3 pl-6 text-sm">
+            <div className="flex items-center gap-3 pl-7 text-sm sm:text-base">
               <span className="font-semibold text-titan-text-secondary">
                 — {msg.name}
               </span>
               {msg.amount > 0 && (
-                <span className="text-titan-yellow">
+                <span className="font-medium text-titan-yellow">
                   {formatCurrency(msg.amount)}
                 </span>
               )}
