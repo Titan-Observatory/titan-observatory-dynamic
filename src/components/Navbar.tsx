@@ -108,8 +108,7 @@ export default function Navbar() {
       </NavBody>
 
       <MobileNav>
-        <MobileNavHeader>
-          <NavbarLogo />
+        <MobileNavHeader className="justify-end">
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
         </MobileNavHeader>
         <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
