@@ -56,9 +56,9 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-titan-border/60 text-sm text-titan-text-muted">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-titan-bg/95 via-titan-bg to-titan-bg/95" />
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-12 sm:px-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1.7fr)] lg:gap-10">
+      <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-14 sm:px-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1.7fr)] lg:gap-10 lg:px-8">
         <div className="max-w-[38rem]">
-          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-start sm:gap-6">
+          <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-start sm:gap-6">
             <a
               aria-label="Titan Astronomical Observatory Inc"
               href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
@@ -73,8 +73,8 @@ export default function Footer() {
               />
             </a>
 
-            <div className="min-w-0 flex-1 space-y-4 sm:min-w-[18rem]">
-              <p className="inline-flex items-center gap-3 text-2xl font-semibold text-titan-text-secondary sm:whitespace-nowrap">
+            <div className="min-w-0 flex-1 space-y-5 sm:min-w-[18rem]">
+              <p className="inline-flex items-center gap-3 text-[1.8rem] font-semibold text-titan-text-secondary sm:text-2xl sm:whitespace-nowrap">
                 <Image
                   src="/images/Logos/favicon.webp"
                   alt=""
@@ -85,18 +85,18 @@ export default function Footer() {
                 Titan Observatory
               </p>
 
-              <p className="max-w-sm leading-relaxed text-titan-text-primary/80">
+              <p className="max-w-sm text-[15px] leading-7 text-titan-text-primary/80">
                 Enabling anyone to run real radio astronomy experiments using professional instrumentation.
               </p>
 
-              <div className="space-y-1.5 text-sm text-titan-text-secondary">
+              <div className="space-y-2 text-sm text-titan-text-secondary">
                 <p>
                   Contact:&nbsp;
                   <a className="text-titan-text-primary hover:text-titan-yellow" href="mailto:contact@titanobservatory.org">
                     contact@titanobservatory.org
                   </a>
                 </p>
-                <p>Community HQ · Lakeland, FL</p>
+                <p>Community HQ - Lakeland, FL</p>
                 <p>EIN: 39-4885264</p>
               </div>
 
@@ -107,13 +107,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5 lg:gap-x-6">
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 gap-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5 lg:gap-x-6">
+          <div className="space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Quick Links
             </h3>
-            <ul className="space-y-2">
-              {quickLinks.map(link => (
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link className="hover:text-titan-yellow" href={link.href}>
                     {link.label}
@@ -123,12 +123,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               The Project
             </h3>
-            <ul className="space-y-2">
-              {projectLinks.map(link => (
+            <ul className="space-y-3">
+              {projectLinks.map((link) => (
                 <li key={link.href}>
                   <Link className="hover:text-titan-yellow" href={link.href}>
                     {link.label}
@@ -138,12 +138,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Community
             </h3>
-            <ul className="space-y-2">
-              {communityLinks.map(link => (
+            <ul className="space-y-3">
+              {communityLinks.map((link) => (
                 <li key={link.href}>
                   <a className="hover:text-titan-yellow" href={link.href} target="_blank" rel="noreferrer">
                     {link.label}
@@ -153,11 +153,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Follow Us
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <a
                   className="hover:text-titan-yellow"
@@ -190,15 +190,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3 text-center sm:col-span-2 sm:text-left lg:col-span-1">
+          <div className="space-y-4 text-center sm:col-span-2 sm:text-left lg:col-span-1">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Share Titan Observatory
             </h3>
-            <div className="flex w-full flex-col items-center gap-3 sm:items-start">
-              {shareLinks.map(link => (
+            <div className="flex w-full flex-col items-center gap-3.5 sm:items-start">
+              {shareLinks.map((link) => (
                 <a
                   key={link.href}
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full border bg-transparent px-4 py-2 text-sm font-semibold whitespace-nowrap transition-colors duration-200 sm:w-auto [border-color:var(--share-border)] [color:var(--share-color)] hover:[border-color:var(--share-color)] hover:[color:#ffffff] hover:bg-[color:var(--share-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--share-color)]"
+                  className="group inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border bg-transparent px-4 py-3 text-center text-sm font-semibold transition-colors duration-200 sm:w-auto sm:rounded-full [border-color:var(--share-border)] [color:var(--share-color)] hover:[border-color:var(--share-color)] hover:[color:#ffffff] hover:bg-[color:var(--share-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--share-color)]"
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
@@ -233,7 +233,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-titan-border/60 bg-titan-bg/60">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-6 text-xs text-titan-text-muted sm:px-8 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 py-6 text-xs text-titan-text-muted sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>&copy; {new Date().getFullYear()} Titan Observatory. All rights reserved.</p>
           <p className="flex flex-wrap justify-center gap-4 md:justify-end">
             <Link className="hover:text-titan-yellow" href="/terms">

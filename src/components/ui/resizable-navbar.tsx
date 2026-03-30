@@ -100,7 +100,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   );
 
   return (
-    <div className={cn("sticky top-6 z-40 flex w-full justify-center px-4", className)}>
+    <div className={cn("sticky top-4 z-40 flex w-full justify-center px-4 sm:top-6", className)}>
       <div className="w-full max-w-6xl">{enhancedChildren}</div>
     </div>
   );
@@ -235,7 +235,7 @@ export const MobileNav = ({ children, className, condensed }: MobileNavProps) =>
   return (
     <motion.div
       className={cn(
-        "pointer-events-auto relative mx-auto flex w-full flex-col items-center justify-between rounded-2xl border border-transparent bg-transparent px-4 py-3 text-sm text-titan-text-primary shadow-none lg:hidden",
+        "pointer-events-auto relative mx-auto flex w-full flex-col items-center justify-between rounded-3xl border border-transparent bg-transparent px-5 py-4 text-sm text-titan-text-primary shadow-none lg:hidden",
         className,
       )}
       initial={false}
@@ -254,7 +254,7 @@ export const MobileNav = ({ children, className, condensed }: MobileNavProps) =>
 };
 
 export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => (
-  <div className={cn("flex w-full items-center justify-between", className)}>{children}</div>
+  <div className={cn("flex w-full items-center justify-between gap-4", className)}>{children}</div>
 );
 
 export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNavMenuProps) => (
@@ -266,7 +266,7 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNa
         exit={{ opacity: 0, y: -12 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
         className={cn(
-          "absolute left-0 right-0 top-full z-30 mt-3 flex max-h-[calc(100vh-8rem)] flex-col gap-3 overflow-y-auto rounded-2xl border border-[rgba(60,65,92,0.4)] bg-[rgba(23,26,40,0.96)] p-4 text-titan-text-primary shadow-[0_18px_42px_-24px_rgba(8,12,24,0.65)] backdrop-blur-xl",
+          "absolute left-0 right-0 top-full z-30 mt-4 flex max-h-[calc(100vh-8rem)] flex-col gap-4 overflow-y-auto rounded-3xl border border-[rgba(60,65,92,0.4)] bg-[rgba(23,26,40,0.96)] p-5 text-titan-text-primary shadow-[0_18px_42px_-24px_rgba(8,12,24,0.65)] backdrop-blur-xl",
           className,
         )}
       >
@@ -286,7 +286,7 @@ export const MobileNavToggle = ({
   <button
     type="button"
     onClick={onClick}
-    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#3c415c] bg-titan-bg text-titan-text-secondary"
+    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#3c415c] bg-titan-bg text-titan-text-secondary"
     aria-expanded={isOpen}
     aria-label="Toggle navigation"
   >
@@ -297,7 +297,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => (
   <Link
     href="/"
-    className="relative z-20 flex items-center rounded-full px-2 py-1 text-sm font-semibold text-titan-text-secondary"
+    className="relative z-20 flex items-center rounded-full px-3 py-2 text-[15px] font-semibold text-titan-text-secondary"
   >
     Titan Observatory
   </Link>
@@ -321,7 +321,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition";
+    "inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition";
 
   const variantStyles = {
     primary:

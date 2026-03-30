@@ -100,7 +100,7 @@ export default function Navbar() {
   };
 
   return (
-    <ResizableNav className="mt-6 mb-0">
+    <ResizableNav className="mb-0 mt-4 sm:mt-6">
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} className="justify-center" activePath={pathname} />
@@ -113,16 +113,16 @@ export default function Navbar() {
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
         </MobileNavHeader>
         <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
-          <div className="flex w-full flex-col gap-3">
+          <div className="flex w-full flex-col gap-4">
             {navItems.map(item => {
               if (item.children?.length) {
                 return (
-                  <div key={item.name} className="space-y-2">
+                  <div key={item.name} className="space-y-3">
                     <button
                       type="button"
                       onClick={() => setMobileResearchOpen(open => !open)}
                       aria-expanded={mobileResearchOpen}
-                      className="flex w-full items-center justify-between rounded-full px-3 py-2 text-sm font-semibold text-titan-text-secondary transition hover:bg-titan-bg-alt/70"
+                      className="flex w-full items-center justify-between rounded-full px-4 py-3 text-base font-semibold text-titan-text-secondary transition hover:bg-titan-bg-alt/70"
                     >
                       {item.name}
                       <svg
@@ -152,7 +152,7 @@ export default function Navbar() {
                             key={child.link}
                             href={child.link}
                             onClick={closeMobile}
-                            className={`rounded-full border-l border-transparent px-3 py-2 pl-5 text-sm font-medium ${pathname === child.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:border-titan-border/70 hover:bg-titan-bg-alt/70"}`}
+                            className={`rounded-full border-l border-transparent px-4 py-3 pl-6 text-base font-medium ${pathname === child.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:border-titan-border/70 hover:bg-titan-bg-alt/70"}`}
                           >
                             {child.name}
                           </Link>
@@ -173,7 +173,7 @@ export default function Navbar() {
                   key={item.link}
                   href={item.link}
                   onClick={closeMobile}
-                  className={`rounded-full px-3 py-2 text-sm font-medium ${pathname === item.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:bg-titan-bg-alt/70"}`}
+                  className={`rounded-full px-4 py-3 text-base font-medium ${pathname === item.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:bg-titan-bg-alt/70"}`}
                 >
                   {item.name}
                 </Link>
