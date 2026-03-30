@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* ── Donor Messages Carousel (falls back to trust band) ── */}
-      <div className="-mb-10">
+      <div className="-mt-10 -mb-14">
         <DonorMessageCarousel />
       </div>
 

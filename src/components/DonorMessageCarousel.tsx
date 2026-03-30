@@ -116,7 +116,7 @@ export default function DonorMessageCarousel() {
         }}
       >
       <div
-        className="flex h-full w-max items-center gap-20"
+        className="flex h-full w-max items-start gap-20"
         style={{
           animation: animationsDisabled
             ? "none"
