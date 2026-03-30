@@ -286,7 +286,7 @@ export const MobileNavToggle = ({
   <button
     type="button"
     onClick={onClick}
-    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#3c415c] bg-titan-bg text-titan-text-secondary"
+    className="flex h-12 w-12 items-center justify-center rounded-full border border-[#3c415c] bg-titan-bg text-titan-text-secondary"
     aria-expanded={isOpen}
     aria-label="Toggle navigation"
   >
@@ -297,7 +297,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => (
   <Link
     href="/"
-    className="relative z-20 flex items-center rounded-full px-3 py-2 text-[15px] font-semibold text-titan-text-secondary sm:text-sm"
+    className="relative z-20 flex min-h-11 items-center rounded-full px-3 py-2 text-[15px] font-semibold text-titan-text-secondary sm:text-sm"
   >
     Titan Observatory
   </Link>
@@ -321,7 +321,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition";
+    "inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition";
 
   const variantStyles = {
     primary:
