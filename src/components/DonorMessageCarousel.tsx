@@ -45,7 +45,7 @@ function formatCurrency(amount: number) {
 export default function DonorMessageCarousel() {
   const [messages, setMessages] = useState<DonorMessage[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [animationsDisabled, setAnimationsDisabled] = useState(false);
 
   const autoplayPlugin = Autoplay({
@@ -85,16 +85,39 @@ export default function DonorMessageCarousel() {
 
   useEffect(() => {
     fetch("/api/givebutter-messages")
-      .then((res) => {
-        if (!res.ok) throw new Error("fetch failed");
+      .then(async (res) => {
+        if (!res.ok) {
+          let errorMessage = `Request failed with status ${res.status} ${res.statusText}`.trim();
+          const clonedResponse = res.clone();
+
+          try {
+            const payload = await res.json();
+            if (payload && typeof payload.error === "string") {
+              errorMessage = payload.error;
+            }
+          } catch {
+            try {
+              const text = await clonedResponse.text();
+              if (text.trim()) {
+                errorMessage = text.trim();
+              }
+            } catch {
+              // Keep the status-based fallback when the response body can't be read.
+            }
+          }
+
+          throw new Error(errorMessage);
+        }
         return res.json();
       })
       .then((data: DonorMessage[]) => {
         setMessages(data);
         setLoading(false);
       })
-      .catch(() => {
-        setError(true);
+      .catch((err: unknown) => {
+        const message =
+          err instanceof Error ? err.message : "Unknown error loading donor messages";
+        setError(message);
         setLoading(false);
       });
   }, []);
@@ -102,9 +125,14 @@ export default function DonorMessageCarousel() {
   if (loading) return <Skeleton />;
   if (error) return (
     <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-6 py-5 backdrop-blur-sm">
-      <p className="text-center text-sm text-titan-text-muted">
-        Donor messages couldn&apos;t be loaded right now.
-      </p>
+      <div className="space-y-2">
+        <p className="text-center text-sm font-medium text-titan-text-secondary">
+          Donor messages couldn&apos;t be loaded.
+        </p>
+        <pre className="overflow-x-auto rounded-xl border border-titan-border/40 bg-titan-bg/40 px-4 py-3 text-xs leading-relaxed text-titan-text-primary/90">
+          {error}
+        </pre>
+      </div>
     </section>
   );
   if (messages.length === 0) return null;

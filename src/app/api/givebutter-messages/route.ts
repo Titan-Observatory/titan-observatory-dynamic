@@ -51,7 +51,23 @@ export async function GET() {
       });
 
       if (!res.ok) {
-        return NextResponse.json({ error: "Givebutter API error" }, { status: 502 });
+        let responseBody = "";
+        try {
+          responseBody = await res.text();
+        } catch {
+          responseBody = "";
+        }
+
+        const detail = responseBody.trim()
+          ? ` - ${responseBody.trim().slice(0, 500)}`
+          : "";
+
+        return NextResponse.json(
+          {
+            error: `Givebutter API error: ${res.status} ${res.statusText}${detail}`,
+          },
+          { status: 502 },
+        );
       }
 
       const json: PaginatedResponse = await res.json();
@@ -77,8 +93,12 @@ export async function GET() {
 
       url = json.links.next;
     }
-  } catch {
-    return NextResponse.json({ error: "Failed to fetch donor messages" }, { status: 502 });
+  } catch (error: unknown) {
+    const detail = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json(
+      { error: `Failed to fetch donor messages: ${detail}` },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json(messages);
