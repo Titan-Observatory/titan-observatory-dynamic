@@ -91,7 +91,13 @@ export async function GET() {
         }
       }
 
-      url = json.links.next;
+      if (json.links.next) {
+        const nextUrl = new URL(json.links.next);
+        nextUrl.searchParams.delete("apiKey");
+        url = nextUrl.toString();
+      } else {
+        url = null;
+      }
     }
   } catch (error: unknown) {
     const detail = error instanceof Error ? error.message : "Unknown error";
