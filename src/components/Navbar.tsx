@@ -113,17 +113,16 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={closeMobile}
-            className="inline-flex items-center gap-2 rounded-full px-1 py-1"
+            className="inline-flex items-center rounded-full px-1 py-1"
             aria-label="Go to home"
           >
             <Image
-              src="/images/Logos/favicon.webp"
+              src="/images/2.webp"
               alt="Titan Observatory logo"
-              width={48}
-              height={48}
-              className="h-9 w-9 rounded-full border border-titan-border/70 bg-titan-bg-alt/90 p-1"
+              width={3711}
+              height={1352}
+              className="h-auto w-[108px] max-w-[40vw]"
             />
-            <span className="text-sm font-semibold text-titan-text-secondary">Titan</span>
           </Link>
           <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
         </MobileNavHeader>
