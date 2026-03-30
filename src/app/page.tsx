@@ -8,10 +8,10 @@ export const revalidate = 3600;
 
 export default function Home() {
   return (
-    <main className="space-y-12 sm:space-y-20">
+    <main className="space-y-20 sm:space-y-20">
       <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-10">
         <div className="space-y-6 sm:space-y-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-orange sm:tracking-[0.25em]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-orange sm:text-xs sm:tracking-[0.25em]">
             Phase 1 In Progress
           </p>
           <h1 className="max-w-[13ch] text-[2.85rem] font-bold leading-[0.98] text-titan-text-secondary sm:max-w-none sm:text-5xl">
@@ -44,7 +44,7 @@ export default function Home() {
 
         <BackgroundGradient
           containerClassName="mx-auto w-full max-w-[28rem] rounded-[2rem]"
-          className="relative h-[50svh] min-h-[22rem] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)] sm:h-auto sm:min-h-0 sm:aspect-[4/5] lg:aspect-[3/4]"
+          className="relative h-[70svh] min-h-[28rem] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)] sm:h-auto sm:min-h-0 sm:aspect-[4/5] lg:aspect-[3/4]"
         >
           <Image
             src="/images/titan.webp"
@@ -63,7 +63,7 @@ export default function Home() {
 
       <section className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-orange sm:tracking-[0.25em]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-orange sm:text-xs sm:tracking-[0.25em]">
             Fund the mission
           </p>
           <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-aqua sm:tracking-[0.25em]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-aqua sm:text-xs sm:tracking-[0.25em]">
             Join the team
           </p>
           <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:col-span-2 sm:p-7 lg:col-span-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-yellow sm:tracking-[0.25em]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-yellow sm:text-xs sm:tracking-[0.25em]">
             Explore the project
           </p>
           <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
@@ -137,7 +137,7 @@ export default function Home() {
             Every dollar goes directly toward expert consultations, site evaluation, and planning work. Once we have enough professional input to confirm the viability of the project, more detailed plans will be shared publicly before funds are used to acquire the telescope.
           </p>
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
               Looking ahead
             </p>
             <ul className="space-y-5 text-sm leading-7 text-titan-text-primary/90">
@@ -184,7 +184,7 @@ export default function Home() {
       <section className="rounded-3xl border border-titan-border/50 bg-titan-bg-alt/60 p-7 backdrop-blur-sm sm:p-8">
         <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:items-center">
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
               Donor thank-you
             </p>
             <h3 className="text-xl font-semibold text-titan-text-secondary">

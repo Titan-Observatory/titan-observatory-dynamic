@@ -37,7 +37,7 @@ export default function FloatingAccessibilityControls() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 z-50 flex items-end justify-between md:hidden"
+      className="fixed bottom-4 left-4 right-4 z-40 flex items-end justify-between md:hidden"
       data-floating-controls
     >
       <div className="flex flex-col items-start gap-3">
