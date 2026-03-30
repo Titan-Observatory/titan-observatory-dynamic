@@ -3,6 +3,7 @@ import Link from "next/link";
 import PhaseTimeline from "@/components/PhaseTimeline";
 import DiscordPresenceBadge from "@/components/DiscordPresenceBadge";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
+import DonorMessageCarousel from "@/components/DonorMessageCarousel";
 
 export const revalidate = 3600;
 
@@ -40,7 +41,7 @@ const phases = [
     ],
   },
   {
-    title: "Phase 3 — First Light & Operations",
+    title: "Phase 3 — Commission & First Light",
     status: "Upcoming",
     details: [
       "Development of telescope control systems led by staff volunteers with community involvement",
@@ -65,19 +66,14 @@ export default function Home() {
             <span className="text-titan-yellow"> open to everyone.</span>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-titan-text-primary/90">
-            Titan Observatory is acquiring a precision 10&thinsp;m dish — once
-            operated by NASA — and building a free, remote-access platform so
-            anyone can run real radio astronomy experiments.
-          </p>
+            Our mission is to make radio astronomy more accessible than ever by acquiring and modernizing real scientific instrumentation, building an intuitive remote observing platform, and creating educational experiences that let the public, students, and aspiring researchers explore the universe through hands-on observation and data.</p>
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href="https://givebutter.com/zJ7PNl"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/donate"
               className="inline-flex items-center justify-center rounded-full bg-titan-orange px-7 py-3 text-sm font-bold text-titan-bg transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-orange"
             >
               Support the Observatory
-            </a>
+            </Link>
             <Link
               href="#roadmap"
               className="inline-flex items-center justify-center rounded-full border border-titan-border/70 px-6 py-3 text-sm font-semibold text-titan-text-secondary transition hover:border-titan-orange/50 hover:bg-titan-orange/5"
@@ -102,62 +98,32 @@ export default function Home() {
         </BackgroundGradient>
       </section>
 
-      {/* ── Trust Band ── */}
-      <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-6 py-5 backdrop-blur-sm">
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center text-sm text-titan-text-primary/80">
-          <span className="flex items-center gap-2">
-            <span className="font-semibold text-titan-text-secondary">501(c)(3)</span> Registered Nonprofit
-          </span>
-          <span aria-hidden="true" className="hidden h-4 w-px bg-titan-border/60 sm:block" />
-          <span>
-            EIN{" "}
-            <span className="font-semibold text-titan-text-secondary">39-4885264</span>
-          </span>
-          <span aria-hidden="true" className="hidden h-4 w-px bg-titan-border/60 sm:block" />
-          <a
-            href="https://app.candid.org/profile/16551508/titan-astronomical-observatory-inc-39-4885264/?pkId=86b218a1-77e9-4f25-9a89-729b4d9adabc"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-titan-text-secondary underline decoration-titan-border/60 underline-offset-2 transition hover:text-titan-yellow hover:decoration-titan-yellow"
-          >
-            View on GuideStar / Candid
-          </a>
-          <span aria-hidden="true" className="hidden h-4 w-px bg-titan-border/60 sm:block" />
-          <span>
-            Active community of{" "}
-            <span className="font-semibold text-titan-text-secondary">hundreds of members</span>
-          </span>
-          <span aria-hidden="true" className="hidden h-4 w-px bg-titan-border/60 sm:block" />
-          <span>
-            Based in{" "}
-            <span className="font-semibold text-titan-text-secondary">Lakeland, FL</span>
-          </span>
-        </div>
-      </section>
+      {/* ── Donor Messages Carousel (falls back to trust band) ── */}
+      <DonorMessageCarousel />
 
       {/* ── What Support Enables ── */}
-      <section className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="flex justify-center lg:justify-start">
+          <div className="w-full max-w-[420px]">
+            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
+          </div>
+        </div>
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-titan-text-secondary">
             What Your Support Enables
           </h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Your donation directly funds telescope acquisition, site
-            preparation, modernization of the control system, and the
-            development of a free web portal for remote observations and
-            educational curricula. The dish itself is a Scientific-Atlanta
-            Cassegrain on an ANTLab precision positioner — maintained by its
-            current owner for nearly 50 years after purchasing it directly from
-            NASA, and still fully operational.
+            Donations will be used to fund fund telescope acquisition, site
+            preparation, and modernization of the control system. Once observations are routine, the next step is to produce curricula which integrate real telescope time. Topics covered would include the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works.
           </p>
           <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
             <li className="flex gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Remote operation via a web portal with flexible controls and data visualizations
+              Extend observation range. Pending dish characterization, we hope to add additional feeds to allow for a wider range of observations and educational opportunities.
             </li>
             <li className="flex gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Calibrated L- and S-band RF chains for real science
+              Scale observation capacity with additional dishes. The infrastructure and platform will be designed to be scalable, allowing us to repurpose old  interferometry experiments.
             </li>
             <li className="flex gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
@@ -168,11 +134,6 @@ export default function Home() {
               Documentation and curricula so anyone can learn on real equipment
             </li>
           </ul>
-        </div>
-        <div className="flex justify-center lg:justify-end">
-          <div className="w-full max-w-[420px] overflow-hidden rounded-3xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
-            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
-          </div>
         </div>
       </section>
 
@@ -186,17 +147,16 @@ export default function Home() {
             Support the Observatory
           </h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-titan-text-primary/80">
-            Every dollar goes toward acquiring, relocating, and modernizing a
-            real scientific instrument for public access.
+            Every tax-deductible donation brings Titan closer to reality. Help
+            us make radio astronomy and hands-on science more accessible than
+            ever.
           </p>
-          <a
-            href="https://givebutter.com/zJ7PNl"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/donate"
             className="mt-5 inline-flex items-center justify-center rounded-full bg-titan-orange px-5 py-2.5 text-sm font-semibold text-titan-bg transition hover:brightness-110"
           >
             Donate
-          </a>
+          </Link>
         </div>
 
         <div className="flex flex-col rounded-2xl border border-titan-border/60 bg-titan-bg-alt/80 p-7 backdrop-blur-sm">
@@ -244,17 +204,16 @@ export default function Home() {
       <section className="mx-auto max-w-3xl space-y-5 text-center">
         <h2 className="text-2xl font-semibold text-titan-text-secondary">Why It Matters</h2>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          For many, hands-on learning is the best way to learn, but the nature
-          of radio astronomy limits curious learners to words in a textbook or
-          daunting math. By creating a more accessible way to experience radio
-          astronomy, we hope to inspire future radio astronomers and help
-          citizen scientists better understand the radio universe.
+          Much of our understanding of the universe beyond the solar system
+          comes from the properties of electromagnetic waves received from
+          space, but <em>how</em>? How can light tell us the composition of a
+          planet&apos;s atmosphere from hundreds of light-years away? Or that
+          some smudge in an image is a galaxy born near the dawn of the universe, billions of years ago?
         </p>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          Our long-term mission is to bridge the gap between curious learners
-          and PhD candidates by producing educational materials and structured
-          curricula that offer students the opportunity to capture and interpret
-          real astronomical signals.
+          We believe it's important to give the public the opportunity to perform 
+          and understand their own observations of the universe, so that we can all share in the excitement 
+          of future discoveries and feel connected to the science behind them.
         </p>
       </section>
 
@@ -357,7 +316,7 @@ export default function Home() {
           <DiscordPresenceBadge className="w-full sm:w-auto" />
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-titan-border/60 bg-titan-text-secondary/95 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]">
+        <div>
           <givebutter-widget className="block w-full" id="pzez1n"></givebutter-widget>
         </div>
       </section>

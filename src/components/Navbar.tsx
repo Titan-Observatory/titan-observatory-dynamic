@@ -58,12 +58,10 @@ export default function Navbar() {
     const donateButton = (
       <NavbarButton
         key="donate"
-        href="https://givebutter.com/zJ7PNl"
+        href="/donate"
         variant="primary"
         className={buttonClass}
         onClick={handleClick}
-        target="_blank"
-        rel="noopener noreferrer"
       >
         Donate
       </NavbarButton>
