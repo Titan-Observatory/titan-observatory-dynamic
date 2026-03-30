@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
+export const revalidate = 300;
+
 const apiKey = process.env.GIVEBUTTER_API_KEY;
-const REVALIDATE_SECONDS = 300;
 const MAX_PAGES = 3;
 const MAX_MESSAGES = 20;
 
@@ -47,7 +48,7 @@ export async function GET() {
           Accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
         },
-        next: { revalidate: REVALIDATE_SECONDS },
+        cache: "no-store",
       });
 
       if (!res.ok) {
