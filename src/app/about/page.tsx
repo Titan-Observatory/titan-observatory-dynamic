@@ -122,7 +122,7 @@ export default function AboutPage() {
           Radio astronomy covers the longest-wavelength end of that spectrum.
           Titan Observatory will initially observe at the 21&thinsp;cm hydrogen
           line (1420&thinsp;MHz), detecting the neutral hydrogen that permeates
-          the Milky Way — including mapping its rotation curve, one of the
+          the Milky Way, including mapping its rotation curve, one of the
           first clues we had for the existence of dark matter.
         </p>
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
@@ -133,43 +133,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* ── What Your Support Enables (expanded) ── */}
-      <section className="mx-auto max-w-3xl space-y-5">
-        <h2 className="text-2xl font-semibold text-titan-text-secondary">
-          What Your Support Enables
-        </h2>
-        <p className="text-sm leading-relaxed text-titan-text-primary/90">
-          Donations fund telescope acquisition, site preparation, and
-          modernization of the control system. The dish itself is a
-          Scientific-Atlanta Cassegrain on an ANTLab precision positioner —
-          maintained by its current owner for nearly 50 years after purchasing
-          it directly from NASA, and still fully operational. Once observations
-          are routine, the next step is to produce curricula which integrate
-          real telescope time.
-        </p>
-        <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
-          <li className="flex gap-3">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-            Extend observation range with additional frequency bands for a
-            wider variety of science and education opportunities
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-            Scale observation capacity with additional dishes — the
-            infrastructure and platform will be designed to support
-            interferometry experiments
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-            Self-hosted infrastructure for maximum uptime and independence
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-            Documentation and curricula so anyone can learn on real equipment
-          </li>
-        </ul>
-      </section>
-
+      
       {/* ── Roadmap ── */}
       <section id="roadmap" className="scroll-mt-24 space-y-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

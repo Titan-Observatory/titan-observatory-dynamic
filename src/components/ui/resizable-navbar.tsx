@@ -297,7 +297,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => (
   <Link
     href="/"
-    className="relative z-20 flex items-center rounded-full px-3 py-2 text-[15px] font-semibold text-titan-text-secondary"
+    className="relative z-20 flex items-center rounded-full px-3 py-2 text-[15px] font-semibold text-titan-text-secondary sm:text-sm"
   >
     Titan Observatory
   </Link>

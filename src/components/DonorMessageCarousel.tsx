@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { IconQuote } from "@tabler/icons-react";
 import { ANIMATIONS_EVENT, getAnimationsDisabled } from "@/lib/animations";
 import type { DonorMessage } from "@/app/api/givebutter-messages/route";
@@ -35,12 +35,15 @@ function formatCurrency(amount: number) {
 function MessageCard({
   message,
   mobile = false,
+  ariaHidden = false,
 }: {
   message: DonorMessage;
   mobile?: boolean;
+  ariaHidden?: boolean;
 }) {
   return (
     <article
+      aria-hidden={ariaHidden || undefined}
       className={
         mobile
           ? "w-[min(20rem,100%)] shrink-0 snap-start rounded-3xl border border-titan-border/50 bg-titan-bg-alt/70 p-5 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)] backdrop-blur-sm"
@@ -86,6 +89,7 @@ export default function DonorMessageCarousel() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [animationsDisabled, setAnimationsDisabled] = useState(false);
+  const mobileTrackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setAnimationsDisabled(
@@ -137,6 +141,76 @@ export default function DonorMessageCarousel() {
       });
   }, []);
 
+  useEffect(() => {
+    const track = mobileTrackRef.current;
+    if (!track || messages.length === 0 || animationsDisabled) {
+      return;
+    }
+
+    let frameId = 0;
+    let lastFrame = 0;
+    let pausedUntil = 0;
+    const pixelsPerSecond = 24;
+
+    const pause = () => {
+      pausedUntil = Date.now() + 2500;
+    };
+
+    const tick = (timestamp: number) => {
+      if (!track.isConnected) {
+        return;
+      }
+
+      const isDesktop = window.innerWidth >= 768;
+      const loopWidth = track.scrollWidth / 2;
+
+      if (
+        isDesktop ||
+        document.hidden ||
+        loopWidth <= track.clientWidth ||
+        Date.now() < pausedUntil
+      ) {
+        lastFrame = timestamp;
+        frameId = window.requestAnimationFrame(tick);
+        return;
+      }
+
+      if (!lastFrame) {
+        lastFrame = timestamp;
+      }
+
+      const deltaSeconds = (timestamp - lastFrame) / 1000;
+      lastFrame = timestamp;
+
+      const nextScrollLeft = track.scrollLeft + pixelsPerSecond * deltaSeconds;
+      track.scrollLeft =
+        nextScrollLeft >= loopWidth ? nextScrollLeft - loopWidth : nextScrollLeft;
+
+      frameId = window.requestAnimationFrame(tick);
+    };
+
+    track.addEventListener("touchstart", pause, { passive: true });
+    track.addEventListener("pointerdown", pause);
+    track.addEventListener("wheel", pause, { passive: true });
+
+    frameId = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      track.removeEventListener("touchstart", pause);
+      track.removeEventListener("pointerdown", pause);
+      track.removeEventListener("wheel", pause);
+    };
+  }, [animationsDisabled, messages.length]);
+
+  const orderedMessages = useMemo(
+    () =>
+      [...messages].sort(
+        (a, b) => b.message.trim().length - a.message.trim().length,
+      ),
+    [messages],
+  );
+
   if (loading) return <Skeleton />;
   if (error) {
     return (
@@ -150,8 +224,8 @@ export default function DonorMessageCarousel() {
   if (messages.length === 0) return null;
 
   // Duplicate the list so translating -50% always equals one full message set.
-  const doubled = [...messages, ...messages];
-  const duration = Math.max(220, messages.length * 18);
+  const doubled = [...orderedMessages, ...orderedMessages];
+  const duration = Math.max(220, orderedMessages.length * 18);
 
   return (
     <div className="min-w-0 space-y-3 sm:space-y-4">
@@ -159,9 +233,17 @@ export default function DonorMessageCarousel() {
         From our supporters
       </p>
 
-      <div className="flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto pb-2 pr-1 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {messages.map((message) => (
-          <MessageCard key={message.id} message={message} mobile />
+      <div
+        ref={mobileTrackRef}
+        className="flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto pb-2 pr-1 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {doubled.map((message, i) => (
+          <MessageCard
+            key={`${message.id}-mobile-${i}`}
+            message={message}
+            mobile
+            ariaHidden={i >= orderedMessages.length}
+          />
         ))}
       </div>
 
@@ -189,7 +271,11 @@ export default function DonorMessageCarousel() {
           }}
         >
           {doubled.map((message, i) => (
-            <MessageCard key={`${message.id}-${i}`} message={message} />
+            <MessageCard
+              key={`${message.id}-${i}`}
+              message={message}
+              ariaHidden={i >= orderedMessages.length}
+            />
           ))}
         </div>
 

@@ -66,7 +66,7 @@ export default function Home() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-orange sm:text-xs sm:tracking-[0.25em]">
             Fund the mission
           </p>
-          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary">
+          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
             Support the Observatory
           </h3>
           <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">
@@ -86,7 +86,7 @@ export default function Home() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-aqua sm:text-xs sm:tracking-[0.25em]">
             Join the team
           </p>
-          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary">
+          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
             Volunteer or Contribute
           </h3>
           <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">
@@ -107,7 +107,7 @@ export default function Home() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-yellow sm:text-xs sm:tracking-[0.25em]">
             Explore the project
           </p>
-          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary">
+          <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
             Learn How It Works
           </h3>
           <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">

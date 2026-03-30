@@ -85,7 +85,7 @@ export default function Footer() {
                 Titan Observatory
               </p>
 
-              <p className="max-w-sm text-[15px] leading-7 text-titan-text-primary/80">
+              <p className="max-w-sm text-[15px] leading-7 text-titan-text-primary/80 sm:text-sm">
                 Enabling anyone to run real radio astronomy experiments using professional instrumentation.
               </p>
 
