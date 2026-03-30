@@ -125,14 +125,9 @@ export default function DonorMessageCarousel() {
   if (loading) return <Skeleton />;
   if (error) return (
     <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-6 py-5 backdrop-blur-sm">
-      <div className="space-y-2">
-        <p className="text-center text-sm font-medium text-titan-text-secondary">
-          Donor messages couldn&apos;t be loaded.
-        </p>
-        <pre className="overflow-x-auto rounded-xl border border-titan-border/40 bg-titan-bg/40 px-4 py-3 text-xs leading-relaxed text-titan-text-primary/90">
-          {error}
-        </pre>
-      </div>
+      <p className="text-center text-sm text-titan-text-muted">
+        Donor messages couldn&apos;t be loaded right now.
+      </p>
     </section>
   );
   if (messages.length === 0) return null;

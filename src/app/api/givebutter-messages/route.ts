@@ -33,17 +33,24 @@ export type DonorMessage = {
   date: string;
 };
 
+const BASE_URL = "https://api.givebutter.com/v1/transactions";
+
+function cleanPageUrl(page: number): string {
+  return `${BASE_URL}?page=${page}`;
+}
+
 export async function GET() {
   if (!apiKey) {
     return NextResponse.json({ error: "Missing GIVEBUTTER_API_KEY" }, { status: 422 });
   }
 
   const messages: DonorMessage[] = [];
-  let url: string | null = "https://api.givebutter.com/v1/transactions";
+  let currentPage = 1;
+  let hasMore = true;
 
   try {
-    for (let page = 0; page < MAX_PAGES && url && messages.length < MAX_MESSAGES; page++) {
-      const res = await fetch(url, {
+    while (hasMore && currentPage <= MAX_PAGES && messages.length < MAX_MESSAGES) {
+      const res = await fetch(cleanPageUrl(currentPage), {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
@@ -92,13 +99,11 @@ export async function GET() {
         }
       }
 
-      if (json.links.next) {
-        const nextUrl = new URL(json.links.next);
-        nextUrl.searchParams.delete("apiKey");
-        url = nextUrl.toString();
-      } else {
-        url = null;
-      }
+      // Givebutter pollutes links.next with internal model properties as query
+      // params (apiKey[incrementing], apiKey[exists], etc.) which their own API
+      // then rejects. Build clean page URLs ourselves instead of using their links.
+      hasMore = json.links.next !== null;
+      currentPage++;
     }
   } catch (error: unknown) {
     const detail = error instanceof Error ? error.message : "Unknown error";
