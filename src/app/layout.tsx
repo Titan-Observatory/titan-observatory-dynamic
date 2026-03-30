@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="relative z-10 flex min-h-screen flex-col" data-page-root>
           <SiteHeader />
           <Navbar />
-          <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-10 pb-16 sm:px-6 sm:pt-8 sm:pb-12 lg:px-8">{children}</main>
+          <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-6 pb-16 sm:px-6 sm:pt-8 sm:pb-12 lg:px-8">{children}</main>
           <FloatingAccessibilityControls />
           <Footer />
         </div>
