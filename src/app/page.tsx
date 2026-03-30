@@ -13,7 +13,7 @@ export default function Home() {
       <section className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-orange">
-            501(c)(3) Nonprofit &middot; Phase 1 In Progress
+            Phase 1 In Progress
           </p>
           <h1 className="text-4xl font-bold leading-tight text-titan-text-secondary sm:text-5xl">
             A 10-meter radio telescope,
@@ -59,7 +59,9 @@ export default function Home() {
       </section>
 
       {/* ── Donor Messages Carousel (falls back to trust band) ── */}
-      <DonorMessageCarousel />
+      <div className="-mb-10">
+        <DonorMessageCarousel />
+      </div>
 
       {/* ── Audience Paths ── */}
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -137,27 +139,36 @@ export default function Home() {
             What Your Support Enables
           </h2>
           <p className="text-sm leading-relaxed text-titan-text-primary/90">
-            Donations will be used to fund fund telescope acquisition, site
-            preparation, and modernization of the control system. Once observations are routine, the next step is to produce curricula which integrate real telescope time. Topics covered would include the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works.
+            Every dollar goes directly toward acquiring the telescope, preparing the site, and modernizing the control system and remote observing platform. That&apos;s the foundation — everything else grows from it.
           </p>
-          <ul className="space-y-2 text-sm leading-relaxed text-titan-text-primary/90">
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Extend observation range. Pending dish characterization, we hope to add additional feeds to allow for a wider range of observations and educational opportunities.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Scale observation capacity with additional dishes. The infrastructure and platform will be designed to be scalable, allowing us to repurpose old  interferometry experiments.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Self-hosted infrastructure for maximum uptime and independence
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
-              Documentation and curricula so anyone can learn on real equipment
-            </li>
-          </ul>
+          <div className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-text-muted">
+              Looking ahead
+            </p>
+            <ul className="space-y-4 text-sm leading-relaxed text-titan-text-primary/90">
+              <li className="flex gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+                <span>
+                  <strong className="font-semibold text-titan-text-secondary">Broader frequency coverage.</strong>{" "}
+                  Pending dish characterization, we hope to add L- and S-band RF chains alongside the 21 cm hydrogen line feed, opening up a wider range of science targets and educational experiments.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+                <span>
+                  <strong className="font-semibold text-titan-text-secondary">A network of dishes.</strong>{" "}
+                  The platform will be designed from the start to be scalable. Our team will work to integrate donated dishes over time, increasing observation capacity and creating opportunities for amateur interferometry.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-titan-orange" />
+                <span>
+                  <strong className="font-semibold text-titan-text-secondary">Integrated science education.</strong>{" "}
+                  Once routine observations are underway, we plan to develop curricula that put real telescope time in students&apos; hands, covering the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works from first principles.
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 

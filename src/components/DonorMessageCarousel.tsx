@@ -100,17 +100,23 @@ export default function DonorMessageCarousel() {
   const duration = Math.max(120, messages.length * 10);
 
   return (
-    <section
-      role="region"
-      aria-label="Donor messages"
-      className="overflow-hidden py-4"
-      style={{
-        maskImage:
-          "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-      }}
-    >
+    <div className="space-y-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-text-muted">
+        From our supporters
+      </p>
+
+      <section
+        role="region"
+        aria-label="Donor messages"
+        className="overflow-hidden"
+        style={{
+          height: "12rem",
+          maskImage:
+            "linear-gradient(to right, transparent, black 18%, black 82%, transparent)",
+        }}
+      >
       <div
-        className="flex w-max items-start gap-16"
+        className="flex h-full w-max items-center gap-20"
         style={{
           animation: animationsDisabled
             ? "none"
@@ -126,15 +132,15 @@ export default function DonorMessageCarousel() {
         {doubled.map((msg, i) => (
           <div
             key={`${msg.id}-${i}`}
-            className="w-80 shrink-0 space-y-3"
+            className="w-96 shrink-0 space-y-3"
           >
-            <div className="flex gap-2">
+            <div className="flex gap-2.5">
               <IconQuote
                 size={16}
                 className="mt-1 shrink-0 text-titan-text-muted/40"
                 aria-hidden="true"
               />
-              <p className="text-base leading-relaxed text-titan-text-primary/90 line-clamp-4">
+              <p className="text-base leading-relaxed text-titan-text-primary/90 line-clamp-5">
                 {msg.message}
               </p>
             </div>
@@ -158,6 +164,7 @@ export default function DonorMessageCarousel() {
           to   { transform: translateX(-50%); }
         }
       `}</style>
-    </section>
+      </section>
+    </div>
   );
 }
