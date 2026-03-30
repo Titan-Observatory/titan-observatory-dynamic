@@ -1,35 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  IconChevronLeft,
-  IconChevronRight,
-  IconQuote,
-} from "@tabler/icons-react";
-import {
-  ANIMATIONS_EVENT,
-  getAnimationsDisabled,
-} from "@/lib/animations";
+import { useEffect, useState } from "react";
+import { IconQuote } from "@tabler/icons-react";
+import { ANIMATIONS_EVENT, getAnimationsDisabled } from "@/lib/animations";
 import type { DonorMessage } from "@/app/api/givebutter-messages/route";
 
 function Skeleton() {
   return (
-    <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-6 py-5 backdrop-blur-sm">
-      <div className="flex gap-4 overflow-hidden">
+    <div className="overflow-hidden py-4">
+      <div className="flex gap-16">
         {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className="min-w-[280px] max-w-[360px] flex-[0_0_auto] rounded-xl border border-titan-border/40 bg-titan-bg/40 px-5 py-4"
-          >
-            <div className="mb-3 h-4 w-3/4 animate-pulse rounded bg-titan-border/30" />
-            <div className="mb-2 h-3 w-full animate-pulse rounded bg-titan-border/20" />
-            <div className="h-3 w-1/2 animate-pulse rounded bg-titan-border/20" />
+          <div key={i} className="flex shrink-0 items-center gap-3">
+            <div className="h-3 w-48 animate-pulse rounded bg-titan-border/30" />
+            <div className="h-3 w-20 animate-pulse rounded bg-titan-border/20" />
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -47,26 +34,6 @@ export default function DonorMessageCarousel() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [animationsDisabled, setAnimationsDisabled] = useState(false);
-
-  const autoplayPlugin = Autoplay({
-    delay: 4000,
-    stopOnInteraction: false,
-    stopOnMouseEnter: true,
-    stopOnFocusIn: true,
-  });
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      dragFree: true,
-      containScroll: false,
-    },
-    animationsDisabled ? [] : [autoplayPlugin],
-  );
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   useEffect(() => {
     setAnimationsDisabled(
@@ -89,7 +56,6 @@ export default function DonorMessageCarousel() {
         if (!res.ok) {
           let errorMessage = `Request failed with status ${res.status} ${res.statusText}`.trim();
           const clonedResponse = res.clone();
-
           try {
             const payload = await res.json();
             if (payload && typeof payload.error === "string") {
@@ -98,14 +64,11 @@ export default function DonorMessageCarousel() {
           } catch {
             try {
               const text = await clonedResponse.text();
-              if (text.trim()) {
-                errorMessage = text.trim();
-              }
+              if (text.trim()) errorMessage = text.trim();
             } catch {
-              // Keep the status-based fallback when the response body can't be read.
+              // keep status-based fallback
             }
           }
-
           throw new Error(errorMessage);
         }
         return res.json();
@@ -132,65 +95,63 @@ export default function DonorMessageCarousel() {
   );
   if (messages.length === 0) return null;
 
+  // Duplicate so the loop is seamless — animating -50% always scrolls exactly one full set
+  const doubled = [...messages, ...messages];
+  const duration = Math.max(30, messages.length * 3);
+
   return (
     <section
       role="region"
       aria-label="Donor messages"
-      className="relative rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-6 py-5 backdrop-blur-sm"
+      className="overflow-hidden py-2"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+      }}
     >
       <div
-        ref={emblaRef}
-        className="overflow-hidden"
-        aria-roledescription="carousel"
-        aria-live="off"
+        className="flex w-max items-center gap-12"
+        style={{
+          animation: animationsDisabled
+            ? "none"
+            : `donor-ticker ${duration}s linear infinite`,
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLDivElement).style.animationPlayState = "paused";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLDivElement).style.animationPlayState = "running";
+        }}
       >
-        <div className="flex gap-4">
-          {messages.map((msg, i) => (
-            <div
-              key={msg.id}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`Slide ${i + 1} of ${messages.length}`}
-              className="min-w-[280px] max-w-[360px] flex-[0_0_auto] rounded-xl border border-titan-border/40 bg-titan-bg/40 px-5 py-4"
-            >
-              <IconQuote
-                size={16}
-                className="mb-2 text-titan-text-muted/50"
-                aria-hidden="true"
-              />
-              <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-titan-text-primary/90">
-                {msg.message}
-              </p>
-              <div className="flex items-center justify-between text-xs text-titan-text-muted">
-                <span className="font-medium text-titan-text-secondary">
-                  {msg.name}
-                </span>
-                {msg.amount > 0 && (
-                  <span className="text-titan-yellow">
-                    {formatCurrency(msg.amount)}
-                  </span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        {doubled.map((msg, i) => (
+          <span
+            key={`${msg.id}-${i}`}
+            className="flex shrink-0 items-baseline gap-2 text-sm text-titan-text-primary/80"
+          >
+            <IconQuote
+              size={12}
+              className="shrink-0 translate-y-px text-titan-text-muted/40"
+              aria-hidden="true"
+            />
+            <span className="max-w-xs truncate italic">{msg.message}</span>
+            <span className="shrink-0 font-medium text-titan-text-secondary">
+              — {msg.name}
+            </span>
+            {msg.amount > 0 && (
+              <span className="shrink-0 text-xs text-titan-yellow">
+                {formatCurrency(msg.amount)}
+              </span>
+            )}
+          </span>
+        ))}
       </div>
 
-      {/* Navigation buttons */}
-      <button
-        onClick={scrollPrev}
-        aria-label="Previous message"
-        className="absolute left-1.5 top-1/2 -translate-y-1/2 rounded-full border border-titan-border/40 bg-titan-bg/80 p-1 text-titan-text-muted transition hover:text-titan-text-secondary"
-      >
-        <IconChevronLeft size={16} />
-      </button>
-      <button
-        onClick={scrollNext}
-        aria-label="Next message"
-        className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full border border-titan-border/40 bg-titan-bg/80 p-1 text-titan-text-muted transition hover:text-titan-text-secondary"
-      >
-        <IconChevronRight size={16} />
-      </button>
+      <style>{`
+        @keyframes donor-ticker {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 }
