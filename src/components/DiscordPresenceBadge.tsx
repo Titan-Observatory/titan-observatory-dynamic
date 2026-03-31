@@ -1,66 +1,23 @@
-"use client";
-
-import { useEffect, useMemo, useState } from "react";
 import { IconBrandDiscord } from "@tabler/icons-react";
 
+import { getDiscordWidgetData } from "@/lib/discord-widget";
 import { cn } from "@/lib/utils";
 
-type WidgetResponse = {
-  name: string | null;
-  presenceCount: number | null;
-  memberCount: number | null;
-  instantInvite: string | null;
-};
-
-const POLL_INTERVAL_MS = 15000;
 const numberFormatter = new Intl.NumberFormat("en-US");
 const DISCORD_INVITE_URL = "https://discord.gg/T5F6AG26tE";
 
-export default function DiscordPresenceBadge({ className }: { className?: string }) {
-  const [data, setData] = useState<WidgetResponse | null>(null);
-  const [error, setError] = useState(false);
+export default async function DiscordPresenceBadge({ className }: { className?: string }) {
+  const data = await getDiscordWidgetData();
 
-  useEffect(() => {
-    let cancelled = false;
+  const parts: string[] = [];
+  if (typeof data?.presenceCount === "number") {
+    parts.push(`${numberFormatter.format(data.presenceCount)} online`);
+  }
+  if (typeof data?.memberCount === "number") {
+    parts.push(`${numberFormatter.format(data.memberCount)} members`);
+  }
 
-    const fetchPresence = async () => {
-      try {
-        const res = await fetch("/api/discord-widget");
-        if (!res.ok) throw new Error("Request failed");
-        const json = (await res.json()) as WidgetResponse;
-        if (!cancelled) {
-          setData(json);
-          setError(false);
-        }
-      } catch (err) {
-        if (!cancelled) {
-          setError(true);
-        }
-      }
-    };
-
-    fetchPresence();
-    const interval = setInterval(fetchPresence, POLL_INTERVAL_MS);
-
-    return () => {
-      cancelled = true;
-      clearInterval(interval);
-    };
-  }, []);
-
-  const statusText = useMemo(() => {
-    const parts: string[] = [];
-    if (typeof data?.presenceCount === "number") {
-      parts.push(`${numberFormatter.format(data.presenceCount)} online`);
-    }
-    if (typeof data?.memberCount === "number") {
-      parts.push(`${numberFormatter.format(data.memberCount)} members`);
-    }
-    if (parts.length) return parts.join(" / ");
-    if (error) return "Status unavailable";
-    return "Loading...";
-  }, [data?.presenceCount, data?.memberCount, error]);
-
+  const statusText = parts.length ? parts.join(" / ") : "Status unavailable";
   const label = data?.name ? `Discord - ${data.name}` : "Discord";
 
   const content = (
@@ -71,7 +28,7 @@ export default function DiscordPresenceBadge({ className }: { className?: string
       <div className="flex flex-col leading-tight">
         <span className="text-[11px] font-semibold uppercase tracking-wide text-titan-text-muted">{label}</span>
         <span className="flex items-center gap-2 text-sm text-titan-text-secondary">
-          <span className="inline-flex h-2 w-2 rounded-full bg-[#61e6b5] animate-pulse" aria-hidden />
+          <span className="inline-flex h-2 w-2 rounded-full bg-[#61e6b5]" aria-hidden />
           <span>{statusText}</span>
         </span>
       </div>
