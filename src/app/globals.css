@@ -57,6 +57,11 @@ html, body, :root { height: 100%; }
     @apply bg-titan-bg text-titan-text-primary antialiased;
   }
 
+  body[data-telescope-lightbox-open="true"] [data-site-navbar] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   h1, h2, h3, h4 {
     @apply text-titan-text-secondary;
   }

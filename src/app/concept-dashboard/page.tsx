@@ -10,52 +10,44 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Concept Dashboard | Titan Observatory",
   description:
-    "The Titan Observatory dashboard concept, with both broad accessibility and advanced controls.",
+    "Concepts for the Titan Observatory dashboard, designed to balance accessibility with advanced controls.",
 };
 
 const features = [
   {
     icon: IconListSearch,
-    label: "Object Catalog",
+    label: "Observation Catalog",
     color: "text-titan-yellow",
     description:
-      "A curated list of radio sources and celestial targets, organized by difficulty and scientific interest so you always have something to observe.",
+      "Initially, guided hydrogen-line observations will provide a beginner-friendly experience from start to finish. As Titan Observatory expands into additional radio bands, future sessions could be planned using public astronomical catalogs and survey archives covering bright radio galaxies, pulsars, supernova remnants, hydrogen clouds, star-forming regions, masers, and molecular gas across the sky.",
   },
   {
     icon: IconInfoCircle,
-    label: "Guided Tooltips",
+    label: "Option Tooltips",
     color: "text-titan-aqua",
     description:
-      "Hover over any setting or readout for a plain-language explanation — designed so first-time users can understand what they're seeing.",
+      "Many settings, like bin width, integration time, and gain, can feel intimidating at first. We'll pair them with tooltips, visualizations, and extended lessons that explain what each option does in clear language. The goal is to make even advanced features understandable at a conceptual level, so future astronomers can explore with confidence.",
   },
   {
     icon: IconAdjustments,
     label: "Advanced Controls",
     color: "text-titan-purple",
     description:
-      "Experienced users get direct access to pointing coordinates, integration parameters, and data export — nothing hidden behind simplified views.",
+      "Beginner-friendly does not mean locked down. Once our core education service is in place, we plan to make telescope control as open as reasonably possible through the web interface and an API. Publishing the code as open source will let anyone inspect it, improve it, and contribute.",
   },
 ];
 
 const mockups = [
   {
-    title: "first-box-1",
-    description: [
-      "box text.",
-    ],
     image: {
       src: "/images/Dashboard-Mockup-1.webp",
-      alt: "Dashboard-Mockup-1",
+      alt: "Dashboard concept showing the main observation workflow.",
     },
   },
   {
-    title: "Advanced Controls",
-    description: [
-      "Advanced controls will still be made available to allow more experienced users to do more with the telescope. This is just a sample of possible controls and does not reflect everything that will be available.",
-    ],
     image: {
       src: "/images/Dashboard-Mockup-2.webp",
-      alt: "Dashboard-Mockup-2",
+      alt: "Dashboard concept showing advanced telescope controls.",
     },
   },
 ];
@@ -70,10 +62,9 @@ export default function ConceptDashboardPage() {
         </p>
         <h1 className="text-3xl font-bold text-titan-text-secondary sm:text-4xl">Concept Dashboard</h1>
         <p className="max-w-2xl text-sm leading-relaxed text-titan-text-primary/90">
-          Below are concepts for what a potential control dashboard might look like. The purpose of these mockups is to show
-          the direction we want to take and the level of accessibility we want to achieve, with informational tooltips that
-          explain different settings and a customized catalog of objects to observe. The final product may end up looking very
-          different once development begins.
+          These mockups show the direction we want to take with the observing dashboard and the level of accessibility we
+          want to achieve. The final product will evolve as the software and telescope systems take shape, so the finished
+          interface may look quite different.
         </p>
       </header>
 
@@ -93,18 +84,10 @@ export default function ConceptDashboardPage() {
       </section>
 
       {/* Mockups */}
-      <section className="space-y-12">
+      <section className="grid gap-6 lg:grid-cols-2 lg:items-start">
         {mockups.map((item, index) => (
-          <AnimatedSection key={item.title} delay={index * 0.1} className="space-y-5 text-sm leading-relaxed text-titan-text-primary/90">
-            {index !== 0 && (
-              <div className="space-y-3 rounded-3xl border border-titan-border/60 bg-titan-bg-alt/90 p-6 shadow-[0_14px_34px_-24px_rgba(8,12,24,0.8)] backdrop-blur-sm">
-                <h2 className="text-lg font-semibold text-titan-text-secondary">{item.title}</h2>
-                {item.description.map(text => (
-                  <p key={text}>{text}</p>
-                ))}
-              </div>
-            )}
-            <figure className="mx-auto w-full max-w-5xl">
+          <AnimatedSection key={item.image.src} delay={index * 0.1}>
+            <figure className="w-full">
               <ConceptGlowPanel className="relative w-full border border-titan-border/60 bg-titan-bg-alt/80 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]">
                 <ConceptDashboardZoomImage
                   src={item.image.src}
@@ -123,9 +106,9 @@ export default function ConceptDashboardPage() {
       {/* Audience Callout */}
       <AnimatedSection className="grid gap-5 sm:grid-cols-3">
         {[
-          { accent: "bg-titan-orange", heading: "For educators", text: "Schedule class observation sessions and walk students through real data collection." },
-          { accent: "bg-titan-purple", heading: "For researchers", text: "Full control over pointing coordinates, integration parameters, and raw data export." },
-          { accent: "bg-titan-aqua", heading: "For beginners", text: "Guided tours of the radio sky with tooltips explaining every step along the way." },
+          { accent: "bg-titan-orange", heading: "For educators", text: "Schedule class observation sessions and guide students through real data collection." },
+          { accent: "bg-titan-purple", heading: "For researchers", text: "Access pointing coordinates, integration settings, and raw data export when deeper control is needed." },
+          { accent: "bg-titan-aqua", heading: "For beginners", text: "Explore guided tours of the radio sky with tooltips that explain each step along the way." },
         ].map(card => (
           <div
             key={card.heading}
@@ -144,7 +127,8 @@ export default function ConceptDashboardPage() {
           Help Us Build This
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-titan-text-primary/80">
-          The observing platform needs software engineers, UX designers, and educators. No astronomy background required.
+          Building the observing platform will take software engineers, UX designers, and educators. No astronomy
+          background is required.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <a

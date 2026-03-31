@@ -101,102 +101,104 @@ export default function Navbar() {
   };
 
   return (
-    <ResizableNav className="mb-0 mt-4 sm:mt-6">
-      <NavBody>
-        <NavbarLogo />
-        <NavItems items={navItems} className="justify-center" activePath={pathname} />
-        <div className="ml-auto flex items-center gap-3">{renderCallToAction("desktop")}</div>
-      </NavBody>
+    <div data-site-navbar>
+      <ResizableNav className="mb-0 mt-4 sm:mt-6">
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} className="justify-center" activePath={pathname} />
+          <div className="ml-auto flex items-center gap-3">{renderCallToAction("desktop")}</div>
+        </NavBody>
 
-      <MobileNav>
-        <MobileNavHeader>
-          <Link
-            href="/"
-            onClick={closeMobile}
-            className="inline-flex items-center rounded-full px-1 py-1"
-            aria-label="Go to home"
-          >
-            <Image
-              src="/images/2.webp"
-              alt="Titan Observatory logo"
-              width={3711}
-              height={1352}
-              className="h-auto w-[108px] max-w-[40vw]"
-            />
-          </Link>
-          <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
-        </MobileNavHeader>
-        <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
-          <div className="flex w-full flex-col gap-4">
-            {navItems.map(item => {
-              if (item.children?.length) {
-                return (
-                  <div key={item.name} className="space-y-3">
-                    <button
-                      type="button"
-                      onClick={() => setMobileResearchOpen(open => !open)}
-                      aria-expanded={mobileResearchOpen}
-                      className="flex w-full items-center justify-between rounded-full px-4 py-3 text-base font-semibold text-titan-text-secondary transition hover:bg-titan-bg-alt/70"
-                    >
-                      {item.name}
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 20 20"
-                        className={`h-4 w-4 transition ${mobileResearchOpen ? "rotate-180" : ""}`}
-                        fill="currentColor"
+        <MobileNav>
+          <MobileNavHeader>
+            <Link
+              href="/"
+              onClick={closeMobile}
+              className="inline-flex items-center rounded-full px-1 py-1"
+              aria-label="Go to home"
+            >
+              <Image
+                src="/images/2.webp"
+                alt="Titan Observatory logo"
+                width={3711}
+                height={1352}
+                className="h-auto w-[108px] max-w-[40vw]"
+              />
+            </Link>
+            <MobileNavToggle isOpen={mobileOpen} onClick={() => setMobileOpen(open => !open)} />
+          </MobileNavHeader>
+          <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
+            <div className="flex w-full flex-col gap-4">
+              {navItems.map(item => {
+                if (item.children?.length) {
+                  return (
+                    <div key={item.name} className="space-y-3">
+                      <button
+                        type="button"
+                        onClick={() => setMobileResearchOpen(open => !open)}
+                        aria-expanded={mobileResearchOpen}
+                        className="flex w-full items-center justify-between rounded-full px-4 py-3 text-base font-semibold text-titan-text-secondary transition hover:bg-titan-bg-alt/70"
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {mobileResearchOpen ? (
-                        <motion.div
-                          className="flex flex-col gap-1 overflow-hidden"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                        {item.name}
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 20 20"
+                          className={`h-4 w-4 transition ${mobileResearchOpen ? "rotate-180" : ""}`}
+                          fill="currentColor"
                         >
-                        {item.children.map(child => (
-                          <Link
-                            key={child.link}
-                            href={child.link}
-                            onClick={closeMobile}
-                            className={`rounded-full border-l border-transparent px-4 py-3 pl-6 text-base font-medium ${pathname === child.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:border-titan-border/70 hover:bg-titan-bg-alt/70"}`}
+                          <path
+                            fillRule="evenodd"
+                            d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {mobileResearchOpen ? (
+                          <motion.div
+                            className="flex flex-col gap-1 overflow-hidden"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
                           >
-                            {child.name}
-                          </Link>
-                        ))}
-                        </motion.div>
-                      ) : null}
-                    </AnimatePresence>
-                  </div>
+                          {item.children.map(child => (
+                            <Link
+                              key={child.link}
+                              href={child.link}
+                              onClick={closeMobile}
+                              className={`rounded-full border-l border-transparent px-4 py-3 pl-6 text-base font-medium ${pathname === child.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:border-titan-border/70 hover:bg-titan-bg-alt/70"}`}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                          </motion.div>
+                        ) : null}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                if (!item.link) {
+                  return null;
+                }
+
+                return (
+                  <Link
+                    key={item.link}
+                    href={item.link}
+                    onClick={closeMobile}
+                    className={`rounded-full px-4 py-3 text-base font-medium ${pathname === item.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:bg-titan-bg-alt/70"}`}
+                  >
+                    {item.name}
+                  </Link>
                 );
-              }
-
-              if (!item.link) {
-                return null;
-              }
-
-              return (
-                <Link
-                  key={item.link}
-                  href={item.link}
-                  onClick={closeMobile}
-                  className={`rounded-full px-4 py-3 text-base font-medium ${pathname === item.link ? "bg-titan-orange/15 text-titan-text-secondary" : "text-titan-text-muted hover:bg-titan-bg-alt/70"}`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-          {renderCallToAction("mobile")}
-        </MobileNavMenu>
-      </MobileNav>
-    </ResizableNav>
+              })}
+            </div>
+            {renderCallToAction("mobile")}
+          </MobileNavMenu>
+        </MobileNav>
+      </ResizableNav>
+    </div>
   );
 }

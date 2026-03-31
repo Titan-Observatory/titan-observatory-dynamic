@@ -47,7 +47,7 @@ export default function Home() {
           className="relative h-[50svh] min-h-[22rem] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)] sm:h-auto sm:min-h-0 sm:aspect-[4/5] lg:aspect-[3/4]"
         >
           <Image
-            src="/images/titan.webp"
+            src="/images/titan.jpg"
             alt="The 10-meter Titan radio telescope dish."
             fill
             className="object-cover object-[54%_42%] sm:object-center"
@@ -56,10 +56,6 @@ export default function Home() {
           />
         </BackgroundGradient>
       </section>
-
-      <div className="-mb-2 sm:-mb-10">
-        <DonorMessageCarousel />
-      </div>
 
       <section className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
@@ -122,6 +118,10 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <div className="-mt-4 -mb-4 sm:-mt-8 sm:-mb-14">
+        <DonorMessageCarousel />
+      </div>
 
       <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
         <div className="min-w-0 flex justify-center lg:justify-start">

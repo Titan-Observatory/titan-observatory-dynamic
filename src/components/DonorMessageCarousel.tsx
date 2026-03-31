@@ -107,7 +107,8 @@ export default function DonorMessageCarousel() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/givebutter-messages")
+    const controller = new AbortController();
+    fetch("/api/givebutter-messages", { signal: controller.signal })
       .then(async (res) => {
         if (!res.ok) {
           let errorMessage = `Request failed with status ${res.status} ${res.statusText}`.trim();
@@ -134,11 +135,13 @@ export default function DonorMessageCarousel() {
         setLoading(false);
       })
       .catch((err: unknown) => {
+        if (err instanceof Error && err.name === "AbortError") return;
         const message =
           err instanceof Error ? err.message : "Unknown error loading donor messages";
         setError(message);
         setLoading(false);
       });
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {
@@ -224,7 +227,10 @@ export default function DonorMessageCarousel() {
   if (messages.length === 0) return null;
 
   // Duplicate the list so translating -50% always equals one full message set.
-  const doubled = [...orderedMessages, ...orderedMessages];
+  const doubled = useMemo(
+    () => [...orderedMessages, ...orderedMessages],
+    [orderedMessages],
+  );
   const duration = Math.max(220, orderedMessages.length * 18);
 
   return (

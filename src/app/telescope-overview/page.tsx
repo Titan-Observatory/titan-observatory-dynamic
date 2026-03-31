@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
+import TelescopeGallery from "@/components/TelescopeGallery";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 export const revalidate = 86400;
@@ -29,32 +32,75 @@ const keyFacts = [
     label: "Control",
     value: "Analog feedback today; we're adding encoders and computer control for reliable remote pointing.",
   },
-  {
-    label: "Power",
-    value: "Twin 48 VDC supplies plus a modest 120 V, ~20 A site draw.",
-  },
-  {
-    label: "Footprint & Fixtures",
-    value: "Compact ~8 ft circular pier footprint, bolt template, spare gearboxes, and a rack-mount analog readout.",
-  },
 ];
 
-const telescopeImages = [
-  {
-    src: "/images/titan-looking-up.webp",
+const telescopeImageDescriptions: Record<
+  string,
+  { alt: string; caption?: string }
+> = {
+  "titan-looking-up.webp": {
     alt: "Looking up from the base of the Titan dish.",
+    caption: "Ground-up view of the dish and feed support.",
   },
-  {
-    src: "/images/titan-drone-shot-1.webp",
+  "titan-drone-shot-1.webp": {
     alt: "Drone shot of the Titan telescope and surroundings.",
+    caption: "Aerial view of the telescope and site context.",
   },
-  {
-    src: "/images/titan-drone-shot-2.webp",
+  "titan-drone-shot-2.webp": {
     alt: "Top-down drone view of the Titan telescope assembly.",
+    caption: "Overhead look at the full telescope structure.",
   },
-];
+};
 
-export default function TelescopeOverviewPage() {
+function formatTelescopeLabel(fileName: string) {
+  const stem = fileName.replace(/\.[^.]+$/, "");
+  return stem.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
+}
+
+async function getTelescopeImages() {
+  const telescopeDir = path.join(process.cwd(), "public", "images", "Telescope");
+  const preferredOrder = [
+    "titan-looking-up.webp",
+    "titan-drone-shot-1.webp",
+    "titan-drone-shot-2.webp",
+  ];
+  const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+
+  const files = await readdir(telescopeDir, { withFileTypes: true });
+  const imageFiles = files
+    .filter((file) => {
+      if (!file.isFile()) return false;
+      return imageExtensions.has(path.extname(file.name).toLowerCase());
+    })
+    .sort((a, b) => {
+      const preferredA = preferredOrder.indexOf(a.name);
+      const preferredB = preferredOrder.indexOf(b.name);
+
+      if (preferredA !== -1 || preferredB !== -1) {
+        if (preferredA === -1) return 1;
+        if (preferredB === -1) return -1;
+        return preferredA - preferredB;
+      }
+
+      return a.name.localeCompare(b.name);
+    });
+
+  return imageFiles.map((file, index) => {
+    const description = telescopeImageDescriptions[file.name];
+    const readableName = formatTelescopeLabel(file.name);
+
+    return {
+      src: `/images/Telescope/${file.name}`,
+      alt: description?.alt ?? `Titan telescope photo ${index + 1}`,
+      caption: description?.caption ?? readableName,
+    };
+  });
+}
+
+export default async function TelescopeOverviewPage() {
+  const telescopeImages = await getTelescopeImages();
+  const heroImage = telescopeImages[0];
+
   return (
     <main className="relative z-10 space-y-20">
       {/* Header + Hero Image */}
@@ -97,32 +143,30 @@ export default function TelescopeOverviewPage() {
           containerClassName="mx-auto w-full max-w-[28rem] rounded-[2rem]"
           className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)]"
         >
-          <Image
-            src={telescopeImages[0].src}
-            alt={telescopeImages[0].alt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 100vw"
-            priority
-          />
+          {heroImage ? (
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 100vw"
+              priority
+            />
+          ) : null}
         </BackgroundGradient>
       </section>
 
-      {/* Additional Images */}
-      <section className="grid gap-6 sm:grid-cols-2">
-        {telescopeImages.slice(1).map((img, index) => (
-          <AnimatedSection key={img.src} delay={index * 0.1}>
-            <figure className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/40 shadow-titan transition hover:scale-[1.01]">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1280px) 560px, (min-width: 768px) 45vw, 90vw"
-              />
-            </figure>
-          </AnimatedSection>
-        ))}
+      {/* Full Gallery */}
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
+            Photo Gallery
+          </p>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">
+            Telescope Photos
+          </h2>
+        </div>
+        <TelescopeGallery images={telescopeImages} />
       </section>
 
       {/* Bottom CTA */}
