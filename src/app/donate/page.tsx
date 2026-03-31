@@ -102,7 +102,7 @@ export default function DonatePage() {
         </div>
       </section>
 
-      <div className="-mt-10 -mb-10 sm:-mt-14 sm:-mb-16">
+      <div className="sm:-mt-14 sm:-mb-16">
         <DeferredDonorMessageCarousel />
       </div>
 
