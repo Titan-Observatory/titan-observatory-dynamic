@@ -38,7 +38,7 @@ export default function FloatingAccessibilityControls() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 z-50 flex items-end justify-between md:hidden"
+      className="fixed bottom-4 left-4 right-4 z-50 flex translate-y-[-1.25rem] items-end justify-between md:hidden"
       data-floating-controls
     >
       <div className="flex flex-col items-start gap-3">
@@ -46,7 +46,7 @@ export default function FloatingAccessibilityControls() {
           <div
             id="accessibility-controls-panel"
             ref={panelRef}
-            className="rounded-2xl border border-titan-border/60 bg-titan-bg/95 p-3 shadow-lg backdrop-blur -translate-y-5"
+            className="mb-3 rounded-2xl border border-titan-border/60 bg-titan-bg/95 p-3 shadow-lg backdrop-blur"
           >
             <AccessibilityPanel compact />
           </div>
@@ -58,7 +58,7 @@ export default function FloatingAccessibilityControls() {
           aria-expanded={open}
           aria-controls="accessibility-controls-panel"
           aria-label="Accessibility settings"
-          className="inline-flex h-12 w-12 -translate-y-5 items-center justify-center rounded-full border border-titan-border/60 bg-titan-bg/90 text-titan-text-secondary shadow-lg transition hover:border-titan-yellow/70 hover:text-titan-yellow"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-titan-border/60 bg-titan-bg/90 text-titan-text-secondary shadow-lg transition hover:border-titan-yellow/70 hover:text-titan-yellow"
         >
           <IconAccessible className="h-6 w-6" aria-hidden="true" />
         </button>
