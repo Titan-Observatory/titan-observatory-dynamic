@@ -77,7 +77,7 @@ export default function Navbar() {
   };
 
   return (
-    <div data-site-navbar>
+    <>
       <ResizableNav className="mb-0 mt-4 sm:mt-6">
         <NavBody>
           <NavbarLogo />
@@ -175,6 +175,6 @@ export default function Navbar() {
           </MobileNavMenu>
         </MobileNav>
       </ResizableNav>
-    </div>
+    </>
   );
 }
