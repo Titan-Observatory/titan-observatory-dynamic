@@ -214,23 +214,15 @@ export default function DonorMessageCarousel() {
     [messages],
   );
 
-  if (loading) return <Skeleton />;
-  if (error) {
-    return (
-      <section className="rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 px-5 py-5 backdrop-blur-sm sm:px-6">
-        <p className="text-center text-sm text-titan-text-muted">
-          Donor messages could not be loaded right now.
-        </p>
-      </section>
-    );
-  }
-  if (messages.length === 0) return null;
-
   // Duplicate the list so translating -50% always equals one full message set.
   const doubled = useMemo(
     () => [...orderedMessages, ...orderedMessages],
     [orderedMessages],
   );
+
+  if (loading) return <Skeleton />;
+  if (error || messages.length === 0) return null;
+
   const duration = Math.max(220, orderedMessages.length * 18);
 
   return (
