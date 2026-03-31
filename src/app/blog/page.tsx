@@ -53,7 +53,7 @@ export default async function Blog() {
           <IconNotebook className="h-10 w-10 text-titan-text-muted" aria-hidden="true" />
           <h2 className="mt-4 text-lg font-semibold text-titan-text-secondary">No posts yet</h2>
           <p className="mt-2 max-w-sm text-sm text-titan-text-muted">
-            Check back soon — we&apos;ll be sharing updates as the project progresses.
+            Check back soon. We&apos;ll be sharing updates as the project progresses.
           </p>
         </AnimatedSection>
       ) : (

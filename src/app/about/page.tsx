@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const phases = [
   {
-    title: "Phase 1 — Acquire & Prep Site",
+    title: "Phase 1: Acquire & Prep Site",
     status: "In progress",
     active: true,
     details: [
@@ -34,7 +34,7 @@ const phases = [
     ],
   },
   {
-    title: "Phase 2 — Transport & Modernize",
+    title: "Phase 2: Transport & Modernize",
     status: "Preparing",
     details: [
       "Crane /w crew, disassembly, & transport: $6,000 (quoted)",
@@ -46,7 +46,7 @@ const phases = [
     ],
   },
   {
-    title: "Phase 3 — Commission & First Light",
+    title: "Phase 3: Commission & First Light",
     status: "Upcoming",
     details: [
       "Development of telescope control systems led by staff volunteers with community involvement",
@@ -113,7 +113,7 @@ export default function AboutPage() {
         <p className="text-sm leading-relaxed text-titan-text-primary/90">
           Much of our understanding of the universe beyond the solar system
           comes from the properties of electromagnetic waves received from
-          space — but <em>how</em>? How can light tell us the composition of a
+          space. But <em>how</em>? How can light tell us the composition of a
           planet&apos;s atmosphere from hundreds of light-years away? Or that
           some smudge in an image is a galaxy born near the dawn of the
           universe, billions of years ago?

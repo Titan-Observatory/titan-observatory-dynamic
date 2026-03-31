@@ -166,7 +166,7 @@ export default function Home() {
                   </strong>{" "}
                   The infrastructure will be designed from the start to be
                   scalable. Our team will work to integrate donated dishes over
-                  time, increasing observation capacity and creating
+                  time, increasing 21-cm observation capacity and creating
                   opportunities for amateur interferometry.
                 </span>
               </li>
@@ -197,34 +197,34 @@ export default function Home() {
               Mission Badge Gift
             </h3>
             <p className="text-sm leading-7 text-titan-text-primary/90">
-              Every donation keeps the observatory moving forward. As a
-              thank-you, qualifying contributions receive a mission badge.
-              Please include your shipping address at checkout.
+              Qualifying donors receive a small thank-you package with a Titan
+              Observatory badge, a sticker, and a postcard featuring a
+              randomly selected image from NASA&apos;s archives.
             </p>
             <div className="space-y-1.5 text-sm text-titan-text-primary/90">
               <p>
                 <span className="font-semibold text-titan-text-secondary">
                   $25+
                 </span>{" "}
-                - Mission badge sticker
+                - sticker and postcard
               </p>
               <p>
                 <span className="font-semibold text-titan-text-secondary">
                   $50+
                 </span>{" "}
-                - Embroidered iron-on patch and sticker
+                - embroidered badge, sticker, and postcard
               </p>
             </div>
           </div>
           <div className="flex justify-center md:justify-end">
             <div className="w-full max-w-[220px] sm:max-w-[240px]">
               <Image
-                src="/images/DonorBadge.webp"
-                alt="Titan Observatory mission badge design."
+                src="/images/DonorGift.jpg"
+                alt="Titan Observatory donor gift items."
                 width={480}
                 height={480}
                 sizes="(min-width: 768px) 240px, 220px"
-                className="h-auto w-full rounded-2xl border border-titan-border/60 bg-titan-bg/60 p-4 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
           </div>

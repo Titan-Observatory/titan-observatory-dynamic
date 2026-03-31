@@ -183,7 +183,7 @@ export default function MeetTheTeamPage() {
           We&apos;re Volunteer-Powered
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-titan-text-primary/80">
-          RF engineering, signal processing, software, education, administration — there&apos;s a role for many skill sets. No astronomy background required.
+          We have roles for RF engineering, signal processing, software, education, administration, and more. No astronomy background required.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <a

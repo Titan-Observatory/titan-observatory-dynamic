@@ -38,12 +38,12 @@ const telescopeFaqs = [
   {
     question: "Where will the observatory be located?",
     answer:
-      "The planned site is in rural Polk County, Florida — selected for its low radio frequency interference, agricultural zoning, and room to expand. More detail on the site selection, zoning, and radio environment is available on the Site Overview page.",
+      "The planned site is in rural Polk County, Florida, selected for its low radio frequency interference, agricultural zoning, and room to expand. More detail on the site selection, zoning, and radio environment is available on the Site Overview page.",
   },
   {
     question: "What will the telescope actually be able to observe?",
     answer:
-      "At first light, we plan to observe at the 21-centimeter hydrogen line (1420 MHz) — the emission frequency of neutral hydrogen gas that permeates the Milky Way. This makes it possible to map the galaxy's rotation curve, study hydrogen cloud distribution, and detect other radio sources across a wide patch of sky. Pending characterization of the dish, we intend to add L- and S-band RF chains for a broader range of science and educational targets.",
+      "At first light, we plan to observe at the 21-centimeter hydrogen line (1420 MHz), the emission frequency of neutral hydrogen gas that permeates the Milky Way. This makes it possible to map the galaxy's rotation curve, study hydrogen cloud distribution, and detect other radio sources across a wide patch of sky. Pending characterization of the dish, we intend to add L- and S-band RF chains for a broader range of science and educational targets.",
   },
   {
     question: "Will I be able to use the telescope myself?",
@@ -58,8 +58,8 @@ const involvementFaqs = [
     answer: (
       <>
         Absolutely! We need help across RF engineering, signal processing, software development, web platform design,
-        education curriculum writing, and general administration. You don&apos;t need to be a radio astronomer — many
-        valuable contributions come from people with adjacent skills. Apply through our{" "}
+        education curriculum writing, and general administration. You don&apos;t need to be a radio astronomer.
+        Many valuable contributions come from people with adjacent skills. Apply through our{" "}
         <a
           className="text-titan-yellow underline-offset-4 hover:underline"
           href="https://forms.gle/MwwsctzD1G5woQAo6"
@@ -132,7 +132,7 @@ export default function FaqPage() {
           <AnimatedSection className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 text-center backdrop-blur-sm lg:text-left">
             <h3 className="text-lg font-semibold text-titan-text-secondary">Still have questions?</h3>
             <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-titan-text-primary/80 lg:mx-0">
-              Reach out on the community forum or drop us an email — we&apos;re happy to help.
+              Reach out on the community forum or drop us an email. We&apos;re happy to help.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
               <a

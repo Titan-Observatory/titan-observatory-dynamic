@@ -17,7 +17,7 @@ const enabledFeatures = [
     emoji: "📡",
     iconClass: "bg-titan-orange/15 text-titan-orange",
     title: "Broader Frequency Coverage",
-    body: "Pending dish characterization, we hope to add L- and S-band RF chains alongside the 21\u00a0cm hydrogen line feed, opening up a wider range of science targets and educational experiments.",
+    body: "Pending dish characterization, we hope to add L- and S-band RF chains alongside the 21 cm hydrogen line feed, opening up a wider range of science targets and educational experiments.",
   },
   {
     emoji: "🔭",
@@ -29,7 +29,7 @@ const enabledFeatures = [
     emoji: "🎓",
     iconClass: "bg-titan-yellow/15 text-titan-yellow",
     title: "Integrated Science Education",
-    body: "Once routine observations are underway, we plan to develop curricula that put real telescope time in students\u2019 hands, covering the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works from first principles.",
+    body: "Once routine observations are underway, we plan to develop curricula that put real telescope time in students' hands, covering the electromagnetic spectrum, cosmic radio sources, and how a radio telescope works from first principles.",
   },
 ] as const;
 
@@ -62,35 +62,35 @@ export default function DonatePage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-5 rounded-2xl border border-titan-border/50 bg-titan-bg-alt/60 p-5 backdrop-blur-sm">
-            <div className="w-20 shrink-0 sm:w-24">
-              <Image
-                src="/images/DonorBadge.webp"
-                alt="Titan Observatory mission badge design."
-                width={480}
-                height={480}
-                className="h-auto w-full rounded-xl border border-titan-border/40 bg-titan-bg/60 p-2"
-              />
+          <div className="grid items-center gap-4 sm:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-titan-text-secondary">
+                Donor thank-you gifts
+              </p>
+              <p className="max-w-lg text-sm leading-7 text-titan-text-muted">
+                Qualifying donors receive a small thank-you package with a Titan
+                Observatory badge, a sticker, and a postcard featuring a
+                randomly selected image from NASA&apos;s archives.
+              </p>
+              <div className="space-y-1 text-sm text-titan-text-muted">
+                <p>
+                  <span className="font-semibold text-titan-text-secondary">$25+</span>{" "}
+                  sticker and postcard
+                </p>
+                <p>
+                  <span className="font-semibold text-titan-text-secondary">$50+</span>{" "}
+                  embroidered badge, sticker, and postcard
+                </p>
+              </div>
             </div>
-            <div className="space-y-1.5 text-sm text-titan-text-primary/90">
-              <p className="font-semibold text-titan-text-secondary">
-                Donor Thank-You Gifts
-              </p>
-              <p>
-                <span className="font-semibold text-titan-text-secondary">
-                  $25+
-                </span>{" "}
-                — Mission badge sticker
-              </p>
-              <p>
-                <span className="font-semibold text-titan-text-secondary">
-                  $50+
-                </span>{" "}
-                — Embroidered iron-on patch &amp; sticker
-              </p>
-              <p className="text-xs text-titan-text-muted">
-                Include your shipping address at checkout.
-              </p>
+            <div className="justify-self-end max-w-[320px]">
+              <Image
+                src="/images/DonorGift.jpg"
+                alt="Titan Observatory donor gift items."
+                width={1200}
+                height={1200}
+                className="h-auto w-full rounded-xl"
+              />
             </div>
           </div>
 
@@ -109,35 +109,6 @@ export default function DonatePage() {
       <section className="space-y-8">
         <div className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
-            Where your money goes
-          </p>
-          <h2 className="text-2xl font-semibold text-titan-text-secondary sm:text-3xl">
-            What Your Support Enables
-          </h2>
-          <p className="mx-auto max-w-2xl text-sm leading-7 text-titan-text-primary/90">
-            Every dollar goes directly toward expert consultations, site
-            evaluation, and planning work. Once we have enough professional input
-            to confirm the viability of the project, more detailed plans will be
-            shared publicly before funds are used to acquire the telescope.
-          </p>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-3">
-          {enabledFeatures.map((f) => (
-            <div key={f.title} className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
-              <span className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-lg ${f.iconClass}`}>
-                {f.emoji}
-              </span>
-              <h3 className="text-base font-semibold text-titan-text-secondary">{f.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-titan-text-primary/80">{f.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-8">
-        <div className="space-y-4 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
             More ways to give
           </p>
           <h2 className="text-2xl font-semibold text-titan-text-secondary sm:text-3xl">
@@ -150,7 +121,7 @@ export default function DonatePage() {
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2">
           <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-orange sm:tracking-[0.25em]">
               Donor-Advised Fund
@@ -185,7 +156,7 @@ export default function DonatePage() {
                 </li>
               </ol>
               <p className="text-xs text-titan-text-muted">
-                Processing times vary by provider — typically 3–10 business days
+                Processing times vary by provider, typically 3-10 business days
                 after approval.
               </p>
             </div>
@@ -199,13 +170,13 @@ export default function DonatePage() {
               Appreciated Assets
             </h3>
             <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">
-              Donating appreciated stock or other securities can provide a tax
-              benefit beyond a standard cash gift. You may deduct the full fair
-              market value while avoiding capital gains tax on the appreciation.
+              If you are interested in donating stock, securities, or other
+              appreciated assets, contact us directly and we will help you
+              coordinate the next steps.
             </p>
             <div className="mt-5 space-y-3 rounded-2xl border border-titan-border/40 bg-titan-bg/40 p-4 text-sm leading-7 text-titan-text-primary/80">
               <p className="font-semibold text-titan-text-secondary">
-                To contribute stock or other assets
+                To inquire about appreciated assets
               </p>
               <p>
                 Email{" "}
@@ -215,14 +186,13 @@ export default function DonatePage() {
                 >
                   donate@titanobservatory.org
                 </a>{" "}
-                with the type and estimated value of the asset. We will provide
-                transfer instructions and any documentation you need for your
-                records.
+                and let us know that you would like to discuss a non-cash
+                contribution. We will reply with the appropriate instructions.
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:col-span-2 sm:p-7 lg:col-span-1">
+          <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-yellow sm:tracking-[0.25em]">
               Cryptocurrency
             </p>
@@ -230,10 +200,8 @@ export default function DonatePage() {
               Crypto Donations
             </h3>
             <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">
-              We accept donations in major cryptocurrencies. Like stock
-              donations, contributing crypto you&apos;ve held for over a year may
-              allow you to deduct the full market value and avoid capital gains
-              tax.
+              If you would like to make a cryptocurrency donation, contact us
+              by email and we will coordinate the process directly with you.
             </p>
             <div className="mt-5 space-y-3 rounded-2xl border border-titan-border/40 bg-titan-bg/40 p-4 text-sm leading-7 text-titan-text-primary/80">
               <p className="font-semibold text-titan-text-secondary">
@@ -247,11 +215,100 @@ export default function DonatePage() {
                 >
                   donate@titanobservatory.org
                 </a>{" "}
-                with the currency and approximate amount. We will reply with a
-                wallet address and confirmation details.
+                and let us know that you would like to make a crypto donation.
+                We will reply with the appropriate instructions.
               </p>
             </div>
           </div>
+
+          <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-green sm:tracking-[0.25em]">
+              In-Kind Donations
+            </p>
+            <h3 className="mt-4 text-xl font-semibold text-titan-text-secondary sm:text-lg">
+              Equipment &amp; Materials
+            </h3>
+            <p className="mt-3 flex-1 text-sm leading-7 text-titan-text-primary/80">
+              Building a radio telescope takes more than funding. We welcome
+              donations of equipment and materials that support the project.
+            </p>
+            <div className="mt-5 space-y-3 rounded-2xl border border-titan-border/40 bg-titan-bg/40 p-4 text-sm leading-7 text-titan-text-primary/80">
+              <p className="font-semibold text-titan-text-secondary">
+                Items we can put to use
+              </p>
+              <ul className="list-inside list-disc space-y-1.5">
+                <li>
+                  <strong className="font-semibold text-titan-text-secondary">
+                    RF equipment:
+                  </strong>{" "}
+                  feeds, LNAs, filters, SDRs, coaxial cable, connectors
+                </li>
+                <li>
+                  <strong className="font-semibold text-titan-text-secondary">
+                    Compute &amp; networking:
+                  </strong>{" "}
+                  servers, single-board computers, switches, access points,
+                  Ethernet cable
+                </li>
+                <li>
+                  <strong className="font-semibold text-titan-text-secondary">
+                    Fabrication &amp; shop tools:
+                  </strong>{" "}
+                  welders, grinders, drill presses, hand tools, safety
+                  equipment
+                </li>
+              </ul>
+              <p className="pt-1">
+                Email{" "}
+                <a
+                  href="mailto:donate@titanobservatory.org"
+                  className="font-semibold text-titan-green underline decoration-titan-green/40 underline-offset-2 transition hover:decoration-titan-green"
+                >
+                  donate@titanobservatory.org
+                </a>{" "}
+                with a description of what you would like to donate and we will
+                coordinate pickup or shipping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-8">
+        <div className="space-y-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
+            Where your money goes
+          </p>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary sm:text-3xl">
+            What Your Support Enables
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-7 text-titan-text-primary/90">
+            Every dollar goes directly toward expert consultations, site
+            evaluation, and planning work. Once we have enough professional input
+            to confirm the viability of the project, more detailed plans will be
+            shared publicly before funds are used to acquire the telescope.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-3">
+          {enabledFeatures.map((f) => (
+            <div
+              key={f.title}
+              className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7"
+            >
+              <span
+                className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-lg ${f.iconClass}`}
+              >
+                {f.emoji}
+              </span>
+              <h3 className="text-base font-semibold text-titan-text-secondary">
+                {f.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-titan-text-primary/80">
+                {f.body}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -261,7 +318,7 @@ export default function DonatePage() {
             Every Contribution Matters
           </h2>
           <p className="text-sm leading-7 text-titan-text-primary/90">
-            Whether it&apos;s $5 or $5,000, every gift moves us closer to first
+            Whether it's $5 or $5,000, every gift moves us closer to first
             light. Share the campaign with friends and family who believe in
             making science accessible to everyone.
           </p>
@@ -271,8 +328,7 @@ export default function DonatePage() {
             </h3>
             <p className="text-sm leading-7 text-titan-text-primary/80">
               For planned giving, corporate matching, in-kind contributions, or
-              any other way you&apos;d like to support the observatory, reach out
-              at{" "}
+              any other way you'd like to support the observatory, reach out at{" "}
               <a
                 href="mailto:donate@titanobservatory.org"
                 className="font-semibold text-titan-orange underline decoration-titan-orange/40 underline-offset-2 transition hover:decoration-titan-orange"

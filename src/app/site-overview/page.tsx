@@ -108,7 +108,7 @@ export default function SiteOverviewPage() {
           Help Prepare the Site
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-titan-text-primary/80">
-          Site preparation — foundation, grading, solar, and lightning protection — is a critical part of Phase 1.
+          Site preparation, including foundation work, grading, solar, and lightning protection, is a critical part of Phase 1.
         </p>
         <Link
           href="/donate"

@@ -22,7 +22,7 @@ const keyFacts = [
   },
   {
     label: "Drives",
-    value: "Dual gear trains, dual DC motors, and electronic brakes—balanced enough to nudge by hand.",
+    value: "Dual gear trains, dual DC motors, and electronic brakes. Balanced enough to nudge by hand.",
   },
   {
     label: "Speed & Range",
