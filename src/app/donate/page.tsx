@@ -35,7 +35,7 @@ const enabledFeatures = [
 
 export default function DonatePage() {
   return (
-    <main className="space-y-12 sm:space-y-20">
+    <main className="space-y-8 sm:space-y-12">
       <section className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
         <div className="flex min-w-0 justify-center lg:sticky lg:top-28 lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden">
@@ -102,11 +102,11 @@ export default function DonatePage() {
         </div>
       </section>
 
-      <div className="-mt-6 -mb-8 sm:-mt-10 sm:-mb-14">
+      <div className="-mt-10 -mb-10 sm:-mt-14 sm:-mb-16">
         <DeferredDonorMessageCarousel />
       </div>
 
-      <section className="space-y-8">
+      <section className="space-y-6">
         <div className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:tracking-[0.25em]">
             More ways to give
