@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnimatedSection from "@/components/AnimatedSection";
+import GivebutterWidget from "@/components/GivebutterWidget";
 import FaqList from "./FaqList";
 
 export const revalidate = 86400;
@@ -121,7 +122,11 @@ export default function FaqPage() {
         ))}
         <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <AnimatedSection className="mx-auto w-full max-w-[420px] overflow-hidden lg:mx-0">
-            <givebutter-widget className="block w-full" id="pzez1n"></givebutter-widget>
+            <GivebutterWidget
+              id="pzez1n"
+              placeholderClassName="min-h-[34rem]"
+              widgetClassName="block w-full"
+            />
           </AnimatedSection>
 
           <AnimatedSection className="rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-8 text-center backdrop-blur-sm lg:text-left">

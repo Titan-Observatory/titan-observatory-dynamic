@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 
+import GivebutterWidget from "@/components/GivebutterWidget";
+
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -101,7 +103,11 @@ export default function Footer() {
               </div>
 
               <div className="hidden pt-1 md:block">
-                <givebutter-widget id="gM1lng"></givebutter-widget>
+                <GivebutterWidget
+                  id="gM1lng"
+                  placeholderClassName="min-h-[3.5rem]"
+                  placeholderVariant="pill"
+                />
               </div>
             </div>
           </div>

@@ -1,15 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Suspense } from "react";
 
 import Navbar from "@/components/Navbar";
+import ClientEnhancements from "@/components/ClientEnhancements";
 import SiteHeader from "@/components/SiteHeader";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import GivebutterConversionTracker from "@/components/GivebutterConversionTracker";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
 import Footer from "@/components/Footer";
-import FloatingAccessibilityControls from "@/components/FloatingAccessibilityControls";
 import "./globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 
@@ -29,43 +24,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="relative min-h-screen overflow-x-clip bg-titan-bg text-titan-text-primary">
-        <Script
-          async
-          src="https://widgets.givebutter.com/latest.umd.cjs?acct=g00zGRQMS7cnoPdU&p=other"
-          strategy="afterInteractive"
-        />
         {GA_MEASUREMENT_ID ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga-bootstrap" strategy="afterInteractive">
+            <Script id="ga-bootstrap" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_MEASUREMENT_ID}', {
-                  page_path: window.location.pathname,
-                  'debug_mode':true
+                  page_path: window.location.pathname
                 });
               `}
             </Script>
-            <Suspense fallback={null}>
-              <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-            </Suspense>
           </>
         ) : null}
-        <GivebutterConversionTracker />
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-          <StarsBackground className="pointer-events-none" />
-          <ShootingStars className="pointer-events-none" />
-        </div>
+        <ClientEnhancements measurementId={GA_MEASUREMENT_ID} />
         <div className="relative z-10 flex min-h-screen flex-col" data-page-root>
           <SiteHeader />
           <Navbar />
           <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-6 pb-16 sm:px-6 sm:pt-8 sm:pb-12 lg:px-8">{children}</main>
-          <FloatingAccessibilityControls />
           <Footer />
         </div>
       </body>

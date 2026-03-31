@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DonorMessageCarousel from "@/components/DonorMessageCarousel";
+import DeferredDonorMessageCarousel from "@/components/DeferredDonorMessageCarousel";
+import GivebutterWidget from "@/components/GivebutterWidget";
 
 export const revalidate = 3600;
 
@@ -38,10 +39,11 @@ export default function DonatePage() {
       <section className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
         <div className="flex min-w-0 justify-center lg:sticky lg:top-28 lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden">
-            <givebutter-widget
-              className="block w-full"
+            <GivebutterWidget
               id="LyX3Yj"
-            ></givebutter-widget>
+              eager
+              widgetClassName="block w-full"
+            />
           </div>
         </div>
 
@@ -101,7 +103,7 @@ export default function DonatePage() {
       </section>
 
       <div className="-mb-2 sm:-mb-10">
-        <DonorMessageCarousel />
+        <DeferredDonorMessageCarousel />
       </div>
 
       <section className="space-y-8">
@@ -296,10 +298,11 @@ export default function DonatePage() {
         </div>
 
         <div className="mx-auto w-full max-w-[420px] overflow-hidden lg:max-w-none">
-          <givebutter-widget
-            className="block w-full"
+          <GivebutterWidget
             id="pzez1n"
-          ></givebutter-widget>
+            placeholderClassName="min-h-[34rem]"
+            widgetClassName="block w-full"
+          />
         </div>
       </section>
     </main>

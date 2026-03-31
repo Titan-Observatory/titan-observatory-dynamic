@@ -11,8 +11,7 @@ export default function SiteHeader() {
             alt="Titan Astronomical Observatory logo"
             width={3711}
             height={1352}
-            priority
-            unoptimized
+            sizes="(min-width: 640px) 448px, 100vw"
             className="h-auto w-full max-w-md sm:max-w-md"
           />
         </Link>
