@@ -32,8 +32,11 @@ export default function Navbar() {
     () => [
       { name: "Home", link: "/" },
       { name: "About", link: "/about" },
+      { name: "Updates", link: "/project-updates" },
+      { name: "Team", link: "/team" },
+      { name: "FAQ", link: "/faq" },
       {
-        name: "The Telescope",
+        name: "More",
         children: [
           { name: "Telescope Overview", link: "/telescope-overview" },
           { name: "Site Overview", link: "/site-overview" },
@@ -41,9 +44,6 @@ export default function Navbar() {
           { name: "Concept Dashboard", link: "/concept-dashboard" },
         ],
       },
-      { name: "Updates", link: "/project-updates" },
-      { name: "Team", link: "/team" },
-      { name: "FAQ", link: "/faq" },
     ],
     [],
   );
@@ -69,35 +69,11 @@ export default function Navbar() {
       </NavbarButton>
     );
 
-    const communityButton = (
-      <NavbarButton
-        key="forum"
-        href="https://community.titanobservatory.org"
-        variant="secondary"
-        className={buttonClass}
-        onClick={handleClick}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Community
-      </NavbarButton>
-    );
-
     if (context === "mobile") {
-      return (
-        <div className="flex w-full flex-col gap-3">
-          {donateButton}
-          {communityButton}
-        </div>
-      );
+      return <div className="flex w-full flex-col gap-3">{donateButton}</div>;
     }
 
-    return (
-      <>
-        {communityButton}
-        {donateButton}
-      </>
-    );
+    return donateButton;
   };
 
   return (

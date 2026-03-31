@@ -133,8 +133,60 @@ export default function AboutPage() {
         </p>
       </section>
 
-      
-      {/* ── Roadmap ── */}
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-titan-text-muted">
+            Explore More
+          </p>
+          <h2 className="text-2xl font-semibold text-titan-text-secondary">
+            See the Platform Take Shape
+          </h2>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {[
+            {
+              href: "/system-architecture",
+              title: "System Architecture",
+              text: "See how the control, monitoring, and data systems are designed to work together.",
+              image: "/images/ArchitecturePlan.webp",
+              alt: "Preview of the Titan Observatory system architecture diagram.",
+            },
+            {
+              href: "/concept-dashboard",
+              title: "Concept Dashboard",
+              text: "Browse interface mockups showing the direction of the future observing platform.",
+              image: "/images/Dashboard-Mockup-1.webp",
+              alt: "Preview of the Titan Observatory concept dashboard.",
+            },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group overflow-hidden rounded-2xl border border-titan-border/60 bg-titan-bg-alt/70 transition hover:border-titan-yellow/40 hover:bg-titan-bg-alt/90"
+            >
+              <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-titan-border/50 bg-titan-bg/40">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  className="object-contain p-3 transition duration-300 group-hover:scale-[1.02]"
+                  sizes="(min-width: 1024px) 500px, 100vw"
+                />
+              </div>
+              <div className="space-y-2 p-5">
+                <h3 className="text-base font-semibold text-titan-text-secondary">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-titan-text-primary/80">
+                  {item.text}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Roadmap */}
       <section id="roadmap" className="scroll-mt-24 space-y-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -225,3 +277,7 @@ export default function AboutPage() {
     </main>
   );
 }
+
+
+
+
