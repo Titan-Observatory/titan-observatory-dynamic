@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useMotionValue, useScroll } from "framer-motion";
+import { motion, useMotionValue, useScroll } from "motion/react";
 import { useEffect, useMemo, useRef, type ReactNode } from "react";
 
 type TimelineEntry = {

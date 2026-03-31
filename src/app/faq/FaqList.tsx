@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
 
 type FaqItem = {
   question: string;
-  answer: string;
+  answer: ReactNode;
 };
 
 export default function FaqList({ items }: { items: FaqItem[] }) {
@@ -52,9 +52,9 @@ export default function FaqList({ items }: { items: FaqItem[] }) {
               style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
             >
               <div className="min-h-0 overflow-hidden">
-                <p className="px-6 pb-6 pt-4 text-sm leading-relaxed text-titan-text-primary/90">
+                <div className="px-6 pb-6 pt-4 text-sm leading-relaxed text-titan-text-primary/90">
                   {item.answer}
-                </p>
+                </div>
               </div>
             </div>
           </article>

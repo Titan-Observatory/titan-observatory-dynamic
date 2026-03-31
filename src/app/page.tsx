@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import DeferredDonorMessageCarousel from "@/components/DeferredDonorMessageCarousel";
 import DiscordPresenceBadge from "@/components/DiscordPresenceBadge";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
-import DonorMessageCarousel from "@/components/DonorMessageCarousel";
+import GivebutterWidget from "@/components/GivebutterWidget";
 
 export const revalidate = 3600;
 
@@ -47,19 +48,16 @@ export default function Home() {
           className="relative h-[70svh] min-h-[28rem] w-full overflow-hidden rounded-[2rem] border border-titan-border/60 bg-titan-bg-alt/80 p-0 shadow-[0_28px_60px_-34px_rgba(12,16,40,0.95)] sm:h-auto sm:min-h-0 sm:aspect-[4/5] lg:aspect-[3/4]"
         >
           <Image
-            src="/images/titan.webp"
+            src="/images/titan.jpg"
             alt="The 10-meter Titan radio telescope dish."
             fill
             className="object-cover object-[54%_42%] sm:object-center"
             sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 100vw"
+            fetchPriority="high"
             priority
           />
         </BackgroundGradient>
       </section>
-
-      <div className="-mb-2 sm:-mb-10">
-        <DonorMessageCarousel />
-      </div>
 
       <section className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         <div className="flex flex-col rounded-3xl border border-titan-border/60 bg-titan-bg-alt/80 p-6 backdrop-blur-sm sm:p-7">
@@ -123,10 +121,18 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="-mt-4 -mb-4 sm:-mt-8 sm:-mb-14">
+        <DeferredDonorMessageCarousel />
+      </div>
+
       <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
         <div className="min-w-0 flex justify-center lg:justify-start">
           <div className="w-full max-w-[420px] overflow-hidden">
-            <givebutter-widget className="block w-full" id="LyX3Yj"></givebutter-widget>
+            <GivebutterWidget
+              id="LyX3Yj"
+              placeholderClassName="min-h-[38rem]"
+              widgetClassName="block w-full"
+            />
           </div>
         </div>
         <div className="space-y-6 sm:space-y-6">
@@ -217,6 +223,7 @@ export default function Home() {
                 alt="Titan Observatory mission badge design."
                 width={480}
                 height={480}
+                sizes="(min-width: 768px) 240px, 220px"
                 className="h-auto w-full rounded-2xl border border-titan-border/60 bg-titan-bg/60 p-4 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)]"
               />
             </div>
@@ -257,7 +264,11 @@ export default function Home() {
         </div>
 
         <div className="mx-auto w-full max-w-[420px] overflow-hidden lg:max-w-none">
-          <givebutter-widget className="block w-full" id="pzez1n"></givebutter-widget>
+          <GivebutterWidget
+            id="pzez1n"
+            placeholderClassName="min-h-[34rem]"
+            widgetClassName="block w-full"
+          />
         </div>
       </section>
     </main>

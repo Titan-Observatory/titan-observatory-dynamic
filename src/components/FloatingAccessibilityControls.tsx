@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconAccessible } from "@tabler/icons-react";
 
 import AccessibilityPanel from "@/components/AccessibilityPanel";
+import GivebutterWidget from "@/components/GivebutterWidget";
 
 export default function FloatingAccessibilityControls() {
   const [open, setOpen] = useState(false);
@@ -63,7 +64,12 @@ export default function FloatingAccessibilityControls() {
         </button>
       </div>
       <div className="origin-bottom-right">
-        <givebutter-widget className="floating-donate-widget" id="LYKEBp"></givebutter-widget>
+        <GivebutterWidget
+          id="LYKEBp"
+          placeholderClassName="min-h-[3.5rem] min-w-[10rem]"
+          placeholderVariant="pill"
+          widgetClassName="floating-donate-widget"
+        />
       </div>
     </div>
   );
