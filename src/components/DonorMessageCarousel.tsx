@@ -47,7 +47,7 @@ function MessageCard({
       className={
         mobile
           ? "w-[min(20rem,100%)] shrink-0 snap-start rounded-3xl border border-titan-border/50 bg-titan-bg-alt/70 p-5 shadow-[0_18px_40px_-30px_rgba(10,15,35,0.9)] backdrop-blur-sm"
-          : "shrink-0 max-w-[28rem] space-y-4"
+          : "shrink-0 max-w-[28rem] space-y-2.5"
       }
     >
       <div className="flex gap-2.5">
@@ -59,8 +59,8 @@ function MessageCard({
         <p
           className={
             mobile
-              ? "text-base leading-relaxed text-titan-text-primary/90"
-              : "text-lg leading-relaxed text-titan-text-primary/90 line-clamp-5 sm:text-xl"
+              ? "text-base leading-relaxed text-titan-text-primary/75"
+              : "text-sm leading-relaxed text-titan-text-primary/75 line-clamp-3 sm:text-base"
           }
         >
           {message.message}
@@ -70,12 +70,12 @@ function MessageCard({
         className={
           mobile
             ? "flex flex-wrap items-center gap-x-3 gap-y-1 pl-7 text-sm"
-            : "flex items-center gap-3 pl-7 text-sm sm:text-base"
+            : "flex items-center gap-3 pl-7 text-xs sm:text-sm"
         }
       >
-        <span className="font-semibold text-titan-text-secondary">- {message.name}</span>
+        <span className="font-semibold text-titan-text-primary/80">- {message.name}</span>
         {message.amount > 0 && (
-          <span className="font-medium text-titan-yellow">
+          <span className="font-medium text-titan-yellow/80">
             {formatCurrency(message.amount)}
           </span>
         )}
@@ -224,9 +224,8 @@ export default function DonorMessageCarousel() {
   if (error || messages.length === 0) return null;
 
   const duration = Math.max(220, orderedMessages.length * 18);
-
   return (
-    <div className="min-w-0 space-y-3 sm:space-y-4">
+    <div className="min-w-0 space-y-2 sm:space-y-3">
       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-titan-text-muted sm:text-xs sm:tracking-[0.25em]">
         From our supporters
       </p>
@@ -255,17 +254,11 @@ export default function DonorMessageCarousel() {
         }}
       >
         <div
-          className="flex w-max items-start gap-10"
+          className="flex w-max items-start gap-6"
           style={{
             animation: animationsDisabled
               ? "none"
               : `donor-ticker ${duration}s linear infinite`,
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.animationPlayState = "paused";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.animationPlayState = "running";
           }}
         >
           {doubled.map((message, i) => (
