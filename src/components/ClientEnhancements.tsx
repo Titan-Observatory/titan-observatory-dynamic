@@ -28,7 +28,7 @@ export default function ClientEnhancements({
   return (
     <>
       <GivebutterConversionTracker />
-      {pathname === "/" ? <DecorativeEffects /> : null}
+      <DecorativeEffects showShootingStars={pathname === "/"} />
       {measurementId ? <GoogleAnalytics measurementId={measurementId} /> : null}
       <FloatingAccessibilityControls />
     </>
