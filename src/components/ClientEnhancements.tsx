@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 
 const DecorativeEffects = dynamic(() => import("@/components/DecorativeEffects"), {
   ssr: false,
@@ -22,10 +23,12 @@ export default function ClientEnhancements({
 }: {
   measurementId?: string;
 }) {
+  const pathname = usePathname();
+
   return (
     <>
       <GivebutterConversionTracker />
-      <DecorativeEffects />
+      <DecorativeEffects showShootingStars={pathname === "/"} />
       {measurementId ? <GoogleAnalytics measurementId={measurementId} /> : null}
       <FloatingAccessibilityControls />
     </>
