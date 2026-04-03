@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-const GIVEBUTTER_WIDGET_SRC =
-  "https://widgets.givebutter.com/latest.umd.cjs?acct=g00zGRQMS7cnoPdU&p=other";
+const GIVEBUTTER_ACCOUNT_ID = "g00zGRQMS7cnoPdU";
+const GIVEBUTTER_WIDGET_SRC = `https://widgets.givebutter.com/latest.umd.cjs?acct=${GIVEBUTTER_ACCOUNT_ID}&p=other`;
+const GIVEBUTTER_LOADER_SCRIPT = `window.Givebutter=window.Givebutter||function(){(Givebutter.q=Givebutter.q||[]).push(arguments)};Givebutter.l=+new Date;window.Givebutter('setOptions',{accountId:'${GIVEBUTTER_ACCOUNT_ID}'});`;
 
 type GivebutterWidgetProps = {
   id: string;
@@ -99,11 +100,18 @@ export default function GivebutterWidget({
   return (
     <>
       {shouldRender ? (
-        <Script
-          id="givebutter-widget-loader"
-          src={GIVEBUTTER_WIDGET_SRC}
-          strategy="afterInteractive"
-        />
+        <>
+          <Script
+            id="givebutter-elements-loader"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{ __html: GIVEBUTTER_LOADER_SCRIPT }}
+          />
+          <Script
+            id="givebutter-widget-loader"
+            src={GIVEBUTTER_WIDGET_SRC}
+            strategy="afterInteractive"
+          />
+        </>
       ) : null}
       <div ref={containerRef} className={cn("w-full", className)}>
         {shouldRender ? (
