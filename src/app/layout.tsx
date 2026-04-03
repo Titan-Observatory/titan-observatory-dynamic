@@ -38,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 gtag('config', '${GA_MEASUREMENT_ID}', {
                   page_path: window.location.pathname
                 });
+                gtag('config', 'AW-18061271562');
               `}
             </Script>
           </>

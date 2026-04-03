@@ -19,11 +19,12 @@ declare global {
 
 function fireConversionEvent() {
   if (window.gtag) {
-    window.gtag("event", "conversion_event_purchase_1", {
+    window.gtag("event", "conversion", {
+      send_to: "AW-18061271562/ICuBCI-tkpUcEIrEpKRD",
       event_callback: () => {},
       event_timeout: 2000,
     });
-    console.log("[GivebutterConversionTracker] conversion_event_purchase_1 fired");
+    console.log("[GivebutterConversionTracker] Google Ads conversion fired");
   } else {
     console.warn("[GivebutterConversionTracker] gtag not available");
   }
