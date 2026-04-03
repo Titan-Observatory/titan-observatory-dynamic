@@ -1,115 +1,59 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    gtagSendEvent?: (url?: string) => boolean;
+    Givebutter?: ((...args: unknown[]) => void) & {
+      q?: unknown[][];
+      l?: number;
+      EVENT?: {
+        DONATION?: {
+          COMPLETE?: string;
+        };
+      };
+    };
+  }
+}
+
+function fireConversionEvent() {
+  if (window.gtag) {
+    window.gtag("event", "conversion_event_purchase_1", {
+      event_callback: () => {},
+      event_timeout: 2000,
+    });
+    console.log("[GivebutterConversionTracker] conversion_event_purchase_1 fired");
+  } else {
+    console.warn("[GivebutterConversionTracker] gtag not available");
   }
 }
 
 export default function GivebutterConversionTracker() {
-  const sentRef = useRef(false);
-  const allowedWidgetIds = ["LYKEBp", "gM1lng"];
-
   useEffect(() => {
-    const gtagSendEvent = (url?: string) => {
-      const callback = () => {
-        if (typeof url === "string") {
-          window.location.href = url;
-        }
-      };
-
-      if (window.gtag) {
-        window.gtag("event", "conversion_event_purchase_1", {
-          event_callback: callback,
-          event_timeout: 2000,
-        });
-      } else {
-        callback();
+    // Hidden test trigger: type "testdonation" anywhere on the page
+    const buffer: string[] = [];
+    const code = "testdonation";
+    const handleKeyDown = (e: KeyboardEvent) => {
+      buffer.push(e.key.toLowerCase());
+      if (buffer.length > code.length) {
+        buffer.shift();
       }
-
-      return false;
-    };
-
-    window.gtagSendEvent = gtagSendEvent;
-
-    const shouldTrack = (element: Element | null) => {
-      if (!element) {
-        return false;
-      }
-      const widget = element.closest("givebutter-widget");
-      if (!widget) {
-        return false;
-      }
-      const widgetId = widget.getAttribute("id");
-      return widgetId ? allowedWidgetIds.includes(widgetId) : false;
-    };
-
-    const trigger = () => {
-      if (sentRef.current) {
-        return;
-      }
-      sentRef.current = true;
-      gtagSendEvent();
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      if (sentRef.current) {
-        return;
-      }
-      const target = event.target;
-      if (!(target instanceof Element)) {
-        return;
-      }
-      if (shouldTrack(target)) {
-        trigger();
+      if (buffer.join("") === code) {
+        buffer.length = 0;
+        fireConversionEvent();
       }
     };
+    window.addEventListener("keydown", handleKeyDown);
 
-    const handleFocus = (event: FocusEvent) => {
-      if (sentRef.current) {
-        return;
-      }
-      const target = event.target;
-      if (!(target instanceof Element)) {
-        return;
-      }
-      if (target.tagName === "IFRAME" && shouldTrack(target)) {
-        trigger();
-      }
-    };
-
-    const attachIframeListeners = () => {
-      const iframes = document.querySelectorAll(
-        "givebutter-widget iframe"
-      ) as NodeListOf<HTMLIFrameElement>;
-      iframes.forEach(iframe => {
-        if (iframe.dataset.givebutterTracked === "true") {
-          return;
-        }
-        iframe.tabIndex = 0;
-        iframe.addEventListener("focus", () => {
-          if (shouldTrack(iframe)) {
-            trigger();
-          }
-        });
-        iframe.dataset.givebutterTracked = "true";
+    if (window.Givebutter) {
+      window.Givebutter("addEventListener", "donation.complete", () => {
+        fireConversionEvent();
       });
-    };
-
-    document.addEventListener("click", handleClick, true);
-    document.addEventListener("focusin", handleFocus, true);
-
-    const observer = new MutationObserver(() => attachIframeListeners());
-    observer.observe(document.body, { childList: true, subtree: true });
-    attachIframeListeners();
+    }
 
     return () => {
-      document.removeEventListener("click", handleClick, true);
-      document.removeEventListener("focusin", handleFocus, true);
-      observer.disconnect();
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
