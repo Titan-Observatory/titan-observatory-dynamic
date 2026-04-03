@@ -118,10 +118,10 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Quick Links
             </h3>
-            <ul className="space-y-1 sm:space-y-3">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link className="block py-2.5 hover:text-titan-yellow sm:py-0" href={link.href}>
+                  <Link className="hover:text-titan-yellow" href={link.href}>
                     {link.label}
                   </Link>
                 </li>
@@ -133,10 +133,10 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               The Project
             </h3>
-            <ul className="space-y-1 sm:space-y-3">
+            <ul className="space-y-3">
               {projectLinks.map((link) => (
                 <li key={link.href}>
-                  <Link className="block py-2.5 hover:text-titan-yellow sm:py-0" href={link.href}>
+                  <Link className="hover:text-titan-yellow" href={link.href}>
                     {link.label}
                   </Link>
                 </li>
@@ -148,10 +148,10 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Community
             </h3>
-            <ul className="space-y-1 sm:space-y-3">
+            <ul className="space-y-3">
               {communityLinks.map((link) => (
                 <li key={link.href}>
-                  <a className="block py-2.5 hover:text-titan-yellow sm:py-0" href={link.href} target="_blank" rel="noreferrer">
+                  <a className="hover:text-titan-yellow" href={link.href} target="_blank" rel="noreferrer">
                     {link.label}
                   </a>
                 </li>
@@ -163,10 +163,10 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-titan-text-secondary">
               Follow Us
             </h3>
-            <ul className="space-y-1 sm:space-y-3">
+            <ul className="space-y-3">
               <li>
                 <a
-                  className="block py-2.5 hover:text-titan-yellow sm:py-0"
+                  className="hover:text-titan-yellow"
                   rel="me"
                   href="https://mastodon.social/@TitanObservatory"
                 >
@@ -175,7 +175,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="block py-2.5 hover:text-titan-yellow sm:py-0"
+                  className="hover:text-titan-yellow"
                   href="https://x.com/TitanObservatry"
                   target="_blank"
                   rel="noreferrer"
@@ -185,7 +185,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="block py-2.5 hover:text-titan-yellow sm:py-0"
+                  className="hover:text-titan-yellow"
                   href="https://www.reddit.com/r/TitanObservatory/"
                   target="_blank"
                   rel="noreferrer"
@@ -242,14 +242,14 @@ export default function Footer() {
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 py-6 text-xs text-titan-text-muted sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>&copy; {new Date().getFullYear()} Titan Observatory. All rights reserved.</p>
           <p className="flex flex-wrap justify-center gap-4 md:justify-end">
-            <Link className="py-2 hover:text-titan-yellow md:py-0" href="/terms">
+            <Link className="hover:text-titan-yellow" href="/terms">
               Terms
             </Link>
-            <Link className="py-2 hover:text-titan-yellow md:py-0" href="/privacy">
+            <Link className="hover:text-titan-yellow" href="/privacy">
               Privacy
             </Link>
             <a
-              className="py-2 hover:text-titan-yellow md:py-0"
+              className="hover:text-titan-yellow"
               href="https://community.titanobservatory.org/c/announcements"
               target="_blank"
               rel="noreferrer"
