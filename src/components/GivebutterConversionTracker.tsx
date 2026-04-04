@@ -5,6 +5,15 @@ import { useEffect } from "react";
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    Givebutter?: ((...args: unknown[]) => void) & {
+      q?: unknown[][];
+      l?: number;
+      EVENT?: {
+        DONATION?: {
+          COMPLETE?: string;
+        };
+      };
+    };
   }
 }
 
@@ -19,11 +28,15 @@ type GivebutterMessage = {
 
 function fireConversionEvent(donation?: GivebutterMessage) {
   if (window.gtag) {
-    window.gtag("event", "conversion_event_purchase_1", {
+    window.gtag("event", "conversion", {
+      send_to: "AW-18061271562/ICuBCI-tkpUcEIrEpKRD",
+      value: donation?.total,
+      currency: donation?.currency ?? "USD",
+      transaction_id: donation?.sessionId,
       event_callback: () => {},
       event_timeout: 2000,
     });
-    console.log("[GivebutterConversionTracker] conversion_event_purchase_1 fired");
+    console.log("[GivebutterConversionTracker] Google Ads conversion fired", donation);
   } else {
     console.warn("[GivebutterConversionTracker] gtag not available");
   }
@@ -81,6 +94,11 @@ export default function GivebutterConversionTracker() {
     };
     window.addEventListener("keydown", handleKeyDown);
 
+    if (window.Givebutter) {
+      window.Givebutter("addEventListener", "donation.complete", (donation: unknown) => {
+        fireConversionEvent(donation as GivebutterMessage);
+      });
+    }
     return () => {
       window.removeEventListener("message", handleMessage);
       window.removeEventListener("keydown", handleKeyDown);
