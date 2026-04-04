@@ -5,15 +5,6 @@ import { useEffect } from "react";
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    Givebutter?: ((...args: unknown[]) => void) & {
-      q?: unknown[][];
-      l?: number;
-      EVENT?: {
-        DONATION?: {
-          COMPLETE?: string;
-        };
-      };
-    };
   }
 }
 
@@ -94,11 +85,6 @@ export default function GivebutterConversionTracker() {
     };
     window.addEventListener("keydown", handleKeyDown);
 
-    if (window.Givebutter) {
-      window.Givebutter("addEventListener", "donation.complete", (donation: unknown) => {
-        fireConversionEvent(donation as GivebutterMessage);
-      });
-    }
     return () => {
       window.removeEventListener("message", handleMessage);
       window.removeEventListener("keydown", handleKeyDown);
