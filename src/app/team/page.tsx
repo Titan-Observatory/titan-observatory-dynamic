@@ -31,6 +31,10 @@ type TeamMember = {
 };
 
 const teamMembers: TeamMember[] = [
+  { name: "Kelsey Olinger", role: "Communications & Outreach Manager", image: {
+      src: "/images/headshots/Kelsey-Olinger.webp",
+      alt: "Kelsey Olinger headshot",
+    } },
   {
     name: "Tag Hunt",
     role: "Vice President, Board",
@@ -47,7 +51,6 @@ const teamMembers: TeamMember[] = [
       alt: "Jennise Santiago headshot",
     },
   },
-  { name: "Sanskar Bhattacharya", role: "Project Manager" },
   {
     name: "Jonathan Hart",
     role: "Board Member",
